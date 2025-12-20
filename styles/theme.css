@@ -1,0 +1,193 @@
+/* Light Theme (Default) */
+:root {
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-border: #e0e0e0;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-accent-1: #10b981;
+  --color-accent-2: #f59e0b;
+  --color-accent-3: #8b5cf6;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --color-bg: #0a0a0a;
+  --color-bg-secondary: #141414;
+  --color-text: #e5e5e5;
+  --color-text-secondary: #a0a0a0;
+  --color-border: #2a2a2a;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #60a5fa;
+  --color-accent-1: #34d399;
+  --color-accent-2: #fbbf24;
+  --color-accent-3: #a78bfa;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Base Colors */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+/* Navigation */
+.nav {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .nav {
+  background-color: rgba(10, 10, 10, 0.8);
+}
+
+.nav-link {
+  color: var(--color-text);
+}
+
+/* Mobile Navigation Menu */
+@media (max-width: 768px) {
+  .nav-menu {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  [data-theme="dark"] .nav-menu {
+    background-color: rgba(10, 10, 10, 0.95);
+  }
+}
+
+.theme-icon-light {
+  display: block;
+}
+
+[data-theme="dark"] .theme-icon-light {
+  display: none;
+}
+
+[data-theme="dark"] .theme-icon-dark {
+  display: block;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* Info Items */
+.info-item {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+}
+
+/* Education */
+.education-item {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+/* Project Cards */
+.project-card {
+  background-color: var(--color-bg);
+  border-color: var(--color-border);
+}
+
+.project-type {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.tech-tag {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.project-link {
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.project-link:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-primary-hover);
+}
+
+/* Skills */
+.skill-bar-container {
+  background-color: var(--color-bg-secondary);
+}
+
+.skill-bar {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
+}
+
+/* Contact Links */
+.contact-link {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.contact-link:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-bg-secondary);
+  border-top-color: var(--color-border);
+}
+
+/* Scrollbar (Webkit) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-secondary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+

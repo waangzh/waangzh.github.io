@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="王子涵，2025 届应届毕业生">
+  <meta name="keywords" content="后端工程师, Web 开发, 个人简历, 王子涵">
+  <title>王子涵 | 后端工程师</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/theme.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="navigation">
+    <div class="nav-container">
+      <div class="nav-brand">王子涵</div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#hero" class="nav-link" data-section="hero">首页</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">关于</a></li>
+        <li><a href="#education" class="nav-link" data-section="education">教育</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">项目</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">技能</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">联系</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon-light">☀️</span>
+        <span class="theme-icon-dark">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-avatar-wrapper">
+          <div class="hero-avatar" id="heroAvatar">
+            <img src="" alt="Avatar" id="avatarImage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="avatar-placeholder" style="display:none;">
+              <span>B</span>
+            </div>
+          </div>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-name" id="heroName">Bechoer</span>
+          <span class="hero-subtitle" id="heroSubtitle">Java 后端工程师</span>
+        </h1>
+        <p class="hero-description" id="heroDescription"></p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">查看项目</a>
+          <a href="#contact" class="btn btn-secondary">联系我</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>↓</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-title">关于我</h2>
+      <div class="about-content">
+        <div class="about-sections" id="aboutSections"></div>
+        <div class="about-info">
+          <div class="info-item">
+            <span class="info-label">状态</span>
+            <span class="info-value" id="aboutStatus"></span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">地点</span>
+            <span class="info-value" id="aboutLocation"></span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">邮箱</span>
+            <a href="mailto:" class="info-value" id="aboutEmail"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section education" id="education">
+    <div class="container">
+      <h2 class="section-title">教育背景</h2>
+      <div class="education-content">
+        <div class="education-item">
+          <div class="education-header">
+            <h3 class="education-school" id="educationSchool"></h3>
+            <span class="education-period" id="educationPeriod"></span>
+          </div>
+          <div class="education-details">
+            <p class="education-degree" id="educationDegree"></p>
+            <div class="education-gpa" id="educationGpa"></div>
+            <div class="education-courses">
+              <h4>核心课程</h4>
+              <ul class="course-list" id="courseList"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <h2 class="section-title">项目经历</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <h2 class="section-title">技能矩阵</h2>
+      <div class="skills-content" id="skillsContent"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">联系我</h2>
+      <div class="contact-content">
+        <p class="contact-description">如有合作机会或技术交流，欢迎通过以下方式联系</p>
+        <div class="contact-links" id="contactLinks"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">© 2025 王子涵. Built with attention to detail.</p>
+        <p class="footer-status">Status: <span id="footerStatus">Available for opportunities</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script src="scripts/theme.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
+

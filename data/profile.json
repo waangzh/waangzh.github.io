@@ -1,0 +1,143 @@
+{
+  "personal": {
+    "name": "王子涵",
+    "nameEn": "Wang Zihan",
+    "title": "Java 后端工程师",
+    "location": "一线 / 新一线城市",
+    "status": "2025 届应届毕业生，正在求职",
+    "email": "3073561696@qq.com",
+    "github": "https://github.com/waangzh",
+    "blog": "",
+    "avatar": "",
+    "description": "专注于 Java 后端开发与深度学习研究，具备完整项目从 0 到 1 的经验。注重代码质量与系统架构设计，学习能力强，能快速适应新技术栈。",
+    "about": {
+      "content": "专注于 **Java 后端开发**与**深度学习研究**。在软件开发方面，熟悉 Spring 生态系统，有企业级项目开发经验，具备完整的业务流程设计和系统架构能力。在深度学习方面，系统学习过深度学习基础知识，熟练掌握 PyTorch 框架，在图像去雾领域有深入研究。注重代码质量与性能优化，具备从理论到实践的全栈能力。"
+    }
+  },
+  "education": {
+    "school": "三峡大学",
+    "degree": "本科",
+    "major": "计算机科学与技术",
+    "period": "2023.09 – 2026.06",
+    "gpa": "3.6/4.0",
+    "gpaDescription": "专业排名前8%，核心课程成绩优秀",
+    "courses": [
+      { "name": "数据结构与算法", "icon": "📊" },
+      { "name": "操作系统", "icon": "⚙️" },
+      { "name": "计算机网络", "icon": "🌐" },
+      { "name": "软件工程", "icon": "🔧" },
+      { "name": "Web 开发技术", "icon": "💻" }
+    ]
+  },
+  "projects": [
+    {
+      "id": "cangqiong-waimai",
+      "name": "苍穹外卖",
+      "type": "商业项目",
+      "description": "基于 Spring Boot 的企业级外卖管理系统，包含用户端、商户端和管理端",
+      "technologies": ["Java", "Spring Boot", "MySQL", "Redis", "MyBatis Plus"],
+      "highlights": [
+        "完整的业务流程设计（下单、支付、配送、评价）",
+        "使用 Redis 实现缓存优化和分布式锁",
+        "前后端分离架构，RESTful API 设计"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800",
+        "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800",
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800"
+      ],
+      "links": {
+        "github": "https://github.com/Bechoer",
+        "demo": ""
+      }
+    },
+    {
+      "id": "smart-flowerpot",
+      "name": "智能花盆（物联网）",
+      "type": "物联网项目",
+      "description": "基于物联网技术的智能花盆系统，实现远程监控、自动浇水和环境数据采集",
+      "technologies": ["Java", "Spring Boot", "MQTT", "传感器技术", "嵌入式开发"],
+      "highlights": [
+        "MQTT 协议实现设备与服务器通信",
+        "实时数据采集与存储",
+        "移动端小程序控制界面"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800",
+        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800",
+        "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800"
+      ],
+      "links": {
+        "github": "https://github.com/Bechoer",
+        "demo": ""
+      }
+    },
+    {
+      "id": "portfolio",
+      "name": "个人简历网站",
+      "type": "个人项目",
+      "description": "响应式个人简历与作品集展示网站",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "响应式设计"],
+      "highlights": [
+        "数据驱动架构设计",
+        "主题切换与响应式布局",
+        "流畅的交互动效"
+      ],
+      "images": [
+        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800",
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800"
+      ],
+      "links": {
+        "github": "https://github.com/Bechoer",
+        "demo": ""
+      }
+    }
+  ],
+  "skills": [
+    {
+      "category": "后端技术",
+      "items": [
+        { "name": "Java", "level": 90, "icon": "☕" },
+        { "name": "Spring Boot", "level": 85, "icon": "🌱" },
+        { "name": "Spring MVC", "level": 85, "icon": "🔧" },
+        { "name": "MyBatis / MyBatis Plus", "level": 80, "icon": "🗄️" }
+      ]
+    },
+    {
+      "category": "数据库",
+      "items": [
+        { "name": "MySQL", "level": 85, "icon": "🐬" },
+        { "name": "Redis", "level": 75, "icon": "⚡" }
+      ]
+    },
+    {
+      "category": "前端技术",
+      "items": [
+        { "name": "HTML/CSS/JavaScript", "level": 70, "icon": "🌐" },
+        { "name": "小程序开发", "level": 65, "icon": "📱" }
+      ]
+    },
+    {
+      "category": "深度学习",
+      "items": [
+        { "name": "PyTorch", "level": 75, "icon": "🔥" },
+        { "name": "深度学习基础", "level": 80, "icon": "🧠" },
+        { "name": "图像去雾", "level": 70, "icon": "🖼️" }
+      ]
+    },
+    {
+      "category": "其他技能",
+      "items": [
+        { "name": "Git 版本控制", "level": 85, "icon": "📦" },
+        { "name": "Linux 基础", "level": 75, "icon": "🐧" },
+        { "name": "API 设计", "level": 80, "icon": "🔌" }
+      ]
+    }
+  ],
+  "social": {
+    "github": "https://github.com/waangzh",
+    "email": "3073561696@qq.com",
+    "wechat": false
+  }
+}
+
