@@ -6,8 +6,13 @@
   <meta name="description" content="王子涵，2025 届应届毕业生">
   <meta name="keywords" content="后端工程师, Web 开发, 个人简历, 王子涵">
   <title>王子涵 | 后端工程师</title>
-  <link rel="stylesheet" href="styles/main.css">
+  <!-- Preconnect for faster external resources -->
+  <link rel="preconnect" href="https://fonts.font.im">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <!-- Inter (Latin/numbers) + Noto Sans SC (Chinese) via Chinese CDN mirror -->
+  <link href="https://fonts.font.im/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
   <!-- Navigation -->
@@ -69,15 +74,15 @@
       <div class="about-content">
         <div class="about-sections" id="aboutSections"></div>
         <div class="about-info">
-          <div class="info-item">
+          <div class="info-item animate-on-scroll delay-1">
             <span class="info-label">状态</span>
             <span class="info-value" id="aboutStatus"></span>
           </div>
-          <div class="info-item">
+          <div class="info-item animate-on-scroll delay-2">
             <span class="info-label">地点</span>
             <span class="info-value" id="aboutLocation"></span>
           </div>
-          <div class="info-item">
+          <div class="info-item animate-on-scroll delay-3">
             <span class="info-label">邮箱</span>
             <a href="mailto:" class="info-value" id="aboutEmail"></a>
           </div>
@@ -91,7 +96,7 @@
     <div class="container">
       <h2 class="section-title">教育背景</h2>
       <div class="education-content">
-        <div class="education-item">
+        <div class="education-item animate-on-scroll">
           <div class="education-header">
             <h3 class="education-school" id="educationSchool"></h3>
             <span class="education-period" id="educationPeriod"></span>
@@ -129,7 +134,7 @@
   <section class="section contact" id="contact">
     <div class="container">
       <h2 class="section-title">联系我</h2>
-      <div class="contact-content">
+      <div class="contact-content animate-on-scroll">
         <p class="contact-description">如有合作机会或技术交流，欢迎通过以下方式联系</p>
         <div class="contact-links" id="contactLinks"></div>
       </div>
@@ -153,8 +158,9 @@
     </svg>
   </button>
 
+  <!-- theme.js must run immediately to avoid flash of wrong theme -->
   <script src="scripts/theme.js"></script>
-  <script src="scripts/main.js"></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
 

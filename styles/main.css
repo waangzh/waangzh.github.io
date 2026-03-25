@@ -6,7 +6,7 @@
 }
 
 :root {
-  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-primary: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -36,10 +36,11 @@ html {
 
 body {
   font-family: var(--font-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  letter-spacing: 0.01em;
 }
 
 /* Container */
@@ -204,6 +205,8 @@ body {
   position: relative;
   padding-top: 80px;
   overflow: hidden;
+  background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 .hero::before {
@@ -214,7 +217,7 @@ body {
   width: 600px;
   height: 600px;
   background: radial-gradient(circle, var(--color-primary), transparent);
-  opacity: 0.1;
+  opacity: 0.18;
   border-radius: 50%;
   animation: pulse 4s ease-in-out infinite;
   z-index: 0;
@@ -228,7 +231,7 @@ body {
   width: 500px;
   height: 500px;
   background: radial-gradient(circle, var(--color-accent-3), transparent);
-  opacity: 0.1;
+  opacity: 0.15;
   border-radius: 50%;
   animation: pulse 4s ease-in-out infinite 2s;
   z-index: 0;
@@ -1503,6 +1506,105 @@ body {
   
   .course-list {
     grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   Scroll-triggered entrance animations
+   ===================================================== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.animate-on-scroll.delay-1 { transition-delay: 50ms; }
+.animate-on-scroll.delay-2 { transition-delay: 100ms; }
+.animate-on-scroll.delay-3 { transition-delay: 150ms; }
+.animate-on-scroll.delay-4 { transition-delay: 200ms; }
+.animate-on-scroll.delay-5 { transition-delay: 250ms; }
+
+/* =====================================================
+   Skill bar category colors
+   ===================================================== */
+.skill-category[data-color="blue"] .skill-bar {
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+}
+.skill-category[data-color="green"] .skill-bar {
+  background: linear-gradient(90deg, #059669, #34d399);
+}
+.skill-category[data-color="purple"] .skill-bar {
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+.skill-category[data-color="orange"] .skill-bar {
+  background: linear-gradient(90deg, #d97706, #fbbf24);
+}
+.skill-category[data-color="teal"] .skill-bar {
+  background: linear-gradient(90deg, #0891b2, #67e8f9);
+}
+
+/* =====================================================
+   Tech tag color coding via data-tech attribute
+   ===================================================== */
+.tech-tag[data-tech="Java"]            { background: #fff3e0; color: #e65100; border-color: #ffcc80; }
+.tech-tag[data-tech="Spring Boot"]     { background: #e8f5e9; color: #1b5e20; border-color: #a5d6a7; }
+.tech-tag[data-tech="Spring MVC"]      { background: #e8f5e9; color: #2e7d32; border-color: #a5d6a7; }
+.tech-tag[data-tech="MySQL"]           { background: #e3f2fd; color: #0d47a1; border-color: #90caf9; }
+.tech-tag[data-tech="Redis"]           { background: #fce4ec; color: #880e4f; border-color: #f48fb1; }
+.tech-tag[data-tech="MyBatis Plus"]    { background: #f3e5f5; color: #4a148c; border-color: #ce93d8; }
+.tech-tag[data-tech="MQTT"]            { background: #e0f2f1; color: #004d40; border-color: #80cbc4; }
+.tech-tag[data-tech="PyTorch"]         { background: #fff8e1; color: #f57f17; border-color: #ffe082; }
+.tech-tag[data-tech="HTML5"],
+.tech-tag[data-tech="HTML/CSS/JavaScript"] { background: #fce4ec; color: #b71c1c; border-color: #ef9a9a; }
+.tech-tag[data-tech="CSS3"]            { background: #e8eaf6; color: #1a237e; border-color: #9fa8da; }
+
+[data-theme="dark"] .tech-tag[data-tech="Java"]            { background: #3e2000; color: #ffb74d; border-color: #7c4b00; }
+[data-theme="dark"] .tech-tag[data-tech="Spring Boot"],
+[data-theme="dark"] .tech-tag[data-tech="Spring MVC"]      { background: #003300; color: #66bb6a; border-color: #1b5e20; }
+[data-theme="dark"] .tech-tag[data-tech="MySQL"]           { background: #001a33; color: #64b5f6; border-color: #0d47a1; }
+[data-theme="dark"] .tech-tag[data-tech="Redis"]           { background: #3e0018; color: #f48fb1; border-color: #880e4f; }
+[data-theme="dark"] .tech-tag[data-tech="MyBatis Plus"]    { background: #1a0033; color: #ce93d8; border-color: #4a148c; }
+[data-theme="dark"] .tech-tag[data-tech="PyTorch"]         { background: #3e2e00; color: #ffe082; border-color: #7c5900; }
+[data-theme="dark"] .tech-tag[data-tech="HTML/CSS/JavaScript"],
+[data-theme="dark"] .tech-tag[data-tech="HTML5"]           { background: #3e0000; color: #ef9a9a; border-color: #7c0000; }
+
+/* Project card top bar color by type */
+.project-card[data-type="商业项目"]::before {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
+}
+.project-card[data-type="物联网项目"]::before {
+  background: linear-gradient(90deg, var(--color-accent-3), #ec4899);
+}
+.project-card[data-type="个人项目"]::before {
+  background: linear-gradient(90deg, var(--color-accent-1), #0ea5e9);
+}
+
+/* Alternate section background */
+.section:nth-of-type(even) {
+  background-color: var(--color-bg-secondary);
+}
+
+/* =====================================================
+   prefers-reduced-motion: disable all animations
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }
 
