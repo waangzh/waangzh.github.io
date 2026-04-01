@@ -1,143 +1,209 @@
 {
+  "site": {
+    "title": "\u738b\u5b50\u6db5 | \u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f\u672c\u79d1\u751f",
+    "description": "\u4e09\u5ce1\u5927\u5b66\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f 2023 \u7ea7\u672c\u79d1\u751f\u4e2a\u4eba\u4e3b\u9875\uff0c\u805a\u7126\u79d1\u7814\u6f5c\u529b\u3001\u9879\u76ee\u843d\u5730\u80fd\u529b\u4e0e\u7ade\u8d5b\u7ecf\u5386\u3002",
+    "keywords": "\u738b\u5b50\u6db5, \u4e09\u5ce1\u5927\u5b66, \u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f, \u4fdd\u7814, \u8ba1\u7b97\u673a\u89c6\u89c9, \u56fe\u50cf\u53bb\u96fe, Java\u540e\u7aef, \u4e2a\u4eba\u4e3b\u9875"
+  },
   "personal": {
-    "name": "王子涵",
+    "name": "\u738b\u5b50\u6db5",
     "nameEn": "Wang Zihan",
-    "title": "Java 后端工程师",
-    "location": "一线 / 新一线城市",
-    "status": "2025 届应届毕业生，正在求职",
+    "title": "\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f\u672c\u79d1\u751f | \u8ba1\u7b97\u673a\u89c6\u89c9\u4e0e\u540e\u7aef\u5de5\u7a0b\u65b9\u5411",
+    "headline": "",
+    "location": "\u6e56\u5317 \u5b9c\u660c",
+    "status": "\u4ee5\u79d1\u7814\u8bad\u7ec3\u4e3a\u4e3b\u7ebf\uff0c\u6301\u7eed\u79ef\u7d2f\u5b66\u672f\u7d20\u517b\u4e0e\u5de5\u7a0b\u5b9e\u8df5\u80fd\u529b",
     "email": "3073561696@qq.com",
     "github": "https://github.com/waangzh",
-    "blog": "",
     "avatar": "",
-    "description": "专注于 Java 后端开发与深度学习研究，具备完整项目从 0 到 1 的经验。注重代码质量与系统架构设计，学习能力强，能快速适应新技术栈。",
-    "about": {
-      "content": "专注于 **Java 后端开发**与**深度学习研究**。在软件开发方面，熟悉 Spring 生态系统，有企业级项目开发经验，具备完整的业务流程设计和系统架构能力。在深度学习方面，系统学习过深度学习基础知识，熟练掌握 PyTorch 框架，在图像去雾领域有深入研究。注重代码质量与性能优化，具备从理论到实践的全栈能力。"
-    }
+    "heroTags": [],
+    "summary": [
+      "\u4e09\u5ce1\u5927\u5b66\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f\u4e13\u4e1a 2023 \u7ea7\u672c\u79d1\u751f\uff0c\u9884\u8ba1 2027 \u5e74 6 \u6708\u6bd5\u4e1a\u3002",
+      "\u5728\u6821\u671f\u95f4\u517c\u987e\u8bfe\u7a0b\u5b66\u4e60\u3001\u5b9e\u9a8c\u5ba4\u8bad\u7ec3\u4e0e\u9879\u76ee\u5b9e\u8df5\uff0c\u5173\u6ce8\u8ba1\u7b97\u673a\u89c6\u89c9\u4e2d\u7684\u56fe\u50cf\u53bb\u96fe\u65b9\u5411\uff0c\u540c\u65f6\u5177\u5907\u8f83\u624e\u5b9e\u7684 Java \u540e\u7aef\u5f00\u53d1\u57fa\u7840\u3002",
+      "\u5e0c\u671b\u5728\u672a\u6765\u7684\u7814\u7a76\u4e0e\u5b9e\u8df5\u4e2d\uff0c\u5c06\u6301\u7eed\u5b66\u4e60\u80fd\u529b\u3001\u95ee\u9898\u5206\u6790\u80fd\u529b\u548c\u56e2\u961f\u534f\u4f5c\u80fd\u529b\u8f6c\u5316\u4e3a\u7a33\u5b9a\u7684\u79d1\u7814\u4e0e\u5de5\u7a0b\u4ea7\u51fa\u3002"
+    ],
+    "metrics": [
+      {
+        "label": "\u7ee9\u70b9",
+        "value": "3.6 / 4.0"
+      },
+      {
+        "label": "\u4e13\u4e1a\u6392\u540d",
+        "value": "18 / 256"
+      }
+    ]
   },
   "education": {
-    "school": "三峡大学",
-    "degree": "本科",
-    "major": "计算机科学与技术",
-    "period": "2023.09 – 2026.06",
-    "gpa": "3.6/4.0",
-    "gpaDescription": "专业排名前8%，核心课程成绩优秀",
+    "school": "\u4e09\u5ce1\u5927\u5b66",
+    "degree": "\u672c\u79d1",
+    "major": "\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f",
+    "grade": "2023 \u7ea7",
+    "period": "2023.09 - 2027.06",
+    "gpa": "3.6 / 4.0",
+    "ranking": "18 / 256",
+    "gpaDescription": "\u57fa\u7840\u8bfe\u7a0b\u4e0e\u4e13\u4e1a\u6838\u5fc3\u8bfe\u7a0b\u6210\u7ee9\u7a33\u5b9a\uff0c\u5177\u5907\u8f83\u597d\u7684\u6301\u7eed\u5b66\u4e60\u80fd\u529b\u4e0e\u5b66\u672f\u53d1\u5c55\u6f5c\u529b\u3002",
     "courses": [
-      { "name": "数据结构与算法", "icon": "📊" },
-      { "name": "操作系统", "icon": "⚙️" },
-      { "name": "计算机网络", "icon": "🌐" },
-      { "name": "软件工程", "icon": "🔧" },
-      { "name": "Web 开发技术", "icon": "💻" }
+      "\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5",
+      "\u8ba1\u7b97\u673a\u7f51\u7edc",
+      "\u64cd\u4f5c\u7cfb\u7edf",
+      "\u6570\u636e\u5e93\u7cfb\u7edf\u539f\u7406",
+      "\u8f6f\u4ef6\u5de5\u7a0b",
+      "\u673a\u5668\u5b66\u4e60\u57fa\u7840"
     ]
+  },
+  "research": {
+    "lab": "DISG \u8ba1\u7b97\u673a\u89c6\u89c9\u5b9e\u9a8c\u5ba4",
+    "direction": "\u56fe\u50cf\u53bb\u96fe",
+    "period": "\u8fd1\u4e00\u5e74",
+    "role": "\u5b9e\u9a8c\u5ba4\u5b66\u4e60\u6210\u5458",
+    "overview": "\u56f4\u7ed5\u56fe\u50cf\u53bb\u96fe\u65b9\u5411\u5f00\u5c55\u6301\u7eed\u6027\u6587\u732e\u9605\u8bfb\u548c\u57fa\u7840\u590d\u73b0\u8bad\u7ec3\uff0c\u9010\u6b65\u5efa\u7acb\u5bf9\u95ee\u9898\u80cc\u666f\u3001\u5e38\u89c1\u65b9\u6cd5\u4e0e\u7814\u7a76\u8109\u7edc\u7684\u7406\u89e3\u3002",
+    "items": [
+      {
+        "title": "\u8bba\u6587\u9605\u8bfb\u4e0e\u65b9\u5411\u68b3\u7406",
+        "description": "\u7cfb\u7edf\u9605\u8bfb\u672c\u5730\u8bba\u6587\u8d44\u6599\u5e93\u4e2d\u56fe\u50cf\u53bb\u96fe\u76f8\u5173\u8bba\u6587\uff0c\u6301\u7eed\u79ef\u7d2f\u5bf9\u7269\u7406\u5148\u9a8c\u3001\u76d1\u7763\u5b66\u4e60\u548c\u901a\u7528\u56fe\u50cf\u6062\u590d\u65b9\u6cd5\u7684\u8ba4\u8bc6\u3002"
+      },
+      {
+        "title": "\u590d\u73b0\u8bad\u7ec3",
+        "description": "\u52a8\u624b\u590d\u73b0\u8fc7\u90e8\u5206\u8bba\u6587\u65b9\u6cd5\uff0c\u5c1d\u8bd5\u7406\u89e3\u6a21\u578b\u7ed3\u6784\u3001\u8bad\u7ec3\u6d41\u7a0b\u548c\u5b9e\u9a8c\u914d\u7f6e\uff0c\u63d0\u5347\u4ece\u9605\u8bfb\u8bba\u6587\u5230\u5b9e\u73b0\u65b9\u6848\u7684\u8f6c\u5316\u80fd\u529b\u3002"
+      },
+      {
+        "title": "\u7ec4\u4f1a\u4e0e\u6c47\u62a5",
+        "description": "\u6bcf\u5468\u53c2\u4e0e\u5b9e\u9a8c\u5ba4\u7ec4\u4f1a\uff0c\u6bcf\u4e24\u5468\u8fdb\u884c\u4e00\u6b21\u9636\u6bb5\u6c47\u62a5\uff0c\u6301\u7eed\u8bad\u7ec3\u6587\u732e\u6574\u7406\u3001\u95ee\u9898\u8868\u8fbe\u548c\u7814\u7a76\u4ea4\u6d41\u80fd\u529b\u3002"
+      }
+    ],
+    "papers": [],
+    "note": "\u76ee\u524d\u6682\u65e0\u8bba\u6587\u3001\u4e13\u5229\u6216\u6b63\u5f0f\u79d1\u7814\u4ea7\u51fa\uff0c\u4ecd\u5904\u4e8e\u6301\u7eed\u5b66\u4e60\u3001\u590d\u73b0\u548c\u79ef\u7d2f\u9636\u6bb5\u3002"
   },
   "projects": [
     {
-      "id": "cangqiong-waimai",
-      "name": "苍穹外卖",
-      "type": "商业项目",
-      "description": "基于 Spring Boot 的企业级外卖管理系统，包含用户端、商户端和管理端",
-      "technologies": ["Java", "Spring Boot", "MySQL", "Redis", "MyBatis Plus"],
-      "highlights": [
-        "完整的业务流程设计（下单、支付、配送、评价）",
-        "使用 Redis 实现缓存优化和分布式锁",
-        "前后端分离架构，RESTful API 设计"
+      "id": "sky-take-out",
+      "name": "\u82cd\u7a79\u5916\u5356",
+      "type": "Java \u540e\u7aef\u9879\u76ee",
+      "description": "\u57fa\u4e8e Spring Boot \u7684\u5916\u5356\u4e1a\u52a1\u7cfb\u7edf\uff0c\u8986\u76d6\u57fa\u7840\u4e1a\u52a1\u6d41\u7a0b\u4e0e\u5178\u578b\u540e\u7aef\u529f\u80fd\u6a21\u5757\uff0c\u7528\u4e8e\u8bad\u7ec3\u5b8c\u6574\u4e1a\u52a1\u5206\u6790\u3001\u63a5\u53e3\u8bbe\u8ba1\u4e0e\u7cfb\u7edf\u5b9e\u73b0\u80fd\u529b\u3002",
+      "focus": [
+        "\u5206\u6790\u4e1a\u52a1\u6d41\u7a0b\u5e76\u62c6\u5206\u6838\u5fc3\u6a21\u5757",
+        "\u56f4\u7ed5\u7f13\u5b58\u4e0e\u6570\u636e\u8bbf\u95ee\u4f18\u5316\u540e\u7aef\u5b9e\u73b0",
+        "\u901a\u8fc7\u63a5\u53e3\u8054\u8c03\u548c\u6a21\u5757\u6574\u5408\u63d0\u5347\u534f\u4f5c\u80fd\u529b"
       ],
-      "images": [
-        "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&auto=format&q=75&fit=crop",
-        "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&q=75&fit=crop",
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&q=75&fit=crop"
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Spring MVC",
+        "MySQL",
+        "Redis",
+        "MyBatis Plus"
       ],
       "links": {
-        "github": "https://github.com/Bechoer",
-        "demo": ""
+        "github": "https://github.com/waangzh/sky-take-out"
       }
     },
     {
-      "id": "smart-flowerpot",
-      "name": "智能花盆（物联网）",
-      "type": "物联网项目",
-      "description": "基于物联网技术的智能花盆系统，实现远程监控、自动浇水和环境数据采集",
-      "technologies": ["Java", "Spring Boot", "MQTT", "传感器技术", "嵌入式开发"],
-      "highlights": [
-        "MQTT 协议实现设备与服务器通信",
-        "实时数据采集与存储",
-        "移动端小程序控制界面"
+      "id": "healing-planet",
+      "name": "Healing Planet",
+      "type": "\u56e2\u961f\u534f\u4f5c\u9879\u76ee",
+      "description": "\u9762\u5411\u6570\u5b57\u5a92\u4f53\u4e0e\u4ea4\u4e92\u4f53\u9a8c\u573a\u666f\u7684\u9879\u76ee\u5b9e\u8df5\uff0c\u5f3a\u8c03\u56e2\u961f\u534f\u4f5c\u3001\u9700\u6c42\u7406\u89e3\u4e0e\u65b9\u6848\u843d\u5730\uff0c\u4f53\u73b0\u4ece\u521b\u610f\u5230\u5b9e\u73b0\u7684\u7efc\u5408\u6267\u884c\u80fd\u529b\u3002",
+      "focus": [
+        "\u5728\u56e2\u961f\u534f\u4f5c\u4e2d\u627f\u62c5\u95ee\u9898\u62c6\u89e3\u4e0e\u65b9\u6848\u63a8\u8fdb\u5de5\u4f5c",
+        "\u56f4\u7ed5\u7528\u6237\u4f53\u9a8c\u4e0e\u529f\u80fd\u5b9e\u73b0\u8fdb\u884c\u6301\u7eed\u8fed\u4ee3",
+        "\u5728\u8de8\u89d2\u8272\u914d\u5408\u4e2d\u63d0\u5347\u6c9f\u901a\u4e0e\u843d\u5730\u6548\u7387"
       ],
-      "images": [
-        "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&auto=format&q=75&fit=crop",
-        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&auto=format&q=75&fit=crop",
-        "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=800&auto=format&q=75&fit=crop"
+      "technologies": [
+        "\u56e2\u961f\u534f\u4f5c",
+        "\u4ea4\u4e92\u8bbe\u8ba1",
+        "\u9879\u76ee\u5b9e\u73b0"
       ],
       "links": {
-        "github": "https://github.com/Bechoer",
-        "demo": ""
+        "gitee": "https://gitee.com/laonei/healing-planet"
       }
+    }
+  ],
+  "awards": [
+    {
+      "title": "\u84dd\u6865\u676f\u7701\u8d5b\u4e8c\u7b49\u5956",
+      "year": "2025",
+      "level": "\u7701\u7ea7"
     },
     {
-      "id": "portfolio",
-      "name": "个人简历网站",
-      "type": "个人项目",
-      "description": "响应式个人简历与作品集展示网站",
-      "technologies": ["HTML5", "CSS3", "JavaScript", "响应式设计"],
-      "highlights": [
-        "数据驱动架构设计",
-        "主题切换与响应式布局",
-        "流畅的交互动效"
-      ],
-      "images": [
-        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&auto=format&q=75&fit=crop",
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&q=75&fit=crop"
-      ],
-      "links": {
-        "github": "https://github.com/Bechoer",
-        "demo": ""
-      }
+      "title": "\u4e2d\u56fd\u5927\u5b66\u751f\u8ba1\u7b97\u673a\u8bbe\u8ba1\u5927\u8d5b\u7701\u8d5b\u4e8c\u7b49\u5956",
+      "year": "2025",
+      "level": "\u7701\u7ea7"
+    },
+    {
+      "title": "\u6570\u5b57\u5a92\u4f53\u53ca\u8bfe\u5916\u79d1\u6280\u4f5c\u54c1\u5927\u8d5b\u56fd\u8d5b\u4e09\u7b49\u5956",
+      "year": "2025",
+      "level": "\u56fd\u5bb6\u7ea7"
     }
   ],
   "skills": [
     {
-      "category": "后端技术",
+      "category": "\u7814\u7a76\u4e0e\u7b97\u6cd5",
       "items": [
-        { "name": "Java", "level": 90, "icon": "☕" },
-        { "name": "Spring Boot", "level": 85, "icon": "🌱" },
-        { "name": "Spring MVC", "level": 85, "icon": "🔧" },
-        { "name": "MyBatis / MyBatis Plus", "level": 80, "icon": "🗄️" }
+        {
+          "name": "\u6587\u732e\u9605\u8bfb\u4e0e\u95ee\u9898\u68b3\u7406",
+          "level": 82
+        },
+        {
+          "name": "PyTorch \u57fa\u7840\u590d\u73b0",
+          "level": 74
+        },
+        {
+          "name": "\u56fe\u50cf\u53bb\u96fe\u65b9\u5411\u79ef\u7d2f",
+          "level": 72
+        }
       ]
     },
     {
-      "category": "数据库",
+      "category": "\u540e\u7aef\u5f00\u53d1",
       "items": [
-        { "name": "MySQL", "level": 85, "icon": "🐬" },
-        { "name": "Redis", "level": 75, "icon": "⚡" }
+        {
+          "name": "Java",
+          "level": 88
+        },
+        {
+          "name": "Spring Boot / Spring MVC",
+          "level": 84
+        },
+        {
+          "name": "MyBatis Plus",
+          "level": 78
+        }
       ]
     },
     {
-      "category": "前端技术",
+      "category": "\u6570\u636e\u4e0e\u7cfb\u7edf",
       "items": [
-        { "name": "HTML/CSS/JavaScript", "level": 70, "icon": "🌐" },
-        { "name": "小程序开发", "level": 65, "icon": "📱" }
+        {
+          "name": "MySQL",
+          "level": 82
+        },
+        {
+          "name": "Redis",
+          "level": 72
+        },
+        {
+          "name": "Linux / Git",
+          "level": 76
+        }
       ]
     },
     {
-      "category": "深度学习",
+      "category": "\u7efc\u5408\u80fd\u529b",
       "items": [
-        { "name": "PyTorch", "level": 75, "icon": "🔥" },
-        { "name": "深度学习基础", "level": 80, "icon": "🧠" },
-        { "name": "图像去雾", "level": 70, "icon": "🖼️" }
-      ]
-    },
-    {
-      "category": "其他技能",
-      "items": [
-        { "name": "Git 版本控制", "level": 85, "icon": "📦" },
-        { "name": "Linux 基础", "level": 75, "icon": "🐧" },
-        { "name": "API 设计", "level": 80, "icon": "🔌" }
+        {
+          "name": "\u95ee\u9898\u5206\u6790",
+          "level": 86
+        },
+        {
+          "name": "\u56e2\u961f\u534f\u4f5c",
+          "level": 84
+        },
+        {
+          "name": "\u8868\u8fbe\u6c47\u62a5",
+          "level": 80
+        }
       ]
     }
   ],
   "social": {
-    "github": "https://github.com/waangzh",
     "email": "3073561696@qq.com",
-    "wechat": false
+    "github": "https://github.com/waangzh"
   }
 }
-

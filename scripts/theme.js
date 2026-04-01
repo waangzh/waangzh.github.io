@@ -12,6 +12,9 @@
   function applyTheme(theme) {
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    }
   }
   
   // Initialize theme
