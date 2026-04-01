@@ -55,7 +55,7 @@ function renderHomePage() {
   setText("educationBrief", `${education.school || ""} · ${education.ranking || ""}`);
   setText("researchBrief", `${research.direction || ""} · ${research.period || ""}`);
   setText("summaryIntro", (personal.summary || [])[0] || "");
-  setText("contactIntro", "如果你希望进一步了解我的研究兴趣、项目经历或简历内容，欢迎直接联系我。");
+  setText("contactIntro", "");
   setText("footerStatus", personal.status);
 
   renderHeroTags();
