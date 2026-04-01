@@ -1,87 +1,87 @@
 {
   "site": {
-    "title": "\u738b\u5b50\u6db5 | \u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f\u672c\u79d1\u751f",
-    "description": "\u4e09\u5ce1\u5927\u5b66\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f 2023 \u7ea7\u672c\u79d1\u751f\u4e2a\u4eba\u4e3b\u9875\uff0c\u805a\u7126\u79d1\u7814\u6f5c\u529b\u3001\u9879\u76ee\u843d\u5730\u80fd\u529b\u4e0e\u7ade\u8d5b\u7ecf\u5386\u3002",
-    "keywords": "\u738b\u5b50\u6db5, \u4e09\u5ce1\u5927\u5b66, \u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f, \u4fdd\u7814, \u8ba1\u7b97\u673a\u89c6\u89c9, \u56fe\u50cf\u53bb\u96fe, Java\u540e\u7aef, \u4e2a\u4eba\u4e3b\u9875"
+    "title": "王子涵 | 计算机科学与技术本科生",
+    "description": "三峡大学计算机科学与技术 2023 级本科生个人主页，聚焦科研潜力、项目落地能力与竞赛经历。",
+    "keywords": "王子涵, 三峡大学, 计算机科学与技术, 保研, 计算机视觉, 图像去雾, Java后端, 个人主页"
   },
   "personal": {
-    "name": "\u738b\u5b50\u6db5",
+    "name": "王子涵",
     "nameEn": "Wang Zihan",
-    "title": "\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f\u672c\u79d1\u751f | \u8ba1\u7b97\u673a\u89c6\u89c9\u4e0e\u540e\u7aef\u5de5\u7a0b\u65b9\u5411",
+    "title": "计算机科学与技术本科生 | 计算机视觉方向",
     "headline": "",
-    "location": "\u6e56\u5317 \u5b9c\u660c",
+    "location": "湖北 宜昌",
     "status": "",
     "email": "3073561696@qq.com",
     "github": "https://github.com/waangzh",
     "avatar": "",
     "heroTags": [],
     "summary": [
-      "\u4e09\u5ce1\u5927\u5b66\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f\u4e13\u4e1a 2023 \u7ea7\u672c\u79d1\u751f\uff0c\u9884\u8ba1 2027 \u5e74 6 \u6708\u6bd5\u4e1a\u3002",
-      "\u5728\u6821\u671f\u95f4\u517c\u987e\u8bfe\u7a0b\u5b66\u4e60\u3001\u5b9e\u9a8c\u5ba4\u8bad\u7ec3\u4e0e\u9879\u76ee\u5b9e\u8df5\uff0c\u5173\u6ce8\u8ba1\u7b97\u673a\u89c6\u89c9\u4e2d\u7684\u56fe\u50cf\u53bb\u96fe\u65b9\u5411\uff0c\u540c\u65f6\u5177\u5907\u8f83\u624e\u5b9e\u7684 Java \u540e\u7aef\u5f00\u53d1\u57fa\u7840\u3002",
-      "\u5e0c\u671b\u5728\u672a\u6765\u7684\u7814\u7a76\u4e0e\u5b9e\u8df5\u4e2d\uff0c\u5c06\u6301\u7eed\u5b66\u4e60\u80fd\u529b\u3001\u95ee\u9898\u5206\u6790\u80fd\u529b\u548c\u56e2\u961f\u534f\u4f5c\u80fd\u529b\u8f6c\u5316\u4e3a\u7a33\u5b9a\u7684\u79d1\u7814\u4e0e\u5de5\u7a0b\u4ea7\u51fa\u3002"
+      "三峡大学计算机科学与技术专业 2023 级本科生，预计 2027 年 6 月毕业。",
+      "在校期间兼顾课程学习、实验室训练与项目实践，关注计算机视觉中的图像去雾方向，同时具备较扎实的 Java 后端开发基础。",
+      "希望在未来的研究与实践中，将持续学习能力、问题分析能力和团队协作能力转化为稳定的科研与工程产出。"
     ],
     "metrics": [
       {
-        "label": "\u7ee9\u70b9",
+        "label": "绩点",
         "value": "3.6 / 4.0"
       },
       {
-        "label": "\u4e13\u4e1a\u6392\u540d",
+        "label": "专业排名",
         "value": "18 / 256"
       }
     ]
   },
   "education": {
-    "school": "\u4e09\u5ce1\u5927\u5b66",
-    "degree": "\u672c\u79d1",
-    "major": "\u8ba1\u7b97\u673a\u79d1\u5b66\u4e0e\u6280\u672f",
-    "grade": "2023 \u7ea7",
+    "school": "三峡大学",
+    "degree": "本科",
+    "major": "计算机科学与技术",
+    "grade": "2023 级",
     "period": "2023.09 - 2027.06",
     "gpa": "3.6 / 4.0",
     "ranking": "18 / 256",
-    "gpaDescription": "\u57fa\u7840\u8bfe\u7a0b\u4e0e\u4e13\u4e1a\u6838\u5fc3\u8bfe\u7a0b\u6210\u7ee9\u7a33\u5b9a\uff0c\u5177\u5907\u8f83\u597d\u7684\u6301\u7eed\u5b66\u4e60\u80fd\u529b\u4e0e\u5b66\u672f\u53d1\u5c55\u6f5c\u529b\u3002",
+    "gpaDescription": "基础课程与专业核心课程成绩稳定，具备较好的持续学习能力与学术发展潜力。",
     "courses": [
-      "\u6570\u636e\u7ed3\u6784\u4e0e\u7b97\u6cd5",
-      "\u8ba1\u7b97\u673a\u7f51\u7edc",
-      "\u64cd\u4f5c\u7cfb\u7edf",
-      "\u6570\u636e\u5e93\u7cfb\u7edf\u539f\u7406",
-      "\u8f6f\u4ef6\u5de5\u7a0b",
-      "\u673a\u5668\u5b66\u4e60\u57fa\u7840"
+      "数据结构与算法",
+      "计算机网络",
+      "操作系统",
+      "数据库系统原理",
+      "软件工程",
+      "机器学习基础"
     ]
   },
   "research": {
-    "lab": "DISG \u8ba1\u7b97\u673a\u89c6\u89c9\u5b9e\u9a8c\u5ba4",
-    "direction": "\u56fe\u50cf\u53bb\u96fe",
-    "period": "\u8fd1\u4e00\u5e74",
-    "role": "\u5b9e\u9a8c\u5ba4\u5b66\u4e60\u6210\u5458",
-    "overview": "\u56f4\u7ed5\u56fe\u50cf\u53bb\u96fe\u65b9\u5411\u5f00\u5c55\u6301\u7eed\u6027\u6587\u732e\u9605\u8bfb\u548c\u57fa\u7840\u590d\u73b0\u8bad\u7ec3\uff0c\u9010\u6b65\u5efa\u7acb\u5bf9\u95ee\u9898\u80cc\u666f\u3001\u5e38\u89c1\u65b9\u6cd5\u4e0e\u7814\u7a76\u8109\u7edc\u7684\u7406\u89e3\u3002",
+    "lab": "DISG 计算机视觉实验室",
+    "direction": "图像去雾",
+    "period": "近一年",
+    "role": "实验室学习成员",
+    "overview": "围绕图像去雾方向开展持续性文献阅读和基础复现训练，逐步建立对问题背景、常见方法与研究脉络的理解。",
     "items": [
       {
-        "title": "\u8bba\u6587\u9605\u8bfb\u4e0e\u65b9\u5411\u68b3\u7406",
-        "description": "\u7cfb\u7edf\u9605\u8bfb\u672c\u5730\u8bba\u6587\u8d44\u6599\u5e93\u4e2d\u56fe\u50cf\u53bb\u96fe\u76f8\u5173\u8bba\u6587\uff0c\u6301\u7eed\u79ef\u7d2f\u5bf9\u7269\u7406\u5148\u9a8c\u3001\u76d1\u7763\u5b66\u4e60\u548c\u901a\u7528\u56fe\u50cf\u6062\u590d\u65b9\u6cd5\u7684\u8ba4\u8bc6\u3002"
+        "title": "论文阅读与方向梳理",
+        "description": "系统阅读本地论文资料库中图像去雾相关论文，持续积累对物理先验、监督学习和通用图像恢复方法的认识。"
       },
       {
-        "title": "\u590d\u73b0\u8bad\u7ec3",
-        "description": "\u52a8\u624b\u590d\u73b0\u8fc7\u90e8\u5206\u8bba\u6587\u65b9\u6cd5\uff0c\u5c1d\u8bd5\u7406\u89e3\u6a21\u578b\u7ed3\u6784\u3001\u8bad\u7ec3\u6d41\u7a0b\u548c\u5b9e\u9a8c\u914d\u7f6e\uff0c\u63d0\u5347\u4ece\u9605\u8bfb\u8bba\u6587\u5230\u5b9e\u73b0\u65b9\u6848\u7684\u8f6c\u5316\u80fd\u529b\u3002"
+        "title": "复现训练",
+        "description": "动手复现过部分论文方法，尝试理解模型结构、训练流程和实验配置，提升从阅读论文到实现方案的转化能力。"
       },
       {
-        "title": "\u7ec4\u4f1a\u4e0e\u6c47\u62a5",
-        "description": "\u6bcf\u5468\u53c2\u4e0e\u5b9e\u9a8c\u5ba4\u7ec4\u4f1a\uff0c\u6bcf\u4e24\u5468\u8fdb\u884c\u4e00\u6b21\u9636\u6bb5\u6c47\u62a5\uff0c\u6301\u7eed\u8bad\u7ec3\u6587\u732e\u6574\u7406\u3001\u95ee\u9898\u8868\u8fbe\u548c\u7814\u7a76\u4ea4\u6d41\u80fd\u529b\u3002"
+        "title": "组会与汇报",
+        "description": "每周参与实验室组会，每两周进行一次阶段汇报，持续训练文献整理、问题表达和研究交流能力。"
       }
     ],
     "papers": [],
-    "note": "\u76ee\u524d\u6682\u65e0\u8bba\u6587\u3001\u4e13\u5229\u6216\u6b63\u5f0f\u79d1\u7814\u4ea7\u51fa\uff0c\u4ecd\u5904\u4e8e\u6301\u7eed\u5b66\u4e60\u3001\u590d\u73b0\u548c\u79ef\u7d2f\u9636\u6bb5\u3002"
+    "note": "目前暂无论文、专利或正式科研产出，仍处于持续学习、复现和积累阶段。"
   },
   "projects": [
     {
       "id": "sky-take-out",
-      "name": "\u82cd\u7a79\u5916\u5356",
-      "type": "Java \u540e\u7aef\u9879\u76ee",
-      "description": "\u57fa\u4e8e Spring Boot \u7684\u5916\u5356\u4e1a\u52a1\u7cfb\u7edf\uff0c\u8986\u76d6\u57fa\u7840\u4e1a\u52a1\u6d41\u7a0b\u4e0e\u5178\u578b\u540e\u7aef\u529f\u80fd\u6a21\u5757\uff0c\u7528\u4e8e\u8bad\u7ec3\u5b8c\u6574\u4e1a\u52a1\u5206\u6790\u3001\u63a5\u53e3\u8bbe\u8ba1\u4e0e\u7cfb\u7edf\u5b9e\u73b0\u80fd\u529b\u3002",
+      "name": "苍穹外卖",
+      "type": "Java 后端项目",
+      "description": "基于 Spring Boot 的外卖业务系统，覆盖基础业务流程与典型后端功能模块，用于训练完整业务分析、接口设计与系统实现能力。",
       "focus": [
-        "\u5206\u6790\u4e1a\u52a1\u6d41\u7a0b\u5e76\u62c6\u5206\u6838\u5fc3\u6a21\u5757",
-        "\u56f4\u7ed5\u7f13\u5b58\u4e0e\u6570\u636e\u8bbf\u95ee\u4f18\u5316\u540e\u7aef\u5b9e\u73b0",
-        "\u901a\u8fc7\u63a5\u53e3\u8054\u8c03\u548c\u6a21\u5757\u6574\u5408\u63d0\u5347\u534f\u4f5c\u80fd\u529b"
+        "分析业务流程并拆分核心模块",
+        "围绕缓存与数据访问优化后端实现",
+        "通过接口联调和模块整合提升协作能力"
       ],
       "technologies": [
         "Java",
@@ -98,17 +98,17 @@
     {
       "id": "healing-planet",
       "name": "Healing Planet",
-      "type": "\u56e2\u961f\u534f\u4f5c\u9879\u76ee",
-      "description": "\u9762\u5411\u6570\u5b57\u5a92\u4f53\u4e0e\u4ea4\u4e92\u4f53\u9a8c\u573a\u666f\u7684\u9879\u76ee\u5b9e\u8df5\uff0c\u5f3a\u8c03\u56e2\u961f\u534f\u4f5c\u3001\u9700\u6c42\u7406\u89e3\u4e0e\u65b9\u6848\u843d\u5730\uff0c\u4f53\u73b0\u4ece\u521b\u610f\u5230\u5b9e\u73b0\u7684\u7efc\u5408\u6267\u884c\u80fd\u529b\u3002",
+      "type": "团队协作项目",
+      "description": "面向数字媒体与交互体验场景的项目实践，强调团队协作、需求理解与方案落地，体现从创意到实现的综合执行能力。",
       "focus": [
-        "\u5728\u56e2\u961f\u534f\u4f5c\u4e2d\u627f\u62c5\u95ee\u9898\u62c6\u89e3\u4e0e\u65b9\u6848\u63a8\u8fdb\u5de5\u4f5c",
-        "\u56f4\u7ed5\u7528\u6237\u4f53\u9a8c\u4e0e\u529f\u80fd\u5b9e\u73b0\u8fdb\u884c\u6301\u7eed\u8fed\u4ee3",
-        "\u5728\u8de8\u89d2\u8272\u914d\u5408\u4e2d\u63d0\u5347\u6c9f\u901a\u4e0e\u843d\u5730\u6548\u7387"
+        "在团队协作中承担问题拆解与方案推进工作",
+        "围绕用户体验与功能实现进行持续迭代",
+        "在跨角色配合中提升沟通与落地效率"
       ],
       "technologies": [
-        "\u56e2\u961f\u534f\u4f5c",
-        "\u4ea4\u4e92\u8bbe\u8ba1",
-        "\u9879\u76ee\u5b9e\u73b0"
+        "团队协作",
+        "交互设计",
+        "项目实现"
       ],
       "links": {
         "gitee": "https://gitee.com/laonei/healing-planet"
@@ -117,41 +117,41 @@
   ],
   "awards": [
     {
-      "title": "\u84dd\u6865\u676f\u7701\u8d5b\u4e8c\u7b49\u5956",
+      "title": "蓝桥杯省赛二等奖",
       "year": "2025",
-      "level": "\u7701\u7ea7"
+      "level": "省级"
     },
     {
-      "title": "\u4e2d\u56fd\u5927\u5b66\u751f\u8ba1\u7b97\u673a\u8bbe\u8ba1\u5927\u8d5b\u7701\u8d5b\u4e8c\u7b49\u5956",
+      "title": "中国大学生计算机设计大赛省赛二等奖",
       "year": "2025",
-      "level": "\u7701\u7ea7"
+      "level": "省级"
     },
     {
-      "title": "\u6570\u5b57\u5a92\u4f53\u53ca\u8bfe\u5916\u79d1\u6280\u4f5c\u54c1\u5927\u8d5b\u56fd\u8d5b\u4e09\u7b49\u5956",
+      "title": "数字媒体及课外科技作品大赛国赛三等奖",
       "year": "2025",
-      "level": "\u56fd\u5bb6\u7ea7"
+      "level": "国家级"
     }
   ],
   "skills": [
     {
-      "category": "\u7814\u7a76\u4e0e\u7b97\u6cd5",
+      "category": "研究与算法",
       "items": [
         {
-          "name": "\u6587\u732e\u9605\u8bfb\u4e0e\u95ee\u9898\u68b3\u7406",
+          "name": "文献阅读与问题梳理",
           "level": 82
         },
         {
-          "name": "PyTorch \u57fa\u7840\u590d\u73b0",
+          "name": "PyTorch 基础复现",
           "level": 74
         },
         {
-          "name": "\u56fe\u50cf\u53bb\u96fe\u65b9\u5411\u79ef\u7d2f",
+          "name": "图像去雾方向积累",
           "level": 72
         }
       ]
     },
     {
-      "category": "\u540e\u7aef\u5f00\u53d1",
+      "category": "后端开发",
       "items": [
         {
           "name": "Java",
@@ -168,7 +168,7 @@
       ]
     },
     {
-      "category": "\u6570\u636e\u4e0e\u7cfb\u7edf",
+      "category": "数据与系统",
       "items": [
         {
           "name": "MySQL",
@@ -185,18 +185,18 @@
       ]
     },
     {
-      "category": "\u7efc\u5408\u80fd\u529b",
+      "category": "综合能力",
       "items": [
         {
-          "name": "\u95ee\u9898\u5206\u6790",
+          "name": "问题分析",
           "level": 86
         },
         {
-          "name": "\u56e2\u961f\u534f\u4f5c",
+          "name": "团队协作",
           "level": 84
         },
         {
-          "name": "\u8868\u8fbe\u6c47\u62a5",
+          "name": "表达汇报",
           "level": 80
         }
       ]
