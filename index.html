@@ -3,164 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="王子涵，2025 届应届毕业生">
-  <meta name="keywords" content="后端工程师, Web 开发, 个人简历, 王子涵">
-  <title>王子涵 | 后端工程师</title>
-  <!-- Preconnect for faster external resources -->
-  <link rel="preconnect" href="https://fonts.font.im">
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <!-- Inter (Latin/numbers) + Noto Sans SC (Chinese) via Chinese CDN mirror -->
-  <link href="https://fonts.font.im/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>王子涵 | 个人主页</title>
+  <meta name="description" content="王子涵的个人主页，展示教育背景、科研方向、项目经历与联系方式。">
+  <meta name="keywords" content="王子涵,个人主页,简历,计算机科学与技术,三峡大学,科研,项目">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/theme.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
-  <!-- Navigation -->
-  <nav class="nav" id="navigation">
-    <div class="nav-container">
-      <div class="nav-brand">王子涵</div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+<body data-page="home">
+  <header class="header" id="navigation">
+    <div class="shell header-inner">
+      <a class="logo" href="#home">
+        <span class="logo-name">WangZihan</span>
+      </a>
+      <button class="menu-icon" id="navToggle" aria-label="打开导航" aria-expanded="false">
+        <span class="navicon"></span>
       </button>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="#hero" class="nav-link" data-section="hero">首页</a></li>
-        <li><a href="#about" class="nav-link" data-section="about">关于</a></li>
-        <li><a href="#education" class="nav-link" data-section="education">教育</a></li>
-        <li><a href="#projects" class="nav-link" data-section="projects">项目</a></li>
-        <li><a href="#skills" class="nav-link" data-section="skills">技能</a></li>
-        <li><a href="#contact" class="nav-link" data-section="contact">联系</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-icon-light">☀️</span>
-        <span class="theme-icon-dark">🌙</span>
+      <nav class="menu" id="navMenu" aria-label="主导航">
+        <a class="nav-link" href="#home">首页</a>
+        <a class="nav-link" href="#skills">技能</a>
+        <a class="nav-link" href="#experience">经历</a>
+        <a class="nav-link" href="#achievements">获奖</a>
+        <a class="nav-link" href="#contact">联系</a>
+        <a class="nav-link" href="resume.html">简历</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="切换主题" aria-pressed="false" title="切换明暗主题">
+        <span class="theme-toggle-track" aria-hidden="true">
+          <span class="theme-toggle-thumb">
+            <span class="theme-icon theme-icon-light">
+              <svg viewBox="0 0 24 24" class="theme-svg" aria-hidden="true">
+                <circle cx="12" cy="12" r="4.5" fill="currentColor"></circle>
+                <path d="M12 1.75v3M12 19.25v3M1.75 12h3M19.25 12h3M4.4 4.4l2.12 2.12M17.48 17.48l2.12 2.12M19.6 4.4l-2.12 2.12M6.52 17.48 4.4 19.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
+              </svg>
+            </span>
+            <span class="theme-icon theme-icon-dark">
+              <svg viewBox="0 0 24 24" class="theme-svg" aria-hidden="true">
+                <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.7 8.7 0 1 0 10.2 10.2Z" fill="currentColor"></path>
+              </svg>
+            </span>
+          </span>
+        </span>
       </button>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="hero-avatar-wrapper">
-          <div class="hero-avatar" id="heroAvatar">
-            <img src="" alt="Avatar" id="avatarImage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="avatar-placeholder" style="display:none;">
-              <span>B</span>
+  <main class="app">
+    <section class="main" id="home">
+      <div class="shell greeting-main">
+        <div class="greeting-text-div">
+          <h1 class="greeting-text">
+            <span class="wave-emoji">Hi</span>
+            <span id="heroName"> 王子涵</span>
+          </h1>
+          <h2 class="greeting-subtitle" id="heroTitle"></h2>
+          <div class="hero-badges" id="heroTags"></div>
+          <div class="button-greeting-div">
+            <a class="main-button" href="resume.html">查看简历</a>
+            <a class="main-button button-secondary" href="#contact">联系我</a>
+          </div>
+          <p class="greeting-text-p sub-title" id="summaryIntro"></p>
+          <div class="hero-inline-metrics" id="heroMetrics"></div>
+        </div>
+        <div class="greeting-image-div">
+          <div class="hero-illustration">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-window">
+              <div class="hero-window-top">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="hero-window-body">
+                <p class="hero-window-kicker">Current Focus</p>
+                <h3 id="heroStatus"></h3>
+                <div class="hero-side-card">
+                  <p>Education</p>
+                  <strong id="educationBrief"></strong>
+                </div>
+                <div class="hero-side-card hero-side-card-alt">
+                  <p>Research</p>
+                  <strong id="researchBrief"></strong>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <h1 class="hero-title">
-          <span class="hero-name" id="heroName">Bechoer</span>
-          <span class="hero-subtitle" id="heroSubtitle">Java 后端工程师</span>
-        </h1>
-        <p class="hero-description" id="heroDescription"></p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">查看项目</a>
-          <a href="#contact" class="btn btn-secondary">联系我</a>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>↓</span>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="section about" id="about">
-    <div class="container">
-      <h2 class="section-title">关于我</h2>
-      <div class="about-content">
-        <div class="about-sections" id="aboutSections"></div>
-        <div class="about-info">
-          <div class="info-item animate-on-scroll delay-1">
-            <span class="info-label">状态</span>
-            <span class="info-value" id="aboutStatus"></span>
-          </div>
-          <div class="info-item animate-on-scroll delay-2">
-            <span class="info-label">地点</span>
-            <span class="info-value" id="aboutLocation"></span>
-          </div>
-          <div class="info-item animate-on-scroll delay-3">
-            <span class="info-label">邮箱</span>
-            <a href="mailto:" class="info-value" id="aboutEmail"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section class="section education" id="education">
-    <div class="container">
-      <h2 class="section-title">教育背景</h2>
-      <div class="education-content">
-        <div class="education-item animate-on-scroll">
-          <div class="education-header">
-            <h3 class="education-school" id="educationSchool"></h3>
-            <span class="education-period" id="educationPeriod"></span>
-          </div>
-          <div class="education-details">
-            <p class="education-degree" id="educationDegree"></p>
-            <div class="education-gpa" id="educationGpa"></div>
-            <div class="education-courses">
-              <h4>核心课程</h4>
-              <ul class="course-list" id="courseList"></ul>
+            <div class="hero-code-card">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <h2 class="section-title">项目经历</h2>
-      <div class="projects-grid" id="projectsGrid"></div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="section skills" id="skills">
-    <div class="container">
-      <h2 class="section-title">技能矩阵</h2>
-      <div class="skills-content" id="skillsContent"></div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <h2 class="section-title">联系我</h2>
-      <div class="contact-content animate-on-scroll">
-        <p class="contact-description">如有合作机会或技术交流，欢迎通过以下方式联系</p>
-        <div class="contact-links" id="contactLinks"></div>
+    <section class="main section" id="skills">
+      <div class="shell skills-main-div">
+        <div class="skills-image-div">
+          <div class="skills-lottie-mount" id="skillsLottie" aria-label="skills illustration"></div>
+        </div>
+        <div class="skills-text-div">
+          <h2 class="skills-heading">What I do</h2>
+          <p class="sub-title" id="summaryIntro"></p>
+          <div class="skills-pill-list" id="heroSummary"></div>
+          <div class="skills-card-grid" id="skillsContent"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
+    <section class="main section" id="experience">
+      <div class="shell experience-section">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="sub-title">将教育背景、科研训练与项目实践整合在同一条成长路径中。</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card experience-card-featured">
+            <p class="experience-label">Education</p>
+            <h3 id="educationSchool"></h3>
+            <p class="experience-meta" id="educationDegree"></p>
+            <p class="experience-meta" id="educationPeriod"></p>
+            <div class="experience-stats">
+              <div class="stat-card">
+                <span>绩点</span>
+                <strong id="educationGpa"></strong>
+              </div>
+              <div class="stat-card">
+                <span>排名</span>
+                <strong id="educationRanking"></strong>
+              </div>
+            </div>
+            <p class="card-text" id="educationNote"></p>
+            <div class="tag-list" id="courseList"></div>
+          </article>
+          <article class="experience-card">
+            <p class="experience-label">Research</p>
+            <h3 id="researchRole"></h3>
+            <p class="experience-meta" id="researchMeta"></p>
+            <p class="card-text" id="researchOverview"></p>
+            <div class="timeline-list" id="researchItems"></div>
+          </article>
+        </div>
+        <div class="project-block">
+          <div class="section-header compact">
+            <h3 class="section-subtitle">Projects</h3>
+            <p class="sub-title">把原有项目内容按目标站的卡片风格重组展示。</p>
+          </div>
+          <div class="project-grid" id="projectsGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main section" id="achievements">
+      <div class="shell achievement-section">
+        <div class="section-header">
+          <h2 class="section-title">Achievements</h2>
+          <p class="sub-title">竞赛结果和阅读积累，是当前阶段最直观的成长证明。</p>
+        </div>
+        <div class="achievement-grid" id="awardsGrid"></div>
+      </div>
+    </section>
+
+    <section class="main section" id="contact">
+      <div class="shell contact-section">
+        <div class="contact-text-div">
+          <h2 class="section-title">Reach Out to me!</h2>
+          <p class="contact-subtitle" id="contactIntro"></p>
+          <div class="contact-card">
+            <div class="contact-list" id="profileList"></div>
+            <div class="contact-links" id="contactLinks"></div>
+          </div>
+        </div>
+        <div class="contact-image-div">
+          <div class="section-illustration section-illustration-contact">
+            <div class="illustration-circle illustration-circle-large"></div>
+            <div class="contact-panel-visual">
+              <div class="contact-panel-top"></div>
+              <div class="contact-panel-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="contact-float-card">
+              <p>Resume</p>
+              <a href="resume.html">Open Resume</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <p class="footer-text">© 2025 王子涵. Built with attention to detail.</p>
-        <p class="footer-status">Status: <span id="footerStatus">Available for opportunities</span></p>
-      </div>
+    <div class="shell footer-content">
+      <p class="footer-text">王子涵 · 计算机科学与技术本科生</p>
+      <p class="footer-text" id="footerStatus"></p>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop" aria-label="回到顶部">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M18 15l-6-6-6 6"/>
-    </svg>
-  </button>
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
 
-  <!-- theme.js must run immediately to avoid flash of wrong theme -->
   <script src="scripts/theme.js"></script>
+  <script src="scripts/lottie.min.js" defer></script>
+  <script src="scripts/skills-lottie.js" defer></script>
   <script src="scripts/main.js" defer></script>
 </body>
 </html>
-
