@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initNavigation();
   initScrollSpy();
   initBackToTop();
+  initMotion();
 });
 
 async function loadProfileData() {
@@ -377,6 +378,40 @@ function initBackToTop() {
   button.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+}
+
+function initMotion() {
+  const animatedItems = document.querySelectorAll([
+    ".hero-badge",
+    ".summary-badge",
+    ".metric-mini-card",
+    ".skill-card",
+    ".project-card",
+    ".achievement-card",
+    ".contact-link-card",
+    ".timeline-item",
+    ".contact-card"
+  ].join(","));
+
+  if (!animatedItems.length) return;
+
+  animatedItems.forEach((item, index) => {
+    item.classList.add("motion-reveal");
+    item.style.setProperty("--reveal-delay", `${Math.min(index * 45, 260)}ms`);
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: "0px 0px -10% 0px",
+    threshold: 0.12
+  });
+
+  animatedItems.forEach(item => observer.observe(item));
 }
 
 function renderProjectLink(label, url) {

@@ -315,6 +315,30 @@ button {
   box-shadow: var(--shadow-soft);
 }
 
+.metric-mini-card,
+.skill-card,
+.achievement-card,
+.project-card,
+.contact-link-card,
+.contact-card {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease;
+}
+
+.metric-mini-card:hover,
+.skill-card:hover,
+.achievement-card:hover,
+.project-card:hover,
+.contact-link-card:hover,
+.contact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(108, 99, 255, 0.18);
+  box-shadow: 0 18px 36px rgba(84, 79, 96, 0.14);
+}
+
 .metric-mini-card {
   min-width: 130px;
   padding: 0.9rem 1rem;
@@ -345,6 +369,83 @@ button {
 .section-illustration {
   position: relative;
   min-height: 480px;
+}
+
+.hero-avatar-wrapper {
+  position: relative;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-avatar-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-soft);
+}
+
+.hero-avatar-orb-one {
+  top: 28px;
+  right: 12%;
+  width: 120px;
+  height: 120px;
+}
+
+.hero-avatar-orb-two {
+  bottom: 24px;
+  left: 4%;
+  width: 180px;
+  height: 180px;
+  opacity: 0.55;
+}
+
+.hero-avatar-frame {
+  position: relative;
+  width: min(100%, 470px);
+  aspect-ratio: 1 / 1;
+  padding: 14px;
+  border-radius: 36px;
+  background: linear-gradient(145deg, rgba(108, 99, 255, 0.12), rgba(108, 99, 255, 0.03));
+  border: 1px solid rgba(108, 99, 255, 0.18);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-avatar-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+.hero-avatar-frame {
+  animation: softFloat 6s ease-in-out infinite;
+}
+
+.motion-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.motion-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes softFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .hero-orb,
@@ -1055,8 +1156,13 @@ button {
   }
 
   .hero-illustration,
+  .hero-avatar-wrapper,
   .section-illustration {
-    min-height: 360px;
+    min-height: 420px;
+  }
+
+  .hero-avatar-frame {
+    width: min(100%, 400px);
   }
 
   .skills-lottie-mount {
@@ -1158,6 +1264,40 @@ button {
     display: flex;
     justify-content: center;
     order: 1;
+  }
+
+  .greeting-image-div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-avatar-wrapper {
+    min-height: 340px;
+    width: 100%;
+  }
+
+  .hero-avatar-frame {
+    width: min(100%, 340px);
+    padding: 10px;
+    border-radius: 28px;
+  }
+
+  .hero-avatar-image {
+    border-radius: 22px;
+  }
+
+  .hero-avatar-orb-one {
+    width: 84px;
+    height: 84px;
+    top: 18px;
+    right: 8%;
+  }
+
+  .hero-avatar-orb-two {
+    width: 120px;
+    height: 120px;
+    left: 6%;
+    bottom: 18px;
   }
 
   .skills-text-div {
@@ -1274,6 +1414,11 @@ button {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .motion-reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
