@@ -55,7 +55,8 @@ function renderHomePage() {
   setText("heroStatus", personal.status);
   setText("educationBrief", `${education.school || ""} · ${education.ranking || ""}`);
   setText("researchBrief", `${research.direction || ""} · ${research.period || ""}`);
-  setText("summaryIntro", (personal.summary || [])[0] || "");
+  setText("summaryIntro", (personal.summary || [])[1] || (personal.summary || [])[0] || "");
+  setText("skillsSupport", (personal.summary || [])[2] || "");
   setText("contactIntro", "");
   setText("footerStatus", personal.status);
 
@@ -74,7 +75,8 @@ function renderHeroTags() {
   const tagsEl = document.getElementById("heroTags");
   const summaryEl = document.getElementById("heroSummary");
   const tags = profileData.personal.heroTags || [];
-  const summary = (profileData.personal.summary || []).slice(1);
+  const skillFocus = profileData.personal.skillFocus || [];
+  const summary = skillFocus.length ? skillFocus : (profileData.personal.summary || []).slice(1);
 
   if (tagsEl) {
     tagsEl.innerHTML = tags.map(tag => `<span class="hero-badge">${tag}</span>`).join("");
@@ -134,7 +136,7 @@ function renderEducation() {
 
   const courseListEl = document.getElementById("courseList");
   if (courseListEl) {
-    courseListEl.innerHTML = (education.courses || []).map(course => `<span class="tag">${course}</span>`).join("");
+    courseListEl.innerHTML = renderTags(education.courses);
   }
 }
 
@@ -160,23 +162,32 @@ function renderProjects() {
   const projectsGridEl = document.getElementById("projectsGrid");
   if (!projectsGridEl) return;
 
-  projectsGridEl.innerHTML = (profileData.projects || []).map(project => `
-    <article class="project-card">
-      <p class="project-card-type">${project.type || ""}</p>
-      <h3>${project.name}</h3>
-      <p class="project-card-copy">${project.description || ""}</p>
-      <ul class="project-card-list">
-        ${(project.focus || []).map(item => `<li>${item}</li>`).join("")}
-      </ul>
-      <div class="tag-list">
-        ${(project.technologies || []).map(item => `<span class="tag">${item}</span>`).join("")}
+  projectsGridEl.innerHTML = (profileData.projects || []).map(project => {
+    const focus = project.focus || [];
+    return `
+    <article class="project-card project-case-card">
+      <h3 class="project-case-title">项目：${project.name || ""}</h3>
+      <div class="project-case-body">
+        ${renderProjectCaseRow("Problem", project.problem || project.description)}
+        ${renderProjectCaseRow("Solution", project.solution || focus[0] || project.type)}
+        ${renderProjectCaseRow("Impact", project.impact || focus.slice(1).join("；"))}
       </div>
-      <div class="project-link-row">
-        ${renderProjectLink("GitHub", project.links?.github)}
-        ${renderProjectLink("Gitee", project.links?.gitee)}
+      <div class="project-case-tags">
+        ${renderTags(project.technologies, "project-case-tag")}
       </div>
     </article>
-  `).join("");
+  `}).join("");
+}
+
+function renderProjectCaseRow(label, content) {
+  if (!content) return "";
+
+  return `
+    <div class="project-case-row">
+      <span class="project-case-label project-case-label-${label.toLowerCase()}">${label}</span>
+      <p class="project-case-copy">${content}</p>
+    </div>
+  `;
 }
 
 function renderAwards() {
@@ -196,24 +207,21 @@ function renderSkills() {
   const skillsContentEl = document.getElementById("skillsContent");
   if (!skillsContentEl) return;
 
-  skillsContentEl.innerHTML = (profileData.skills || []).map(group => `
-    <article class="skill-card">
-      <h3>${group.category}</h3>
-      <div class="skill-card-list">
-        ${(group.items || []).map(item => `
-          <div class="skill-meter">
-            <div class="skill-meter-top">
-              <span>${item.name}</span>
-              <strong>${item.level}</strong>
-            </div>
-            <div class="skill-meter-track">
-              <span class="skill-meter-fill" style="width:${Math.max(0, Math.min(100, item.level || 0))}%"></span>
-            </div>
-          </div>
-        `).join("")}
+  skillsContentEl.innerHTML = (profileData.skills || []).map((group, index) => {
+    const isFeatured = index === 0;
+    const isWide = index === 3;
+    return `
+    <article class="skill-card skill-card-narrative${isFeatured ? " skill-card-featured" : ""}${isWide ? " skill-card-wide" : ""}">
+      <div class="skill-card-header">
+        <p class="skill-card-kicker">${isFeatured ? "Current Focus" : "Capability"}</p>
+        <h3>${group.category}</h3>
+        <p class="skill-card-copy">${group.description || ""}</p>
+      </div>
+      <div class="skill-chip-list">
+        ${renderTags((group.items || []).map(item => item.name), "skill-chip")}
       </div>
     </article>
-  `).join("");
+  `}).join("");
 }
 
 function renderContact() {
@@ -294,7 +302,7 @@ function renderResumePage() {
           ${(project.focus || []).map(item => `<div class="resume-list-row"><p>${item}</p></div>`).join("")}
         </div>
         <div class="tag-list">
-          ${(project.technologies || []).map(item => `<span class="tag">${item}</span>`).join("")}
+          ${renderTags(project.technologies)}
         </div>
       </article>
     `).join("");
@@ -419,11 +427,13 @@ function renderProjectLink(label, url) {
   return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
 }
 
+function renderTags(items, className = "tag") {
+  return (items || []).map(item => `<span class="${className}">${item}</span>`).join("");
+}
+
 function renderTagList(id, items) {
   const element = document.getElementById(id);
-  if (element && Array.isArray(items)) {
-    element.innerHTML = items.map(item => `<span class="tag">${item}</span>`).join("");
-  }
+  if (element) element.innerHTML = renderTags(items);
 }
 
 function formatLink(label, value) {
@@ -444,3 +454,4 @@ function setText(id, value) {
     element.textContent = value;
   }
 }
+
