@@ -102,27 +102,14 @@ function renderHeroMetrics() {
 }
 
 function renderProfileList() {
-  const profileListEl = document.getElementById("profileList");
-  const personal = profileData.personal || {};
-  if (!profileListEl) return;
-
-  const items = [
-    ["姓名", personal.name],
-    ["英文名", personal.nameEn],
-    ["地点", personal.location],
-    ["邮箱", personal.email],
-    ["GitHub", personal.github]
-  ];
-
-  profileListEl.innerHTML = items
-    .filter(([, value]) => value)
-    .map(([label, value]) => `
+  const items = createProfileInfoItems();
+  setHTML("profileList", items.map(item => `
       <div class="contact-info-row">
-        <span class="contact-info-label">${label}</span>
-        <span class="contact-info-value">${formatLink(label, value)}</span>
+        <span class="contact-info-label">${item.label}</span>
+        <span class="contact-info-value">${renderContactValue(item)}</span>
       </div>
     `)
-    .join("");
+    .join(""));
 }
 
 function renderEducation() {
@@ -133,11 +120,7 @@ function renderEducation() {
   setText("educationGpa", education.gpa);
   setText("educationRanking", education.ranking);
   setText("educationNote", education.gpaDescription);
-
-  const courseListEl = document.getElementById("courseList");
-  if (courseListEl) {
-    courseListEl.innerHTML = renderTags(education.courses);
-  }
+  setHTML("courseList", renderTags(education.courses));
 }
 
 function renderResearch() {
@@ -145,17 +128,12 @@ function renderResearch() {
   setText("researchRole", research.role);
   setText("researchMeta", [research.lab, research.direction, research.period].filter(Boolean).join(" · "));
   setText("researchOverview", research.overview);
-
-  const researchItemsEl = document.getElementById("researchItems");
-
-  if (researchItemsEl) {
-    researchItemsEl.innerHTML = (research.items || []).map(item => `
-      <div class="timeline-item">
-        <h4>${item.title}</h4>
-        <p>${item.description}</p>
-      </div>
-    `).join("");
-  }
+  renderCollection("researchItems", research.items, item => `
+    <div class="timeline-item">
+      <h4>${item.title}</h4>
+      <p>${item.description}</p>
+    </div>
+  `);
 }
 
 function renderProjects() {
@@ -191,23 +169,17 @@ function renderProjectCaseRow(label, content) {
 }
 
 function renderAwards() {
-  const awardsGridEl = document.getElementById("awardsGrid");
-  if (!awardsGridEl) return;
-
-  awardsGridEl.innerHTML = (profileData.awards || []).map(award => `
+  renderCollection("awardsGrid", profileData.awards, award => `
     <article class="achievement-card">
       <span class="achievement-year">${award.year}</span>
       <h3>${award.title}</h3>
       <p>${award.level}</p>
     </article>
-  `).join("");
+  `);
 }
 
 function renderSkills() {
-  const skillsContentEl = document.getElementById("skillsContent");
-  if (!skillsContentEl) return;
-
-  skillsContentEl.innerHTML = (profileData.skills || []).map((group, index) => {
+  setHTML("skillsContent", (profileData.skills || []).map((group, index) => {
     const isFeatured = index === 0;
     const isWide = index === 3;
     return `
@@ -221,33 +193,16 @@ function renderSkills() {
         ${renderTags((group.items || []).map(item => item.name), "skill-chip")}
       </div>
     </article>
-  `}).join("");
+  `}).join(""));
 }
 
 function renderContact() {
-  const contactLinksEl = document.getElementById("contactLinks");
-  const { social, personal } = profileData;
-  if (!contactLinksEl) return;
-
-  const contacts = [
-    {
-      label: "邮箱",
-      value: social.email || personal.email,
-      href: `mailto:${social.email || personal.email}`
-    },
-    {
-      label: "GitHub",
-      value: social.github || personal.github,
-      href: social.github || personal.github
-    }
-  ].filter(item => item.value && item.href);
-
-  contactLinksEl.innerHTML = contacts.map(item => `
+  setHTML("contactLinks", createPrimaryContacts().map(item => `
     <a class="contact-link-card" href="${item.href}" ${item.href.startsWith("mailto:") ? "" : 'target="_blank" rel="noopener noreferrer"'}>
       <span>${item.label}</span>
       <strong>${item.value}</strong>
     </a>
-  `).join("");
+  `).join(""));
 }
 
 function renderResumePage() {
@@ -264,69 +219,49 @@ function renderResumePage() {
   setText("resumeResearchMeta", [research.lab, research.direction].filter(Boolean).join(" · "));
   setText("resumeResearchOverview", research.overview);
 
-  const summaryEl = document.getElementById("resumeSummary");
-  if (summaryEl) {
-    summaryEl.innerHTML = (personal.summary || []).map(item => `<p>${item}</p>`).join("");
-  }
-
-  const contactEl = document.getElementById("resumeContact");
-  if (contactEl) {
-    contactEl.innerHTML = [personal.location, social.email || personal.email, social.github || personal.github]
-      .filter(Boolean)
-      .map(item => `<p>${formatResumeContact(item)}</p>`)
-      .join("");
-  }
+  setHTML("resumeSummary", (personal.summary || []).map(item => `<p>${item}</p>`).join(""));
+  setHTML("resumeContact", [personal.location, social.email || personal.email, social.github || personal.github]
+    .filter(Boolean)
+    .map(item => `<p>${formatResumeContact(item)}</p>`)
+    .join(""));
 
   renderTagList("resumeCourses", education.courses);
+  renderCollection("resumeResearchItems", research.items, item => `
+    <div class="resume-list-row">
+      <strong>${item.title}</strong>
+      <p>${item.description}</p>
+    </div>
+  `);
 
-  const researchItemsEl = document.getElementById("resumeResearchItems");
-  if (researchItemsEl) {
-    researchItemsEl.innerHTML = (research.items || []).map(item => `
-      <div class="resume-list-row">
-        <strong>${item.title}</strong>
-        <p>${item.description}</p>
+  renderCollection("resumeProjects", projects, project => `
+    <article class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>${project.name}</h3>
+        <p>${project.type || ""}</p>
       </div>
-    `).join("");
-  }
-
-  const projectsEl = document.getElementById("resumeProjects");
-  if (projectsEl) {
-    projectsEl.innerHTML = (projects || []).map(project => `
-      <article class="resume-entry">
-        <div class="resume-entry-head">
-          <h3>${project.name}</h3>
-          <p>${project.type || ""}</p>
-        </div>
-        <p class="muted">${project.description || ""}</p>
-        <div class="resume-list">
-          ${(project.focus || []).map(item => `<div class="resume-list-row"><p>${item}</p></div>`).join("")}
-        </div>
-        <div class="tag-list">
-          ${renderTags(project.technologies)}
-        </div>
-      </article>
-    `).join("");
-  }
-
-  const awardsEl = document.getElementById("resumeAwards");
-  if (awardsEl) {
-    awardsEl.innerHTML = (awards || []).map(award => `
-      <div class="resume-list-row">
-        <strong>${award.title}</strong>
-        <p>${award.year} · ${award.level}</p>
+      <p class="muted">${project.description || ""}</p>
+      <div class="resume-list">
+        ${(project.focus || []).map(item => `<div class="resume-list-row"><p>${item}</p></div>`).join("")}
       </div>
-    `).join("");
-  }
+      <div class="tag-list">
+        ${renderTags(project.technologies)}
+      </div>
+    </article>
+  `);
 
-  const skillsEl = document.getElementById("resumeSkills");
-  if (skillsEl) {
-    skillsEl.innerHTML = (skills || []).map(group => `
-      <article class="resume-skill-group">
-        <h3>${group.category}</h3>
-        <p>${(group.items || []).map(item => `${item.name}（${item.level}）`).join(" / ")}</p>
-      </article>
-    `).join("");
-  }
+  renderCollection("resumeAwards", awards, award => `
+    <div class="resume-list-row">
+      <strong>${award.title}</strong>
+      <p>${award.year} · ${award.level}</p>
+    </div>
+  `);
+
+  renderCollection("resumeSkills", skills, group => `
+    <article class="resume-skill-group">
+      <h3>${group.category}</h3>
+      <p>${(group.items || []).map(item => `${item.name}（${item.level}）`).join(" / ")}</p>
+    </article>
+  `);
 }
 
 function initNavigation() {
@@ -422,11 +357,6 @@ function initMotion() {
   animatedItems.forEach(item => observer.observe(item));
 }
 
-function renderProjectLink(label, url) {
-  if (!url) return "";
-  return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
-}
-
 function renderTags(items, className = "tag") {
   return (items || []).map(item => `<span class="${className}">${item}</span>`).join("");
 }
@@ -436,21 +366,69 @@ function renderTagList(id, items) {
   if (element) element.innerHTML = renderTags(items);
 }
 
-function formatLink(label, value) {
-  if (label === "邮箱") return `<a href="mailto:${value}">${value}</a>`;
-  if (label === "GitHub") return `<a href="${value}" target="_blank" rel="noopener noreferrer">${value}</a>`;
-  return value;
-}
-
 function formatResumeContact(value) {
   if (value.includes("@")) return `<a href="mailto:${value}">${value}</a>`;
   if (value.startsWith("http")) return `<a href="${value}" target="_blank" rel="noopener noreferrer">${value}</a>`;
   return value;
 }
 
+function getElement(id) {
+  return document.getElementById(id);
+}
+
+function setHTML(id, value = "") {
+  const element = getElement(id);
+  if (element) {
+    element.innerHTML = value;
+  }
+}
+
+function renderCollection(id, items, renderItem) {
+  setHTML(id, (items || []).map(renderItem).join(""));
+}
+
+function createPrimaryContacts() {
+  const { social = {}, personal = {} } = profileData;
+  const email = social.email || personal.email;
+  const github = social.github || personal.github;
+
+  return [
+    {
+      label: "邮箱",
+      value: email,
+      href: email ? `mailto:${email}` : ""
+    },
+    {
+      label: "GitHub",
+      value: github,
+      href: github
+    }
+  ].filter(item => item.value && item.href);
+}
+
+function createProfileInfoItems() {
+  const { personal = {} } = profileData;
+  const [emailContact, githubContact] = createPrimaryContacts();
+
+  return [
+    { label: "姓名", value: personal.name },
+    { label: "英文名", value: personal.nameEn },
+    { label: "地点", value: personal.location },
+    emailContact,
+    githubContact
+  ].filter(item => item && item.value);
+}
+
+function renderContactValue(item) {
+  if (!item.href) return item.value;
+
+  const externalAttrs = item.href.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"';
+  return `<a href="${item.href}"${externalAttrs}>${item.value}</a>`;
+}
+
 function setText(id, value) {
-  const element = document.getElementById(id);
-  if (element && value) {
+  const element = getElement(id);
+  if (element && value !== undefined && value !== null) {
     element.textContent = value;
   }
 }
