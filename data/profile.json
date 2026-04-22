@@ -107,6 +107,33 @@
       }
     },
     {
+      "id": "smart-customer-service",
+      "name": "智扫通客服智能体",
+      "type": "RAG + 智能客服系统",
+      "description": "面向扫地机器人客服场景的智能问答系统，采用 FastAPI 后端与 Vue 3 前端构建用户端与管理端一体化应用，围绕流式对话、知识库检索、配置管理与日志追溯组织完整交互链路。",
+      "problem": "传统客服流程往往依赖固定话术和人工检索，难以兼顾设备场景中的即时问答、知识更新和请求可追踪性；若前后端接口、知识库管理与日志能力割裂，也会抬高系统联调和后续运维成本。",
+      "solution": "基于 FastAPI 统一提供 `/api/v1` 接口，结合 LangChain/LangGraph、ChromaDB 与本地知识库实现 RAG 检索和 ReAct 智能体链路；前端使用 Vue 3 构建用户对话端与管理后台，支持 SSE 流式回复、知识文档上传重建、配置读写和请求日志查询，形成可联调的前后端闭环。",
+      "impact": "将大模型问答、知识库管理和后台运维能力整合进同一套客服系统中，强化了我在 AI 应用集成、接口设计、检索增强问答和前后端协同落地方面的工程表达，也让项目展示更贴近真实业务中的智能客服实现方式。",
+      "focus": [
+        "围绕用户咨询与后台管理双场景设计前后端协同流程，覆盖对话、知识库、配置与日志等核心模块",
+        "结合 LangChain/LangGraph 与 ChromaDB 搭建 RAG 检索链路，支撑设备知识问答与报告场景查询",
+        "通过 SSE 流式响应、结构化日志与管理端能力提升系统可观测性和持续维护效率"
+      ],
+      "technologies": [
+        "FastAPI",
+        "Vue 3",
+        "Vite",
+        "LangChain",
+        "LangGraph",
+        "ChromaDB",
+        "RAG",
+        "SSE"
+      ],
+      "links": {
+        "github": "https://github.com/waangzh/smart_customer_service"
+      }
+    },
+    {
       "id": "healing-planet",
       "name": "植愈星球",
       "type": "智能养植与社交一体化平台",
