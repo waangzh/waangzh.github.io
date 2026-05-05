@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>王子涵 | 简历</title>
   <meta name="description" content="王子涵的在线简历页面。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles/theme.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -38,82 +43,57 @@
     </div>
   </header>
 
-  <main class="resume-main">
-    <div class="shell">
-      <section class="resume-sheet">
-        <header class="resume-header">
-          <div>
-            <p class="eyebrow">Resume</p>
-            <h1 id="resumeName">王子涵</h1>
-            <p class="resume-role" id="resumeTitle"></p>
-          </div>
-          <div class="resume-contact" id="resumeContact"></div>
-        </header>
+  <main class="resume-main resume-page-compact">
+    <div class="resume-paper">
+      <header class="resume-topbar">
+        <img id="resumePhoto" class="resume-photo" src="assets/avatar.png" alt="王子涵照片">
+        <div class="resume-identity">
+          <h1 id="resumeName">王子涵</h1>
+          <p id="resumeTitle"></p>
+        </div>
+        <div class="resume-contact-grid" id="resumeContact"></div>
+      </header>
 
-        <section class="resume-block">
-          <div class="resume-block-title">
-            <span></span>
-            <h2>个人概况</h2>
+      <section class="resume-section">
+        <div class="resume-strip-title">
+          <h2>教育背景</h2>
+        </div>
+        <div class="resume-compact-entry">
+          <div class="resume-compact-head">
+            <h3 id="resumeEducationSchool"></h3>
+            <span id="resumeEducationMajor"></span>
+            <time id="resumeEducationPeriod"></time>
           </div>
-          <div class="resume-summary" id="resumeSummary"></div>
-        </section>
+          <ul class="resume-bullet-list" id="resumeEducationNote"></ul>
+        </div>
+      </section>
 
-        <section class="resume-block">
-          <div class="resume-block-title">
-            <span></span>
-            <h2>教育背景</h2>
-          </div>
-          <div class="resume-entry">
-            <div class="resume-entry-head">
-              <h3 id="resumeEducationSchool"></h3>
-              <p id="resumeEducationPeriod"></p>
-            </div>
-            <p id="resumeEducationDegree"></p>
-            <p class="muted" id="resumeEducationNote"></p>
-            <div class="chip-list" id="resumeCourses"></div>
-          </div>
-        </section>
+      <section class="resume-section">
+        <div class="resume-strip-title">
+          <h2>基本技能</h2>
+        </div>
+        <ul class="resume-bullet-list resume-skill-list" id="resumeSkills"></ul>
+      </section>
 
-        <section class="resume-block">
-          <div class="resume-block-title">
-            <span></span>
-            <h2>科研经历</h2>
-          </div>
-          <div class="resume-entry">
-            <div class="resume-entry-head">
-              <h3 id="resumeResearchRole"></h3>
-              <p id="resumeResearchPeriod"></p>
-            </div>
-            <p class="muted" id="resumeResearchMeta"></p>
-            <p id="resumeResearchOverview"></p>
-            <div class="resume-list" id="resumeResearchItems"></div>
-          </div>
-        </section>
+      <section class="resume-section">
+        <div class="resume-strip-title">
+          <h2>科研项目经历</h2>
+        </div>
+        <div class="resume-stack" id="resumeProjects"></div>
+      </section>
 
-        <section class="resume-block">
-          <div class="resume-block-title">
-            <span></span>
-            <h2>项目经历</h2>
-          </div>
-          <div class="resume-projects" id="resumeProjects"></div>
-        </section>
+      <section class="resume-section">
+        <div class="resume-strip-title">
+          <h2>校园经历</h2>
+        </div>
+        <div class="resume-stack" id="resumeCampus"></div>
+      </section>
 
-        <section class="resume-block">
-          <div class="resume-block-title">
-            <span></span>
-            <h2>获奖与技能</h2>
-          </div>
-          <div class="resume-columns">
-            <div>
-              <h3 class="resume-subtitle">竞赛获奖</h3>
-              <div class="resume-list" id="resumeAwards"></div>
-            </div>
-            <div>
-              <h3 class="resume-subtitle">技能矩阵</h3>
-              <div class="resume-skill-groups" id="resumeSkills"></div>
-            </div>
-          </div>
-        </section>
+      <section class="resume-section">
+        <div class="resume-strip-title">
+          <h2>获得情况</h2>
+        </div>
+        <div class="resume-award-list" id="resumeAwards"></div>
       </section>
     </div>
   </main>

@@ -56,6 +56,7 @@ function renderHomePage() {
   setText("educationBrief", `${education.school || ""} · ${education.ranking || ""}`);
   setText("researchBrief", `${research.direction || ""} · ${research.period || ""}`);
   setText("summaryIntro", (personal.summary || [])[1] || (personal.summary || [])[0] || "");
+  setText("skillsIntro", (personal.summary || [])[1] || (personal.summary || [])[0] || "");
   setText("skillsSupport", (personal.summary || [])[2] || "");
   setText("contactIntro", "");
   setText("footerStatus", personal.status);
@@ -119,6 +120,7 @@ function renderEducation() {
   setText("educationPeriod", education.period);
   setText("educationGpa", education.gpa);
   setText("educationRanking", education.ranking);
+  setText("educationEnglish", education.english);
   setText("educationNote", education.gpaDescription);
   setHTML("courseList", renderTags(education.courses));
 }
@@ -145,6 +147,7 @@ function renderProjects() {
     return `
     <article class="project-card project-case-card">
       <h3 class="project-case-title">项目：${project.name || ""}</h3>
+      <p class="project-case-meta">${[project.role, project.period].filter(Boolean).join(" · ")}</p>
       <div class="project-case-body">
         ${renderProjectCaseRow("Problem", project.problem || project.description)}
         ${renderProjectCaseRow("Solution", project.solution || focus[0] || project.type)}
@@ -171,7 +174,7 @@ function renderProjectCaseRow(label, content) {
 function renderAwards() {
   renderCollection("awardsGrid", profileData.awards, award => `
     <article class="achievement-card">
-      <span class="achievement-year">${award.year}</span>
+      <span class="achievement-year">${award.period || award.year}</span>
       <h3>${award.title}</h3>
       <p>${award.level}</p>
     </article>
@@ -206,62 +209,85 @@ function renderContact() {
 }
 
 function renderResumePage() {
-  const { personal, education, research, projects, awards, skills, social } = profileData;
+  const { personal, education, projects, awards, skills, social, campusExperience } = profileData;
 
   setText("resumeName", personal.name);
   setText("resumeTitle", personal.title);
   setText("resumeEducationSchool", education.school);
+  setText("resumeEducationMajor", education.major);
   setText("resumeEducationPeriod", education.period);
-  setText("resumeEducationDegree", [education.degree, education.major, education.grade].filter(Boolean).join(" · "));
-  setText("resumeEducationNote", `${education.gpaDescription || ""}${education.ranking ? ` 绩点/排名：${education.gpa}，${education.ranking}。` : ""}`);
-  setText("resumeResearchRole", research.role);
-  setText("resumeResearchPeriod", research.period);
-  setText("resumeResearchMeta", [research.lab, research.direction].filter(Boolean).join(" · "));
-  setText("resumeResearchOverview", research.overview);
-
-  setHTML("resumeSummary", (personal.summary || []).map(item => `<p>${item}</p>`).join(""));
-  setHTML("resumeContact", [personal.location, social.email || personal.email, social.github || personal.github]
-    .filter(Boolean)
-    .map(item => `<p>${formatResumeContact(item)}</p>`)
-    .join(""));
-
-  renderTagList("resumeCourses", education.courses);
-  renderCollection("resumeResearchItems", research.items, item => `
-    <div class="resume-list-row">
-      <strong>${item.title}</strong>
-      <p>${item.description}</p>
-    </div>
+  setHTML("resumeEducationNote", `
+    <li>专业绩点（${education.gpa}）排名 ${education.ranking}，连续两年荣获校级奖学金</li>
+    <li>英语水平：${education.english || ""}</li>
+    <li>主修核心课程：${(education.courses || []).join("、")}</li>
+    <li>目标方向：自然语言处理、大模型应用与 Agents</li>
   `);
 
+  const photo = getElement("resumePhoto");
+  if (photo && personal.avatar) {
+    photo.setAttribute("src", personal.avatar);
+    photo.setAttribute("alt", `${personal.name}照片`);
+  }
+
+  setHTML("resumeContact", createResumeContacts(personal, social).map(item => `
+    <div class="resume-contact-item">
+      <span>${item.label}</span>
+      <strong>${item.href ? renderContactValue(item) : item.value}</strong>
+    </div>
+  `).join(""));
+
+  setHTML("resumeSkills", (skills || []).map(group => `
+    <li><strong>${group.category}：</strong>${group.description || (group.items || []).map(item => item.name).join("、")}</li>
+  `).join(""));
+
   renderCollection("resumeProjects", projects, project => `
-    <article class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>${project.name}</h3>
-        <p>${project.type || ""}</p>
-      </div>
-      <p class="muted">${project.description || ""}</p>
-      <div class="resume-list">
-        ${(project.focus || []).map(item => `<div class="resume-list-row"><p>${item}</p></div>`).join("")}
-      </div>
-      <div class="tag-list">
-        ${renderTags(project.technologies)}
-      </div>
+    <article class="resume-compact-entry">
+      ${renderResumeEntryHead(project.name, project.role, project.period)}
+      ${renderBulletList(project.bullets || project.focus)}
+    </article>
+  `);
+
+  renderCollection("resumeCampus", campusExperience, item => `
+    <article class="resume-compact-entry">
+      ${renderResumeEntryHead(item.name, item.role, item.period)}
+      ${renderBulletList(item.bullets)}
     </article>
   `);
 
   renderCollection("resumeAwards", awards, award => `
-    <div class="resume-list-row">
+    <div class="resume-award-row">
       <strong>${award.title}</strong>
-      <p>${award.year} · ${award.level}</p>
+      <span>${award.level}</span>
+      <time>${award.period || award.year || ""}</time>
     </div>
   `);
+}
 
-  renderCollection("resumeSkills", skills, group => `
-    <article class="resume-skill-group">
-      <h3>${group.category}</h3>
-      <p>${(group.items || []).map(item => `${item.name}（${item.level}）`).join(" / ")}</p>
-    </article>
-  `);
+function createResumeContacts(personal = {}, social = {}) {
+  const email = social.email || personal.email;
+  const github = social.github || personal.github;
+
+  return [
+    { label: "年级", value: "2023级" },
+    { label: "邮箱", value: email, href: email ? `mailto:${email}` : "" },
+    { label: "方向", value: "NLP / 大模型应用 / Agents" },
+    { label: "地点", value: personal.location },
+    { label: "GitHub", value: github, href: github }
+  ].filter(item => item.value);
+}
+
+function renderResumeEntryHead(name, role, period) {
+  return `
+    <div class="resume-compact-head">
+      <h3>${name || ""}</h3>
+      <span>${role || ""}</span>
+      <time>${period || ""}</time>
+    </div>
+  `;
+}
+
+function renderBulletList(items = []) {
+  return `<ul class="resume-bullet-list">${items.map(item => `<li>${item}</li>`).join("")}</ul>`;
 }
 
 function initNavigation() {
