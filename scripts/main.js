@@ -48,6 +48,10 @@ function applySiteMeta() {
 }
 
 function renderHomePage() {
+  if (document.body.classList.contains("minimal-home")) {
+    renderMinimalHome();
+    return;
+  }
   const { personal, education, research } = profileData;
 
   setText("heroName", personal.name);
@@ -70,6 +74,85 @@ function renderHomePage() {
   renderAwards();
   renderSkills();
   renderContact();
+}
+
+function renderMinimalHome() {
+  const { personal, education, research, homepage = {} } = profileData;
+  setText("heroName", personal.name);
+  setText("heroTitle", personal.title);
+  setText("summaryIntro", homepage.intro);
+  setText("heroStatus", personal.availability);
+  setText("aboutIntro", homepage.about);
+  setText("aboutSupport", homepage.support);
+  setText("educationSchool", education.school);
+  setText("educationDegree", `${education.major} · ${education.period}`);
+  setText("educationNote", education.gpaDescription);
+  setText("educationEnglish", education.english);
+  setHTML("courseList", renderTags(education.courses));
+  setText("futureEducation", homepage.futureEducation);
+  setText("researchRole", `${research.lab} · ${research.role}`);
+  setText("researchMeta", research.period);
+  setText("researchOverview", research.overview);
+  setHTML("researchItems", (research.items || []).map(item => `<li>${item.description}</li>`).join(""));
+  setHTML("skillTags", renderTags(homepage.tools));
+  setHTML("skillsContent", (profileData.skills || []).map(group =>
+    `<p><strong>${group.category}</strong><span>${group.description}</span></p>`
+  ).join(""));
+  setHTML("awardsGrid", (profileData.awards || []).map(award =>
+    `<li><span>${award.year}</span><strong>${award.title}</strong><em>${award.level}</em></li>`
+  ).join(""));
+  setHTML("additionalProjects", (profileData.projects || []).filter(project => project.id === "habitly").map(project =>
+    `<p><strong>${project.name} · ${project.type}</strong><br>${project.description}</p>`
+  ).join(""));
+  const homepageProjects = homepage.projects || [];
+  if (homepageProjects.length) setHTML("projectsGrid", homepageProjects.map((project, index) => `
+    <article class="selected-project">
+      <div class="project-art project-art-${project.visual}" role="img" aria-label="${project.name} 项目概念示意">
+        ${renderProjectArtwork(project.visual)}
+      </div>
+      <div class="selected-project-copy">
+        <div class="project-eyebrow"><span>PROJECT / 0${index + 1}</span><span>${project.kind}</span></div>
+        <h3>${project.name} <span>— ${project.subtitle}</span></h3>
+        <div class="project-case-copy">
+          <div class="case-row"><b class="case-label problem">Problem</b><p>${project.problem}</p></div>
+          <div class="case-row"><b class="case-label solution">Solution</b><p>${project.solution}</p></div>
+          <div class="case-row"><b class="case-label impact">Impact</b><p>${project.impact}</p></div>
+        </div>
+        <div class="project-tech">${renderTags(project.technologies)}</div>
+        <div class="project-actions">
+          <a href="${project.url}" target="_blank" rel="noopener noreferrer">查看源码 ↗</a>
+          <a href="${project.url}#readme" target="_blank" rel="noopener noreferrer">了解项目 ↗</a>
+        </div>
+      </div>
+    </article>
+  `).join(""));
+  document.querySelectorAll("[data-github]").forEach(link => { link.href = personal.github; });
+  document.querySelectorAll("[data-email]").forEach(link => { link.href = `mailto:${personal.email}`; });
+  setText("contactEmail", personal.email);
+  setText("contactLocation", personal.location);
+  setText("footerText", `© ${new Date().getFullYear()} ${personal.nameEn}. Built with care and ☕.`);
+}
+
+function renderProjectArtwork(visual) {
+  if (visual === "review") return `
+    <div class="art-window review-window">
+      <div class="art-toolbar"><b>repo / guardian</b><span>•••</span></div>
+      <div class="review-headline">Good code.<br>Better evidence.</div>
+      <p>PLAN / REVIEW / VERIFY</p>
+      <div class="review-flow"><span>Diff</span><span>Agent</span><span>Evidence</span></div>
+    </div>`;
+  if (visual === "plant") return `
+    <div class="art-window plant-window">
+      <div class="art-toolbar"><b>green.care</b><span>•••</span></div>
+      <div class="plant-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="plant-readings"><span>SOIL</span><span>LIGHT</span><span>TEMP</span></div>
+      <p>CONNECTED TO NATURE.</p>
+    </div>`;
+  return `
+    <div class="art-window bookmark-window">
+      <div class="art-toolbar"><b>REMARKS</b><span>•••</span></div>
+      <div class="bookmark-rows"><span><i>✓</i>开发 / Agents</span><span><i>✓</i>阅读 / 灵感</span><span><i>✓</i>工具 / 日常</span><span><i>✓</i>先预览，再整理</span></div>
+    </div>`;
 }
 
 function renderHeroTags() {

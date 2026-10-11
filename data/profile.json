@@ -7,11 +7,11 @@
   "personal": {
     "name": "王子涵",
     "nameEn": "Wang Zihan",
-    "title": "硕士研究生推免自荐 | NLP · 大模型应用 · Agents",
+    "title": "Agent 开发 · AI 应用工程 · RAG",
     "headline": "面向自然语言处理、大模型应用与智能体方向，持续积累科研理解、工程落地与团队协作能力。",
     "location": "湖北 宜昌",
     "status": "三峡大学 2023 级计算机科学与技术",
-    "email": "202310120423@ctgu.edu.com",
+    "email": "zhwaang@163.com",
     "github": "https://github.com/waangzh",
     "avatar": "assets/avatar.png",
     "heroTags": [
@@ -43,7 +43,8 @@
         "label": "英语水平",
         "value": "CET-4 565 / CET-6 466"
       }
-    ]
+    ],
+    "availability": "开放 AI 应用开发机会"
   },
   "education": {
     "school": "三峡大学",
@@ -243,5 +244,74 @@
   "social": {
     "email": "202310120423@ctgu.edu.com",
     "github": "https://github.com/waangzh"
+  },
+  "homepage": {
+    "intro": "我关注 Agent、RAG 与大模型应用，把复杂问题拆解成可靠、可验证的产品体验。",
+    "about": "我是王子涵，一名关注 Agent、RAG 与 AI 应用开发的计算机专业学生，喜欢把复杂问题拆解为清晰、可靠、可验证的工程流程。",
+    "support": "目前已保研深圳大学计算机科学与技术专业，持续在模型应用、代码审查 Agent 和全栈项目中积累经验。",
+    "futureEducation": "深圳大学 · 计算机科学与技术硕士（保研）",
+    "tools": [
+      "Python",
+      "Java",
+      "LangGraph",
+      "Spring AI",
+      "PyTorch",
+      "FastAPI",
+      "Qdrant",
+      "Git / GitHub"
+    ],
+    "projects": [
+      {
+        "name": "RepoGuardian",
+        "subtitle": "Pull Request Code Review Agent",
+        "kind": "AGENT / 01",
+        "visual": "review",
+        "description": "一个严格只读、基于证据的仓库级代码审查 Agent，支持上下文检索、分层审查与可追溯验证。",
+        "technologies": [
+          "Python",
+          "LangGraph",
+          "Tree-sitter",
+          "Evidence Resolver"
+        ],
+        "url": "https://github.com/waangzh/RepoGuardian",
+        "problem": "大型 PR 中跨文件依赖复杂、上下文受限，审查结论难以验证。",
+        "solution": "通过确定性 Planner 拆分 Review Unit，结合只读上下文检索、证据解析与独立验证完成分层审查。",
+        "impact": "让代码审查过程可预览、可追溯、可恢复，问题定位保留代码证据与检查覆盖状态。"
+      },
+      {
+        "name": "Healing Planet",
+        "subtitle": "Intelligent Plant Care Platform",
+        "kind": "AIoT / 02",
+        "visual": "plant",
+        "description": "把绿植社区、智能花盆与可追溯的 AI 养护助手放在同一套系统中。",
+        "technologies": [
+          "Spring AI",
+          "Hybrid RAG",
+          "IoT",
+          "Qdrant"
+        ],
+        "url": "https://github.com/waangzh/healing-planet",
+        "problem": "植物传感数据、社区知识和设备状态彼此割裂，难以转化为可信的个性化养护建议。",
+        "solution": "融合 IoT 状态感知、Hybrid RAG、多模态识别与 Web/微信小程序，构建 Evidence-first AI 养护链路。",
+        "impact": "形成“感知-分析-交互-推荐”闭环，让 AI 建议具备上下文、证据和实时状态。"
+      },
+      {
+        "name": "ReMarks",
+        "subtitle": "AI Bookmark Organizer",
+        "kind": "EXTENSION / 03",
+        "visual": "bookmarks",
+        "description": "适用于 Chrome、Edge 与 Firefox 的 AI 辅助书签整理扩展，先生成建议，再由用户确认执行。",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "WebExtension",
+          "LLM"
+        ],
+        "url": "https://github.com/waangzh/re-bookmarks",
+        "problem": "书签数量增长后，直接交给 AI 批量移动难以检查，也容易误改原有目录习惯。",
+        "solution": "先生成可审核的分类框架和代表样本，结合本地规则、偏好学习、预览、备份与用户确认后执行。",
+        "impact": "把 AI 整理变成可修正、可撤销的渐进式流程，兼顾分类效率与书签数据安全。"
+      }
+    ]
   }
 }
