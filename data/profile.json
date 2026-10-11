@@ -313,5 +313,115 @@
         "impact": "把 AI 整理变成可修正、可撤销的渐进式流程，兼顾分类效率与书签数据安全。"
       }
     ]
+  },
+  "resume": {
+    "title": "AI 应用开发工程师",
+    "availability": "已保研 · 6 个月以上 · 立即到岗",
+    "education": [
+      {
+        "school": "深圳大学",
+        "degree": "计算机科学与技术 · 硕士（保研）",
+        "period": "2027/09 - 2030/06",
+        "bullets": []
+      },
+      {
+        "school": "三峡大学",
+        "degree": "计算机科学与技术 · 本科",
+        "period": "2023/09 - 2027/06",
+        "bullets": [
+          "主修核心课程：操作系统、面向对象程序设计、计算机组成与原理、数据结构、微型计算机技术。",
+          "主要荣誉：校级一等奖学金、三好学生、优秀共青团员等。"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "category": "编程开发",
+        "description": "熟悉 Java、Python，具备 Spring Boot、FastAPI、REST API 及 SSE 流式接口开发经验。"
+      },
+      {
+        "category": "Agent 与 RAG",
+        "description": "熟悉 LangGraph、Spring AI，具备 Agent Workflow、Tool Calling、上下文检索及混合检索、Rerank 与 RAG 评测实践。"
+      },
+      {
+        "category": "模型基础",
+        "description": "理解 Transformer、KV Cache 等核心原理，基于开源 MiniMind 使用 PyTorch 实践 Pretrain、SFT、LoRA。"
+      },
+      {
+        "category": "工程工具",
+        "description": "熟悉 Git、Linux，具备 MySQL、Redis、Qdrant 及 Docker 使用经验；熟练使用 Codex、Claude Code 等 AI 工具。"
+      }
+    ],
+    "projects": [
+      {
+        "name": "GreenCare：融合知识检索与 IoT 状态感知的智能植物养护系统",
+        "period": "2024/09 - 2026/04",
+        "technologies": [
+          "Java",
+          "Spring Boot",
+          "Spring AI",
+          "Qdrant",
+          "BGE-M3",
+          "Lucene",
+          "MySQL",
+          "Redis",
+          "AMQP",
+          "MCP"
+        ],
+        "description": "面向绿植社区与智能花盆场景，开发集社区服务、设备管理、环境监测、远程控制和 AI 养护问答于一体的智能养护平台；负责 Java 业务后端及 RAG 服务建设。",
+        "bullets": [
+          "业务后端：基于 Spring Boot、MyBatis-Plus 实现用户、植物实例、设备绑定、环境数据及阈值配置等核心模块；结合 JWT、Redis 完成鉴权与缓存，通过阿里云 IoT AMQP 和线程池异步处理 5 类遥测数据，实现数据持久化、设备状态同步及阈值触发控制。",
+          "智能路由：设计 QueryRouter，结合别名匹配、Sparse/Dense 候选召回及受限 LLM 消歧，动态路由正式知识、社区经验与 IoT 状态，处理植物别名、口语表达及多来源查询带来的实体误绑定和检索分流问题。",
+          "混合检索与评测：基于 BGE-M3 + Qdrant 与 Lucene BM25 构建 Hybrid RAG，在逻辑证据粒度执行 RRF 融合，并结合 Reranker 优化证据排序。简历所列评测中，Answer Correctness 从 85.7% 提升至 96.4%（+10.7pp），Recall@10 从 90.4% 提升至 97.0%（+6.4pp）。"
+        ]
+      },
+      {
+        "name": "面向 Pull Request 的可控代码审查 Agent",
+        "period": "2025/11 - 至今",
+        "technologies": [
+          "Python",
+          "FastAPI",
+          "LangGraph",
+          "Tree-sitter",
+          "SQLite",
+          "Multi-Agent"
+        ],
+        "description": "面向大型 PR 中跨文件依赖复杂、模型上下文受限及审查结论难验证的问题，设计严格只读的仓库级代码审查 Agent；采用确定性 Planner + Unit Agent 的分层架构，实现可控、可追溯的多阶段审查。",
+        "bullets": [
+          "审查任务编排：设计确定性 Review Unit Planner，结合 Diff、符号结构与关联关系拆分审查任务，通过 LangGraph 编排独立 Agent 执行，实现并发审查、单元级预算控制和局部重试。",
+          "代码上下文检索：基于 Tree-sitter 和启发式规则构建多语言分级代码索引，提取符号、调用及导入关系；结合只读 Tool Scope 按需检索关联代码与测试上下文，支持跨文件审查。",
+          "审查可靠性：设计 Evidence Resolver 与 Selective Verifier 验证链路，对候选问题执行 Diff 定位、证据校验及选择性语义验证；结合 Checkpoint 和 Review Unit 结果复用，支持中断恢复与增量审查。"
+        ]
+      },
+      {
+        "name": "轻量级 Decoder-Only 语言模型实现与训练",
+        "period": "2025/12 - 至今",
+        "technologies": [
+          "Python",
+          "PyTorch",
+          "Transformer",
+          "Tokenizer",
+          "Pretrain",
+          "SFT",
+          "LoRA"
+        ],
+        "description": "参考主流 Decoder-only 架构，基于 PyTorch 实现约 64M 参数轻量级语言模型，完成模型构建、预训练、指令微调与自回归推理的端到端训练链路。",
+        "bullets": [
+          "模型架构：实现由 8 层 Transformer、768 维 Hidden Size、GQA 构成的 Decoder-only 模型，完成 RMSNorm、RoPE、KV Cache、SwiGLU FFN 与 Causal LM Head 等核心组件，并实现因果语言建模 Loss 与自回归生成。",
+          "训练链路：搭建 Tokenizer → Pretrain → SFT → LoRA 训练流程，完成预训练语料与指令数据构造及 Assistant-only Response Mask；采用 AdamW、BF16 混合精度、梯度累积／裁剪与 Checkpoint 完成模型训练。",
+          "数据构造与验证：引入 Qwen 系列教师模型生成的指令、推理及工具调用数据作为蒸馏样本，对轻量模型进行指令微调；通过固定测试样例对比不同训练阶段的生成结果，验证指令跟随与结构化输出能力。"
+        ]
+      }
+    ],
+    "awards": [
+      {
+        "title": "全国大学生数字媒体科技作品及创意竞赛",
+        "level": "国赛三等奖"
+      },
+      {
+        "title": "中国大学生计算机设计大赛",
+        "level": "中南地区二等奖"
+      }
+    ]
   }
 }

@@ -1,0 +1,50 @@
+/* Shared text navigation for the homepage and resume. */
+body[data-page="home"], body[data-page="resume"] { padding-top: 62px; }
+body[data-page] .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  height: 62px;
+  border: 0;
+  background: rgba(250, 250, 252, .96);
+  backdrop-filter: blur(12px);
+  font-family: "IBM Plex Sans", "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+body .site-header .shell { width: min(1160px, calc(100% - 48px)); }
+body .site-header .site-header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+body .site-header .site-logo { margin-right: auto; color: #141419; font: 500 16px/1.4 "IBM Plex Sans", "Microsoft YaHei", sans-serif; white-space: nowrap; }
+body .site-header .site-nav { display: flex; align-items: center; gap: 30px; }
+body .site-header .nav-link {
+  min-width: 0;
+  padding: 8px 0;
+  border-radius: 0;
+  color: #24242b;
+  background: transparent;
+  box-shadow: none;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.4;
+  white-space: nowrap;
+  transform: none;
+  transition: color .2s;
+}
+body .site-header .nav-link:hover,
+body .site-header .nav-link.active { color: #7753ee; background: transparent; box-shadow: none; transform: none; }
+body .site-header a:focus-visible { outline: 2px solid #7753ee; outline-offset: 4px; }
+body[data-page] main section[id] { scroll-margin-top: 82px; }
+@media (max-width: 600px) {
+  body[data-page="home"], body[data-page="resume"] { padding-top: 92px; }
+  body[data-page] .site-header { height: 92px; }
+  body .site-header .shell { width: calc(100% - 40px); }
+  body .site-header .site-header-inner { flex-wrap: wrap; justify-content: flex-start; gap: 0; padding: 10px 0; }
+  body .site-header .site-logo { font-size: 15px; }
+  body .site-header .site-nav { width: 100%; justify-content: space-between; gap: 10px; }
+  body .site-header .nav-link { font-size: 13px; padding: 6px 0; }
+  body[data-page] main section[id] { scroll-margin-top: 112px; }
+}
+@media print {
+  body[data-page] .site-header { display: none; }
+  body[data-page="resume"] { padding-top: 0; }
+}

@@ -102,6 +102,36 @@ body.minimal-home {
 .minimal-home .agent-tool span { color: #69916f; font-size: 8px; }
 .minimal-home .agent-model { display: none; }
 .minimal-home .agent-footer { grid-area: 4 / 1 / 5 / 4 !important; border: 0 !important; padding: 5px 0 !important; background: transparent !important; display: flex; justify-content: space-between; color: #8b8b8b; font-size: 7px; }
+.minimal-home .hero-bento { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: .8fr 1.55fr .8fr .8fr .18fr; gap: 8px; height: 432px; padding: 15px; }
+.minimal-home .hero-bento > * { min-width: 0; border: 1px solid #d8d8d8; background: rgba(255,255,255,.52); }
+.minimal-home .bento-status { grid-column: 1 / -1; color: #777; font-size: 8px; }
+.minimal-home .bento-status i { display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: #59a56b; }
+.minimal-home .bento-terminal { grid-area: 2 / 1 / 4 / 5; overflow: hidden; background: #1b1d1e !important; border-color: #1b1d1e !important; color: #e4e8e6; }
+.minimal-home .terminal-bar { height: 24px; display: flex; align-items: center; gap: 4px; padding: 0 10px; border-bottom: 1px solid #343837; color: #89928e; font-size: 8px; }
+.minimal-home .terminal-bar span { width: 6px; height: 6px; border-radius: 50%; background: #77807c; }
+.minimal-home .terminal-bar span:first-child { background: #d27d68; }
+.minimal-home .terminal-bar span:nth-child(2) { background: #d7b66b; }
+.minimal-home .terminal-bar span:nth-child(3) { background: #77ae7b; }
+.minimal-home .terminal-bar b { margin-left: auto; font-weight: 400; }
+.minimal-home .terminal-output { padding: 12px 13px; font-size: 9px; line-height: 1.8; white-space: pre-wrap; }
+.minimal-home .terminal-line { display: block; min-height: 16px; }
+.minimal-home .terminal-line.command { color: #80d68c; }
+.minimal-home .terminal-line.command::before { content: "$ "; color: #86d793; }
+.minimal-home .terminal-line.result { color: #d4dad6; padding-left: 11px; }
+.minimal-home .terminal-cursor { display: inline-block; width: 6px; height: 12px; margin-left: 2px; background: #80d68c; vertical-align: -2px; animation: terminal-blink 1s steps(2, jump-none) infinite; }
+@keyframes terminal-blink { 50% { opacity: 0; } }
+.minimal-home .bento-card { padding: 10px 12px; display: flex; flex-direction: column; justify-content: space-between; }
+.minimal-home .bento-card small { color: #888; font-size: 8px; letter-spacing: .3px; }
+.minimal-home .bento-card strong { font: 600 13px/1.2 var(--font-heading); }
+.minimal-home .bento-card span { color: #777; font-size: 8px; line-height: 1.45; }
+.minimal-home .bento-location { grid-area: 4 / 1 / 5 / 2; }
+.minimal-home .bento-skills { grid-area: 4 / 2 / 5 / 3; }
+.minimal-home .bento-github { grid-area: 1 / 4 / 2 / 5; }
+.minimal-home .bento-resume { grid-area: 4 / 3 / 5 / 4; }
+.minimal-home .bento-email { grid-area: 4 / 4 / 5 / 5; }
+.minimal-home .bento-link { transition: background .2s, color .2s; }
+.minimal-home .bento-link:hover { background: #e9eefb; color: #2749be; }
+.minimal-home .bento-footer { grid-area: 5 / 1 / 6 / 5; border: 0 !important; background: transparent !important; display: flex; justify-content: space-between; align-items: end; color: #8b8b8b; font-size: 7px; }
 .minimal-home section[id] { scroll-margin-top: 32px; }
 .minimal-home .projects-section { padding-top: 15px; }
 .minimal-home .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
@@ -222,6 +252,8 @@ body.minimal-home {
   .minimal-home .agent-profile strong { font-size: 17px; }
   .minimal-home .agent-flow > div { margin-top: 10px; font-size: 7px; }
   .minimal-home .agent-query p, .minimal-home .agent-rag span, .minimal-home .agent-tool span { font-size: 7px; }
+  .minimal-home .hero-bento { height: auto; aspect-ratio: 366 / 432; padding: 14px; gap: 7px; }
+  .minimal-home .terminal-output { padding: 10px; font-size: 8px; }
   .minimal-home .composition-rule { margin-top: 23px; width: 95px; }
   .minimal-home .projects-section { padding-top: 62px; }
   .minimal-home h2 { font-size: 16px; letter-spacing: -.5px; }
@@ -261,4 +293,43 @@ body.minimal-home {
 }
 @media (prefers-reduced-motion: reduce) {
   .minimal-home *, .minimal-home *::before { scroll-behavior: auto !important; transition: none !important; }
+}
+
+/* Two-column information cards leave enough room for readable text. */
+.minimal-home .hero-avatar { width: 64px; height: 64px; flex-shrink: 0; object-fit: cover; border-radius: 14px; }
+.minimal-home .hero-bento {
+  width: 410px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto auto auto 22px;
+  gap: 9px;
+}
+.minimal-home .bento-status { font-size: 12px; color: #626262; }
+.minimal-home .bento-terminal { grid-area: 1 / 1 / 2 / 3; }
+.minimal-home .terminal-bar { height: 30px; font-size: 11px; }
+.minimal-home .terminal-output { min-height: 208px; padding: 14px; font: 12px/1.85 "IBM Plex Mono", "Cascadia Code", monospace; overflow-wrap: anywhere; }
+.minimal-home .bento-location { grid-area: 2 / 1 / 3 / 2; }
+.minimal-home .bento-skills { grid-area: 2 / 2 / 3 / 3; }
+.minimal-home .bento-github { grid-area: 3 / 1 / 4 / 2; }
+.minimal-home .bento-resume { grid-area: 3 / 2 / 4 / 3; }
+.minimal-home .bento-email { grid-area: 4 / 1 / 5 / 3; }
+.minimal-home .bento-card { gap: 5px; padding: 12px 14px; }
+.minimal-home .bento-card small { font-size: 11px; color: #666; }
+.minimal-home .bento-card strong { font-size: 15px; }
+.minimal-home .bento-card span { font-size: 12px; color: #626262; overflow-wrap: anywhere; }
+.minimal-home .bento-footer { grid-area: 5 / 1 / 6 / 3; font-size: 10px; }
+@media (min-width: 601px) and (max-width: 1100px) {
+  .minimal-home .hero { gap: 28px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-inline: 0; }
+  .minimal-home .hero h1 { font-size: clamp(28px, 4vw, 44px); letter-spacing: -1px; }
+  .minimal-home .hero-avatar { width: 48px; height: 48px; }
+}
+@media (max-width: 600px) {
+  .minimal-home .hero-avatar { width: 44px; height: 44px; border-radius: 10px; }
+  .minimal-home .hero h1 { font-size: clamp(25px, 7.5vw, 40px); }
+  .minimal-home .hero-bento { width: 100%; padding: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .minimal-home .terminal-cursor { animation: none; }
 }

@@ -8,41 +8,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles/theme.css">
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/resume.css">
+  <link rel="stylesheet" href="styles/navigation.css">
 </head>
 <body data-page="resume">
-  <header class="header">
-    <div class="shell header-inner">
-      <a class="logo" href="index.html">
-        <span class="logo-name">WangZihan</span>
-      </a>
-      <nav class="menu menu-static" aria-label="简历导航">
-        <a class="nav-link" href="index.html">首页</a>
-        <a class="nav-link active" href="resume.html">简历</a>
-      </nav>
-      <button class="theme-toggle" id="themeToggle" aria-label="切换主题" aria-pressed="false" title="切换明暗主题">
-        <span class="theme-toggle-track" aria-hidden="true">
-          <span class="theme-toggle-thumb">
-            <span class="theme-icon theme-icon-light">
-              <svg viewBox="0 0 24 24" class="theme-svg" aria-hidden="true">
-                <circle cx="12" cy="12" r="4.5" fill="currentColor"></circle>
-                <path d="M12 1.75v3M12 19.25v3M1.75 12h3M19.25 12h3M4.4 4.4l2.12 2.12M17.48 17.48l2.12 2.12M19.6 4.4l-2.12 2.12M6.52 17.48 4.4 19.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
-              </svg>
-            </span>
-            <span class="theme-icon theme-icon-dark">
-              <svg viewBox="0 0 24 24" class="theme-svg" aria-hidden="true">
-                <path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.7 8.7 0 1 0 10.2 10.2Z" fill="currentColor"></path>
-              </svg>
-            </span>
-          </span>
-        </span>
-      </button>
-    </div>
-  </header>
-
+<header class="site-header"><div class="shell site-header-inner">
+  <a class="site-logo" href="index.html#home">wangzihan.dev</a>
+  <nav class="site-nav" aria-label="主导航">
+    <a class="nav-link" href="index.html#home">首页</a>
+    <a class="nav-link" href="index.html#projects">项目</a>
+    <a class="nav-link" href="index.html#about">关于</a>
+    <a class="nav-link" href="index.html#contact">联系方式</a>
+    <a class="nav-link active" href="resume.html">简历</a>
+  </nav>
+</div></header>
   <main class="resume-main resume-page-compact">
     <div class="resume-paper">
       <header class="resume-topbar">
@@ -58,26 +41,19 @@
         <div class="resume-strip-title">
           <h2>教育背景</h2>
         </div>
-        <div class="resume-compact-entry">
-          <div class="resume-compact-head">
-            <h3 id="resumeEducationSchool"></h3>
-            <span id="resumeEducationMajor"></span>
-            <time id="resumeEducationPeriod"></time>
-          </div>
-          <ul class="resume-bullet-list" id="resumeEducationNote"></ul>
-        </div>
+        <div class="resume-stack" id="resumeEducation"></div>
       </section>
 
       <section class="resume-section">
         <div class="resume-strip-title">
-          <h2>基本技能</h2>
+          <h2>专业技能</h2>
         </div>
         <ul class="resume-bullet-list resume-skill-list" id="resumeSkills"></ul>
       </section>
 
       <section class="resume-section">
         <div class="resume-strip-title">
-          <h2>科研项目经历</h2>
+          <h2>项目经历</h2>
         </div>
         <div class="resume-stack" id="resumeProjects"></div>
       </section>
@@ -91,14 +67,13 @@
 
       <section class="resume-section">
         <div class="resume-strip-title">
-          <h2>获得情况</h2>
+          <h2>竞赛与荣誉</h2>
         </div>
         <div class="resume-award-list" id="resumeAwards"></div>
       </section>
     </div>
   </main>
 
-  <script src="scripts/theme.js"></script>
   <script src="scripts/main.js" defer></script>
 </body>
 </html>

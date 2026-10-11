@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initScrollSpy();
   initBackToTop();
   initMotion();
+  initTerminalAnimation();
 });
 
 async function loadProfileData() {
@@ -74,6 +75,51 @@ function renderHomePage() {
   renderAwards();
   renderSkills();
   renderContact();
+}
+
+function initTerminalAnimation() {
+  const output = document.getElementById("terminalOutput");
+  if (!output || output.dataset.started === "true") return;
+  output.dataset.started = "true";
+
+  const lines = [
+    ["command", "whoami"],
+    ["result", "wangzihan · agent developer"],
+    ["command", "focus"],
+    ["result", "RAG / tool calling / reliable AI apps"],
+    ["command", "git status"],
+    ["result", "3 projects · working tree clean"]
+  ];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let lineIndex = 0;
+
+  const addLine = () => {
+    if (lineIndex >= lines.length) {
+      output.insertAdjacentHTML("beforeend", '<span class="terminal-line command"><span class="terminal-cursor"></span></span>');
+      return;
+    }
+    const [type, text] = lines[lineIndex++];
+    const line = document.createElement("span");
+    line.className = `terminal-line ${type}`;
+    output.appendChild(line);
+    if (reducedMotion) {
+      line.textContent = text;
+      addLine();
+      return;
+    }
+    let characterIndex = 0;
+    const typeCharacter = () => {
+      line.textContent = text.slice(0, characterIndex++);
+      if (characterIndex <= text.length) {
+        window.setTimeout(typeCharacter, type === "command" ? 42 : 16);
+      } else {
+        window.setTimeout(addLine, type === "command" ? 180 : 260);
+      }
+    };
+    typeCharacter();
+  };
+
+  addLine();
 }
 
 function renderMinimalHome() {
@@ -292,6 +338,10 @@ function renderContact() {
 }
 
 function renderResumePage() {
+  if (profileData.resume) {
+    renderJobResume();
+    return;
+  }
   const { personal, education, projects, awards, skills, social, campusExperience } = profileData;
 
   setText("resumeName", personal.name);
@@ -343,6 +393,39 @@ function renderResumePage() {
       <span>${award.level}</span>
       <time>${award.period || award.year || ""}</time>
     </div>
+  `);
+}
+
+function renderJobResume() {
+  const { personal, resume } = profileData;
+  setText("resumeName", personal.name);
+  setText("resumeTitle", resume.title);
+  const contacts = [
+    { label: "邮箱", value: personal.email, href: `mailto:${personal.email}` },
+    { label: "GitHub", value: personal.github, href: personal.github },
+    { label: "实习", value: resume.availability }
+  ];
+  setHTML("resumeContact", contacts.map(item => `
+    <div class="resume-contact-item"><span>${item.label}</span><strong>${renderContactValue(item)}</strong></div>
+  `).join(""));
+  renderCollection("resumeEducation", resume.education, item => `
+    <article class="resume-compact-entry">
+      ${renderResumeEntryHead(item.school, item.degree, item.period)}
+      ${item.bullets?.length ? renderBulletList(item.bullets) : ""}
+    </article>
+  `);
+  setHTML("resumeSkills", resume.skills.map(item => `<li><strong>${item.category}：</strong>${item.description}</li>`).join(""));
+  renderCollection("resumeProjects", resume.projects, project => `
+    <article class="resume-compact-entry">
+      ${renderResumeEntryHead(project.name, "", project.period)}
+      <p class="resume-project-tech">技术栈：${project.technologies.join(" · ")}</p>
+      <p class="resume-project-summary">${project.description}</p>
+      ${renderBulletList(project.bullets)}
+    </article>
+  `);
+  document.getElementById("resumeCampus")?.closest(".resume-section").remove();
+  renderCollection("resumeAwards", resume.awards, award => `
+    <div class="resume-award-row"><strong>${award.title}</strong><span>${award.level}</span></div>
   `);
 }
 
