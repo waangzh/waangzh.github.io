@@ -84,9 +84,9 @@ function initTerminalAnimation() {
 
   const lines = [
     ["command", "whoami"],
-    ["result", "wangzihan · agent developer"],
+    ["result", "wangzihan · backend & agent developer"],
     ["command", "focus"],
-    ["result", "RAG / tool calling / reliable AI apps"],
+    ["result", "Backend / Agents / LLMs / AI"],
     ["command", "git status"],
     ["result", "3 projects · working tree clean"]
   ];
