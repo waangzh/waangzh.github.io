@@ -5,32 +5,56 @@ body.minimal-home {
   --color-text-muted: #777a80;
   --color-border: #e5e5e5;
   --color-primary: #277ec5;
-  --font-copy: "IBM Plex Mono", "Cascadia Code", "Microsoft YaHei", monospace;
-  --font-heading: "IBM Plex Sans", "Microsoft YaHei", sans-serif;
+  --font-copy: "IBM Plex Sans", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --font-heading: "IBM Plex Sans", "Microsoft YaHei", "PingFang SC", sans-serif;
   padding: 0;
   background: var(--color-bg);
   color: var(--color-text);
-  font: 13px/1.9 var(--font-copy);
+  font: 15px/1.9 var(--font-copy);
+  padding-top: 62px;
 }
 .minimal-home .shell { width: min(1160px, calc(100% - 48px)); }
 .minimal-home a { text-decoration: none; }
 .minimal-home a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 5px; }
-.minimal-home .site-header { height: 62px; border-bottom: 1px solid var(--color-border); }
+.minimal-home .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  height: 62px;
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(250, 250, 250, .94);
+  backdrop-filter: blur(12px);
+}
 .minimal-home .site-header-inner { height: 100%; display: flex; align-items: center; gap: 34px; }
 .minimal-home .site-logo { font: 700 14px var(--font-heading); margin-right: auto; }
 .minimal-home .site-logo span { color: var(--color-primary); }
 .minimal-home .availability { display: flex; align-items: center; gap: 8px; border: 1px solid var(--color-border); padding: 3px 10px; font-size: 10px; color: var(--color-text-muted); background: #fff; }
 .minimal-home .availability::before { content: ""; width: 7px; height: 7px; background: #353535; border-radius: 50%; }
-.minimal-home .site-nav { display: flex; gap: 26px; }
-.minimal-home .nav-link { padding: 0; border-radius: 0; font-size: 11px; }
-.minimal-home .nav-link:hover, .minimal-home .nav-link.active { background: none; color: var(--color-text); }
+.minimal-home .site-nav { display: flex; gap: 8px; align-items: center; }
+.minimal-home .nav-link {
+  min-width: 58px;
+  padding: 9px 12px;
+  border-radius: 11px;
+  color: #6f7378;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+  transition: color .2s, background .2s, box-shadow .2s, transform .2s;
+}
+.minimal-home .nav-link:hover,
+.minimal-home .nav-link.active {
+  color: #fff;
+  background: linear-gradient(145deg, #4d91ff 0%, #2e4cf1 100%);
+  box-shadow: 0 7px 16px rgba(53, 91, 235, .24);
+  transform: translateY(-1px);
+}
 .minimal-home .hero { display: grid; grid-template-columns: 1.6fr 1fr; align-items: center; min-height: 560px; gap: 80px; padding: 72px 30px; }
 .minimal-home .hero h1 { display: flex; align-items: center; gap: 14px; font: 700 clamp(38px, 4.4vw, 64px)/1.12 var(--font-heading); letter-spacing: -2.6px; white-space: nowrap; }
 .minimal-home .hero-emoji { font-size: 38px; letter-spacing: 0; }
 .minimal-home .hero-name { margin-top: 16px; font-size: 18px; line-height: 1.6; }
 .minimal-home .hero-name strong { color: var(--color-primary); }
-.minimal-home .hero-title { margin-top: 20px; color: var(--color-text-muted); font-size: 13px; font-weight: 400; }
-.minimal-home .hero-intro { max-width: 525px; margin-top: 4px; color: var(--color-text-muted); line-height: 2; }
+.minimal-home .hero-title { margin-top: 20px; color: var(--color-text-muted); font-size: 15px; font-weight: 400; }
+.minimal-home .hero-intro { max-width: 525px; margin-top: 4px; color: var(--color-text-muted); line-height: 2; font-size: 15px; }
 .minimal-home .solid-button, .minimal-home .outline-button { display: inline-flex; justify-content: center; align-items: center; padding: 11px 20px; min-height: 44px; font-size: 11px; font-weight: 600; border: 1px solid var(--color-text); transition: background .2s, color .2s; }
 .minimal-home .solid-button { background: var(--color-text); color: #fff; }
 .minimal-home .solid-button:hover { background: #3a3a3a; }
@@ -118,10 +142,10 @@ body.minimal-home {
 .minimal-home .project-eyebrow { display: flex; justify-content: space-between; font-size: 9px; color: #888; }
 .minimal-home .project-eyebrow span { border: 1px solid #e1e1e1; padding: 1px 7px; line-height: 1.8; }
 .minimal-home .selected-project h3 { font: 600 19px/1.4 var(--font-copy); margin: 14px 0 10px; letter-spacing: -.6px; }
-.minimal-home .selected-project-copy > p { color: var(--color-text-muted); font-size: 11px; line-height: 1.9; max-width: 670px; }
+.minimal-home .selected-project-copy > p { color: var(--color-text-muted); font-size: 13px; line-height: 1.9; max-width: 670px; }
 .minimal-home .project-case-copy { display: grid; gap: 8px; margin-top: 3px; }
 .minimal-home .case-row { display: grid; grid-template-columns: 67px minmax(0, 1fr); gap: 10px; align-items: start; }
-.minimal-home .case-row p { margin: 0; color: #555; font-size: 10px; line-height: 1.65; }
+.minimal-home .case-row p { margin: 0; color: #555; font-size: 13px; line-height: 1.75; }
 .minimal-home .case-label { width: max-content; min-width: 57px; padding: 1px 7px; border-radius: 3px; color: #fff; font: 600 10px/1.65 var(--font-heading); text-align: center; }
 .minimal-home .case-label.problem { background: #ef553f; }
 .minimal-home .case-label.solution { background: #3b9ad1; }
@@ -136,7 +160,7 @@ body.minimal-home {
 .minimal-home .about-section { padding-top: 85px; padding-bottom: 78px; }
 .minimal-home .section-kicker { font-size: 10px; color: #96999d; letter-spacing: .6px; margin-bottom: 12px; }
 .minimal-home .about-grid { display: grid; grid-template-columns: 1.8fr 1fr; gap: 54px; }
-.minimal-home .about-copy > p { color: var(--color-text-muted); line-height: 2.1; margin-top: 15px; }
+.minimal-home .about-copy > p { color: var(--color-text-muted); line-height: 2.1; margin-top: 15px; font-size: 15px; }
 .minimal-home .tools { border-left: 1px solid var(--color-border); padding-left: 32px; margin-top: 2px; }
 .minimal-home .tool-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
 .minimal-home .tool-tags .tag { padding: 5px 10px; background: #fff; }
@@ -177,11 +201,12 @@ body.minimal-home {
   .minimal-home { font-size: 12px; }
   .minimal-home .shell { width: calc(100% - 40px); }
   .minimal-home .site-header { height: 64px; }
+  body.minimal-home { padding-top: 64px; }
   .minimal-home .site-header-inner { gap: 12px; }
   .minimal-home .site-logo { font-size: 12px; white-space: nowrap; }
   .minimal-home .availability { display: none; }
-  .minimal-home .site-nav { gap: 12px; }
-  .minimal-home .nav-link { font-size: 9px; }
+  .minimal-home .site-nav { gap: 4px; }
+  .minimal-home .nav-link { min-width: 45px; padding: 8px 7px; border-radius: 9px; font-size: 11px; }
   .minimal-home .hero { display: flex; flex-direction: column; align-items: stretch; gap: 26px; min-height: 0; padding: 65px 0 0; }
   .minimal-home .hero h1 { font-size: clamp(29px, 8.1vw, 40px); gap: 10px; letter-spacing: -1.5px; }
   .minimal-home .hero-emoji { font-size: 25px; }
@@ -217,7 +242,7 @@ body.minimal-home {
   .minimal-home .selected-project-copy > p { font-size: 10px; line-height: 1.95; }
   .minimal-home .project-case-copy { gap: 7px; }
   .minimal-home .case-row { grid-template-columns: 58px minmax(0, 1fr); gap: 7px; }
-  .minimal-home .case-row p { font-size: 9px; line-height: 1.65; }
+  .minimal-home .case-row p { font-size: 11px; line-height: 1.7; }
   .minimal-home .case-label { min-width: 50px; padding-inline: 5px; font-size: 9px; }
   .minimal-home .project-tech { gap: 5px; margin: 14px 0 18px; }
   .minimal-home .project-tech .tag { font-size: 8px; padding: 2px 6px; }
@@ -225,7 +250,7 @@ body.minimal-home {
   .minimal-home .about-section { padding: 68px 0 56px; }
   .minimal-home .section-kicker { font-size: 9px; margin-bottom: 13px; }
   .minimal-home .about-grid { display: flex; flex-direction: column; gap: 32px; }
-  .minimal-home .about-copy > p { margin-top: 18px; font-size: 12px; line-height: 2.1; }
+  .minimal-home .about-copy > p { margin-top: 18px; font-size: 13px; line-height: 2.1; }
   .minimal-home .tools { border-left: 0; padding: 0; margin: 0; }
   .minimal-home .tool-tags { gap: 7px; }
   .minimal-home .tool-tags .tag { font-size: 9px; padding: 5px 8px; }

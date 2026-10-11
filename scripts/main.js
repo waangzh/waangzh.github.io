@@ -404,19 +404,27 @@ function initScrollSpy() {
   const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
   if (!sections.length) return;
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach(link => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-      });
-    });
-  }, {
-    rootMargin: "-20% 0px -65% 0px",
-    threshold: 0
-  });
+  const updateActiveSection = () => {
+    const bottomReached = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+    let activeSection = sections[0];
 
-  sections.forEach(section => observer.observe(section));
+    if (bottomReached) {
+      activeSection = sections[sections.length - 1];
+    } else {
+      const marker = window.scrollY + window.innerHeight * 0.38;
+      sections.forEach(section => {
+        if (section.offsetTop <= marker) activeSection = section;
+      });
+    }
+
+    navLinks.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${activeSection.id}`);
+    });
+  };
+
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection);
+  updateActiveSection();
 }
 
 function initBackToTop() {
