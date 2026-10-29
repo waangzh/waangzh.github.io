@@ -48,64 +48,17 @@ body.minimal-home {
   box-shadow: 0 7px 16px rgba(53, 91, 235, .24);
   transform: translateY(-1px);
 }
-.minimal-home .hero { display: grid; grid-template-columns: 1.6fr 1fr; align-items: center; min-height: 560px; gap: 80px; padding: 72px 30px; }
-.minimal-home .hero h1 { display: flex; align-items: center; gap: 14px; font: 700 clamp(40px, 4.4vw, 66px)/1.12 var(--font-heading); letter-spacing: -2.6px; white-space: nowrap; }
-.minimal-home .hero-emoji { font-size: 38px; letter-spacing: 0; }
-.minimal-home .hero-name { margin-top: 16px; font-size: 19px; line-height: 1.6; }
-.minimal-home .hero-name strong { color: var(--color-primary); }
-.minimal-home .hero-title { margin-top: 20px; color: var(--color-text-muted); font-size: 16px; font-weight: 400; }
-.minimal-home .hero-intro { max-width: 525px; margin-top: 4px; color: var(--color-text-muted); line-height: 2; font-size: 15px; }
+.minimal-home .hero { padding: 64px 0 48px; }
+.minimal-home .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .minimal-home .solid-button, .minimal-home .outline-button { display: inline-flex; justify-content: center; align-items: center; padding: 11px 20px; min-height: 44px; font-size: 12px; font-weight: 600; border: 1px solid var(--color-text); transition: background .2s, color .2s; }
 .minimal-home .solid-button { background: var(--color-text); color: #fff; }
 .minimal-home .solid-button:hover { background: #3a3a3a; }
 .minimal-home .outline-button { border-color: #d9d9d9; }
 .minimal-home .outline-button:hover { background: #eee; }
-.minimal-home .hero .solid-button { margin-top: 32px; }
-.minimal-home .hero-composition { position: relative; width: 366px; height: 432px; max-width: 100%; justify-self: center; border: 1px solid #eaeaea; padding: 23px; background: #f4f4f4; box-shadow: -10px 10px 0 #f7f7f7; }
+.minimal-home .hero-composition { position: relative; width: 100%; max-width: 100%; border: 1px solid #eaeaea; padding: 23px; background: #f4f4f4; box-shadow: -10px 10px 0 #f7f7f7; }
 .minimal-home .hero-composition::before { content: ""; position: absolute; width: 94px; height: 1px; background: #d3d3d3; left: 0; top: -1px; }
-.minimal-home .composition-grid { display: grid; height: 342px; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(4, 1fr); gap: 9px; }
-.minimal-home .composition-grid span { border: 1px solid #d9d9d9; background: #f7f7f7; }
-.minimal-home .composition-grid span:nth-child(1) { grid-area: 1 / 1 / 3 / 3; background: #dedede; }
-.minimal-home .composition-grid span:nth-child(2) { grid-area: 1 / 3 / 2 / 5; }
-.minimal-home .composition-grid span:nth-child(3) { grid-area: 1 / 5 / 2 / 7; }
-.minimal-home .composition-grid span:nth-child(4) { grid-area: 2 / 3 / 4 / 7; }
-.minimal-home .composition-grid span:nth-child(5) { grid-area: 3 / 1 / 4 / 2; }
-.minimal-home .composition-grid span:nth-child(6) { grid-area: 3 / 2 / 4 / 3; background: #dedede; }
-.minimal-home .composition-grid span:nth-child(7) { grid-area: 4 / 1 / 5 / 3; }
-.minimal-home .composition-grid span:nth-child(8) { grid-area: 4 / 3 / 5 / 5; }
-.minimal-home .composition-grid span:nth-child(9) { grid-area: 4 / 5 / 5 / 7; }
-.minimal-home .composition-rule { display: block; width: 100px; height: 2px; background: #d9d9d9; margin-top: 25px; }
-.minimal-home .agent-grid { position: relative; grid-template-columns: 1.1fr 1.2fr 1fr; grid-template-rows: 1fr .8fr 1.1fr .22fr; gap: 8px; height: 100%; }
-.minimal-home .agent-grid span { border: 0; background: transparent; }
-.minimal-home .agent-grid > div { overflow: hidden; border: 1px solid #d7d7d7; background: rgba(255,255,255,.48); padding: 10px; }
-.minimal-home .agent-grid small, .minimal-home .mini-label { display: block; color: #8a8a8a; font: 8px/1.35 var(--font-copy); letter-spacing: .3px; }
-.minimal-home .agent-profile { grid-area: 1 / 1 / 3 / 2; background: #dedede !important; border-color: #d1d1d1 !important; display: flex; flex-direction: column; justify-content: space-between; }
-.minimal-home .agent-profile strong { font: 600 20px/1.02 var(--font-heading); letter-spacing: -1px; }
-.minimal-home .agent-profile small { color: #676767; }
-.minimal-home .agent-status { grid-area: 1 / 2 / 2 / 3; display: flex; flex-direction: column; justify-content: center; }
-.minimal-home .agent-status b { font: 600 12px var(--font-copy); margin: 3px 0; }
-.minimal-home .status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 4px; border-radius: 50%; background: #6a9b68; }
-.minimal-home .agent-metric { grid-area: 1 / 3 / 2 / 4; display: flex; flex-direction: column; justify-content: center; }
-.minimal-home .agent-metric strong { font: 600 25px/1 var(--font-heading); }
-.minimal-home .agent-metric em { color: #4c8b69; font: normal 8px var(--font-copy); }
-.minimal-home .agent-flow { grid-area: 2 / 2 / 4 / 4; padding-top: 13px !important; }
-.minimal-home .agent-flow > div { margin-top: 14px; color: #5f5f5f; font-size: 8px; }
-.minimal-home .agent-flow i { display: inline-block; width: 5px; height: 5px; margin: 0 5px 1px 0; border-radius: 50%; background: #252525; }
-.minimal-home .agent-query { grid-area: 3 / 1 / 4 / 2; background: #f4f4f4 !important; display: flex; gap: 5px; align-items: flex-start; }
-.minimal-home .agent-query span { font-size: 22px; line-height: 1; color: #969696; }
-.minimal-home .agent-query p { margin: 0; font-size: 8px; line-height: 1.5; }
-.minimal-home .agent-rag { grid-area: 3 / 2 / 4 / 3; display: flex; flex-direction: column; justify-content: space-between; }
-.minimal-home .agent-rag strong { font: 600 24px/1 var(--font-heading); }
-.minimal-home .agent-rag span { color: #888; font-size: 8px; }
-.minimal-home .agent-tool { grid-area: 3 / 3 / 4 / 4; display: flex; flex-direction: column; justify-content: space-between; }
-.minimal-home .agent-tool b { font: 600 11px var(--font-copy); }
-.minimal-home .agent-tool span { color: #69916f; font-size: 8px; }
-.minimal-home .agent-model { display: none; }
-.minimal-home .agent-footer { grid-area: 4 / 1 / 5 / 4 !important; border: 0 !important; padding: 5px 0 !important; background: transparent !important; display: flex; justify-content: space-between; color: #8b8b8b; font-size: 7px; }
 .minimal-home .hero-bento { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: .8fr 1.55fr .8fr .8fr .18fr; gap: 8px; height: 432px; padding: 15px; }
 .minimal-home .hero-bento > * { min-width: 0; border: 1px solid #d8d8d8; background: rgba(255,255,255,.52); }
-.minimal-home .bento-status { grid-column: 1 / -1; color: #777; font-size: 8px; }
-.minimal-home .bento-status i { display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: #59a56b; }
 .minimal-home .bento-terminal { grid-area: 2 / 1 / 4 / 5; overflow: hidden; background: #1b1d1e !important; border-color: #1b1d1e !important; color: #e4e8e6; }
 .minimal-home .terminal-bar { height: 24px; display: flex; align-items: center; gap: 4px; padding: 0 10px; border-bottom: 1px solid #343837; color: #89928e; font-size: 8px; }
 .minimal-home .terminal-bar span { width: 6px; height: 6px; border-radius: 50%; background: #77807c; }
@@ -129,7 +82,6 @@ body.minimal-home {
 .minimal-home .bento-projects { grid-area: 4 / 4 / 5 / 5; }
 .minimal-home .bento-link { transition: background .2s, color .2s; }
 .minimal-home .bento-link:hover { background: #e9eefb; color: #2749be; }
-.minimal-home .bento-footer { grid-area: 5 / 1 / 6 / 5; border: 0 !important; background: transparent !important; display: flex; justify-content: space-between; align-items: end; color: #8b8b8b; font-size: 7px; }
 .minimal-home section[id] { scroll-margin-top: 32px; }
 .minimal-home .projects-section { padding-top: 15px; }
 .minimal-home .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; }
@@ -145,6 +97,8 @@ body.minimal-home {
 .minimal-home .project-row:hover .project-mark { border-color: var(--color-primary); color: var(--color-primary); }
 .minimal-home .project-row:hover .project-desc { color: #555; }
 .minimal-home .project-mark { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--color-border); color: #555; font: 600 13px var(--font-heading); transition: border-color .2s ease, color .2s ease; }
+.minimal-home .project-mark.has-icon { border: 0; }
+.minimal-home .project-mark img { width: 100%; height: 100%; object-fit: contain; }
 .minimal-home .project-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
 .minimal-home .project-head h3 { font: 600 19px/1.4 var(--font-copy); letter-spacing: -.4px; }
 .minimal-home .project-head h3 a { border-bottom: 1px solid transparent; }
@@ -164,14 +118,11 @@ body.minimal-home {
 .minimal-home .contact-section .section-kicker { margin: 0 0 6px; }
 .minimal-home .contact-actions { display: flex; gap: 10px; flex-shrink: 0; }
 .minimal-home .contact-meta { font-size: 11px !important; overflow-wrap: anywhere; }
-.minimal-home .site-footer { border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; padding: 25px 0 30px; font-size: 11px; color: #8b8b8b; }
+.minimal-home .site-footer { border-top: 1px solid var(--color-border); display: flex; justify-content: flex-end; padding: 25px 0 30px; font-size: 11px; color: #8b8b8b; }
 .minimal-home .footer-links { display: flex; gap: 24px; }
 @media (max-width: 960px) {
-  .minimal-home .hero { gap: 40px; padding-inline: 0; }
-  .minimal-home .hero h1 { font-size: 48px; }
-  .minimal-home .hero-emoji { font-size: 28px; }
-  .minimal-home .hero-composition { width: 300px; height: 354px; padding: 20px; }
-  .minimal-home .composition-grid { height: 277px; }
+  .minimal-home .hero { padding: 48px 0 40px; }
+  .minimal-home .hero-composition { width: 100%; height: auto; padding: 20px; }
   .minimal-home .contact-section h2 { font-size: 36px; }
 }
 @media (max-width: 600px) {
@@ -184,24 +135,9 @@ body.minimal-home {
   .minimal-home .availability { display: none; }
   .minimal-home .site-nav { gap: 4px; }
   .minimal-home .nav-link { min-width: 45px; padding: 8px 7px; border-radius: 9px; font-size: 12px; }
-  .minimal-home .hero { display: flex; flex-direction: column; align-items: stretch; gap: 26px; min-height: 0; padding: 65px 0 0; }
-  .minimal-home .hero h1 { font-size: clamp(31px, 8.1vw, 42px); gap: 10px; letter-spacing: -1.5px; }
-  .minimal-home .hero-emoji { font-size: 25px; }
-  .minimal-home .hero-name { font-size: 16px; margin-top: 12px; }
-  .minimal-home .hero-title { font-size: 13px; margin-top: 22px; }
-  .minimal-home .hero-intro { font-size: 12px; line-height: 1.95; max-width: 325px; }
-  .minimal-home .hero .solid-button { margin-top: 28px; }
+  .minimal-home .hero { padding: 40px 0 0; }
   .minimal-home .solid-button, .minimal-home .outline-button { min-height: 43px; padding: 10px 18px; font-size: 11px; }
-  .minimal-home .hero-composition { width: 100%; height: auto; aspect-ratio: 366 / 432; padding: 23px; box-shadow: -8px 8px 0 #f7f7f7; }
-  .minimal-home .composition-grid { height: 88%; gap: 9px; }
-  .minimal-home .agent-grid { height: 100%; gap: 7px; }
-  .minimal-home .agent-grid > div { padding: 9px; }
-  .minimal-home .agent-profile strong { font-size: 17px; }
-  .minimal-home .agent-flow > div { margin-top: 10px; font-size: 7px; }
-  .minimal-home .agent-query p, .minimal-home .agent-rag span, .minimal-home .agent-tool span { font-size: 7px; }
-  .minimal-home .hero-bento { height: auto; aspect-ratio: 366 / 432; padding: 14px; gap: 7px; }
-  .minimal-home .terminal-output { padding: 10px; font-size: 8px; }
-  .minimal-home .composition-rule { margin-top: 23px; width: 95px; }
+  .minimal-home .hero-composition { padding: 14px; box-shadow: -8px 8px 0 #f7f7f7; }
   .minimal-home .projects-section { padding-top: 62px; }
   .minimal-home h2 { font-size: 17px; letter-spacing: -.5px; }
   .minimal-home .section-heading { margin-bottom: 24px; gap: 8px; }
@@ -223,38 +159,31 @@ body.minimal-home {
   .minimal-home *, .minimal-home *::before { scroll-behavior: auto !important; transition: none !important; }
 }
 
-/* Two-column information cards leave enough room for readable text. */
-.minimal-home .hero-avatar { width: 64px; height: 64px; flex-shrink: 0; object-fit: cover; border-radius: 14px; }
 .minimal-home .hero-bento {
-  width: 410px;
+  width: 100%;
   max-width: 100%;
   height: auto;
-  aspect-ratio: auto;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: auto auto auto auto 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto auto;
   gap: 9px;
 }
-.minimal-home .bento-status { font-size: 13px; color: #626262; }
-.minimal-home .bento-terminal { grid-area: 1 / 1 / 2 / 3; }
+.minimal-home .bento-terminal { grid-area: 1 / 1 / 2 / 4; }
 .minimal-home .terminal-bar { height: 30px; font-size: 12px; }
-.minimal-home .terminal-output { min-height: 208px; padding: 14px; font: 13px/1.85 "Geist Mono", "Cascadia Code", monospace; overflow-wrap: anywhere; }
-.minimal-home .bento-skills { grid-area: 2 / 1 / 3 / 3; }
-.minimal-home .bento-github { grid-area: 3 / 1 / 4 / 3; }
-.minimal-home .bento-projects { grid-area: 4 / 1 / 5 / 3; }
+.minimal-home .terminal-output { min-height: 208px; padding: 14px; font: 16px/1.9 "Geist Mono", "Cascadia Code", monospace; overflow-wrap: anywhere; }
+.minimal-home .bento-skills { grid-area: 2 / 1 / 3 / 2; }
+.minimal-home .bento-github { grid-area: 2 / 2 / 3 / 3; }
+.minimal-home .bento-projects { grid-area: 2 / 3 / 3 / 4; }
 .minimal-home .bento-card { gap: 5px; padding: 12px 14px; }
 .minimal-home .bento-card small { font-size: 12px; color: #666; }
 .minimal-home .bento-card strong { font-size: 16px; }
 .minimal-home .bento-card span { font-size: 13px; color: #626262; overflow-wrap: anywhere; }
-.minimal-home .bento-footer { grid-area: 5 / 1 / 6 / 3; font-size: 11px; }
-@media (min-width: 601px) and (max-width: 1100px) {
-  .minimal-home .hero { gap: 28px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-inline: 0; }
-  .minimal-home .hero h1 { font-size: clamp(30px, 4vw, 46px); letter-spacing: -1px; }
-  .minimal-home .hero-avatar { width: 48px; height: 48px; }
-}
 @media (max-width: 600px) {
-  .minimal-home .hero-avatar { width: 44px; height: 44px; border-radius: 10px; }
-  .minimal-home .hero h1 { font-size: clamp(27px, 7.5vw, 42px); }
-  .minimal-home .hero-bento { width: 100%; padding: 12px; }
+  .minimal-home .hero-bento { width: 100%; padding: 10px; grid-template-columns: 1fr; grid-template-rows: auto auto auto auto; gap: 7px; }
+  .minimal-home .bento-terminal { grid-area: 1 / 1 / 2 / 2; }
+  .minimal-home .bento-skills { grid-area: 2 / 1 / 3 / 2; }
+  .minimal-home .bento-github { grid-area: 3 / 1 / 4 / 2; }
+  .minimal-home .bento-projects { grid-area: 4 / 1 / 5 / 2; }
+  .minimal-home .terminal-output { padding: 10px; font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .minimal-home .terminal-cursor { animation: none; }

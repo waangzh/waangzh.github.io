@@ -77,9 +77,9 @@ function initTerminalAnimation() {
 
   const lines = [
     ["command", "whoami"],
-    ["result", "kevin · backend & agent developer"],
+    ["result", "kevin · fullstack & agent developer"],
     ["command", "focus"],
-    ["result", "Backend / Agents / LLMs / AI"],
+    ["result", "Fullstack / Agents / LLMs / AI"],
     ["command", "git status"],
     ["result", `${(profileData.homepage?.projects || []).length} projects · working tree clean`]
   ];
@@ -123,7 +123,7 @@ function renderMinimalHome() {
   const homepageProjects = homepage.projects || [];
   if (homepageProjects.length) setHTML("projectsGrid", homepageProjects.map(project => `
     <article class="project-row">
-      <div class="project-mark" aria-hidden="true">${project.mark || ""}</div>
+      <div class="project-mark${project.icon ? " has-icon" : ""}" aria-hidden="true">${project.icon ? `<img src="${project.icon}" alt="">` : (project.mark || "")}</div>
       <div class="project-body">
         <div class="project-head">
           <h3><a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.name}</a><span class="project-subtitle">${project.subtitle}</span></h3>
@@ -137,7 +137,6 @@ function renderMinimalHome() {
     </article>
   `).join(""));
   document.querySelectorAll("[data-github]").forEach(link => { link.href = personal.github; });
-  setText("footerText", `© ${new Date().getFullYear()} ${personal.nameEn}. Built with care and ☕.`);
 }
 
 function renderHeroTags() {

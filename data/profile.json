@@ -173,6 +173,7 @@
         "name": "RepoGuardian",
         "subtitle": "Pull Request Code Review Agent",
         "mark": "RG",
+        "icon": "assets/repoguardian-app-icon.png",
         "description": "一个严格只读、基于证据的仓库级代码审查 Agent，支持上下文检索、分层审查与可追溯验证。",
         "technologies": [
           "Python",
@@ -186,6 +187,7 @@
         "name": "Healing Planet",
         "subtitle": "Intelligent Plant Care Platform",
         "mark": "HP",
+        "icon": "assets/healing-planet.png",
         "description": "把绿植社区、智能花盆与可追溯的 AI 养护助手放在同一套系统中。",
         "technologies": [
           "Spring AI",
@@ -199,6 +201,7 @@
         "name": "ReMarks",
         "subtitle": "AI Bookmark Organizer",
         "mark": "RM",
+        "icon": "assets/remarks.png",
         "description": "适用于 Chrome、Edge 与 Firefox 的 AI 辅助书签整理扩展，先生成建议，再由用户确认执行。",
         "technologies": [
           "React",
