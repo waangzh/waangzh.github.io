@@ -1,92 +1,34 @@
 {
   "site": {
-    "title": "王子涵 | 个人主页",
-    "description": "王子涵的个人主页，展示三峡大学计算机科学与技术背景、硕士研究生推免自荐信息、AI 应用项目经历与竞赛获奖。",
-    "keywords": "王子涵, 三峡大学, 计算机科学与技术, 推免, NLP, 大模型应用, Agents, 微信小程序, 个人主页"
+    "title": "Kevin | Agent & AI 应用开发",
+    "description": "Kevin 的 AI 应用开发主页，展示 Agent、RAG 相关项目与技术方向。",
+    "keywords": "Kevin, Agent, RAG, NLP, 大模型应用, 微信小程序"
   },
   "personal": {
-    "name": "王子涵",
-    "nameEn": "Wang Zihan",
+    "name": "Kevin",
+    "nameEn": "Kevin",
     "title": "Agent 开发 · AI 应用工程 · RAG",
     "headline": "面向自然语言处理、大模型应用与智能体方向，持续积累科研理解、工程落地与团队协作能力。",
-    "location": "湖北 宜昌",
-    "status": "三峡大学 2023 级计算机科学与技术",
-    "email": "zhwaang@163.com",
     "github": "https://github.com/waangzh",
-    "avatar": "assets/avatar.png",
     "heroTags": [
-      "推免自荐",
       "NLP",
       "大模型应用",
       "Agents"
     ],
     "summary": [
-      "三峡大学计算机科学与技术专业 2023 级学生，关注自然语言处理、大模型应用与智能体方向。",
-      "在课程学习、竞赛项目和实验室组织中持续积累工程实现、模型应用和团队推进经验，能够围绕具体场景完成从需求拆解到功能落地的闭环。",
-      "希望在研究生阶段进一步提升科研训练深度，将持续学习能力、项目实践经验与问题分析能力转化为稳定的研究和工程产出。"
+      "关注自然语言处理、大模型应用与智能体方向。",
+      "在项目开发和团队协作中持续积累工程实现、模型应用和团队推进经验，能够围绕具体场景完成从需求拆解到功能落地的闭环。",
+      "希望进一步提升科研训练深度，将持续学习能力、项目实践经验与问题分析能力转化为稳定的研究和工程产出。"
     ],
     "skillFocus": [
       "具备 Java 后端开发与微信小程序开发能力，能够完成前后端基础功能实现。",
       "熟悉 PyTorch 框架，掌握深度学习基础理论、模型训练流程与常见调参方法。",
       "了解大语言模型应用开发思路，能够结合具体场景开展智能应用探索。"
     ],
-    "metrics": [
-      {
-        "label": "绩点",
-        "value": "3.62 / 4.00"
-      },
-      {
-        "label": "专业排名",
-        "value": "前 8%（18 / 254）"
-      },
-      {
-        "label": "英语水平",
-        "value": "CET-4 565 / CET-6 466"
-      }
-    ],
     "availability": "开放 AI 应用开发机会"
   },
-  "education": {
-    "school": "三峡大学",
-    "degree": "本科",
-    "major": "计算机科学与技术",
-    "grade": "2023 级",
-    "period": "2023.09 - 至今",
-    "gpa": "3.62 / 4.00",
-    "ranking": "前 8%（18 / 254）",
-    "english": "CET-4（565）、CET-6（466）",
-    "gpaDescription": "专业绩点 3.62/4.00，专业排名前 8%（18/254），连续两年荣获校级奖学金。",
-    "courses": [
-      "数据结构（97）",
-      "软件工程（96）",
-      "操作系统（100）",
-      "计算机网络（95）",
-      "计算机组成与原理（98）"
-    ]
-  },
-  "research": {
-    "lab": "启明星创新实验室",
-    "direction": "NLP · 大模型应用 · Agents",
-    "period": "2024.10 - 至今",
-    "role": "开发组组长",
-    "overview": "围绕竞赛项目和实验室开发任务，组织成员参与项目设计、功能实现、进度推进与作品申报，持续沉淀 AI 应用落地和团队协作经验。",
-    "items": [
-      {
-        "title": "项目组织与任务分配",
-        "description": "负责开发组日常管理与任务分配，组织成员参与计算机设计大赛、数字媒体科技作品及创意竞赛等项目。"
-      },
-      {
-        "title": "功能实现与项目推进",
-        "description": "协助完成项目需求分析、参与需求沟通、功能实现、进度跟进与问题协调，保障项目按计划推进。"
-      },
-      {
-        "title": "成员培养与协作",
-        "description": "指导低年级成员学习编程基础、项目开发流程与常用工具使用，帮助成员提升实践能力与团队协作能力。"
-      }
-    ],
-    "papers": [],
-    "note": ""
-  },
+  "education": {},
+  "research": {},
   "projects": [
     {
       "id": "healing-planet",
@@ -153,38 +95,7 @@
       "links": {}
     }
   ],
-  "campusExperience": [
-    {
-      "name": "启明星创新实验室",
-      "role": "开发组组长",
-      "period": "2024.10 - 至今",
-      "bullets": [
-        "负责开发组日常管理与任务分配，组织成员参与中国大学生计算机设计大赛、全国大学生数字媒体科技作品及创意竞赛等学科竞赛，推进选题设计、项目开发与作品申报等工作。",
-        "协助完成学院内部相关开发任务，参与需求沟通、功能实现、进度跟进与问题协调，保障项目按计划推进。",
-        "指导低年级成员学习编程基础、项目开发流程与常用工具使用，帮助成员提升实践能力与团队协作能力。"
-      ]
-    }
-  ],
-  "awards": [
-    {
-      "title": "全国大学生数字媒体科技作品及创意竞赛",
-      "year": "2025",
-      "period": "2025.10 - 2025.12",
-      "level": "国赛三等奖"
-    },
-    {
-      "title": "中国大学生计算机设计大赛",
-      "year": "2025",
-      "period": "2025.04 - 2025.06",
-      "level": "省赛二等奖"
-    },
-    {
-      "title": "蓝桥杯全国软件和信息技术专业人才大赛",
-      "year": "2025",
-      "period": "2025.04 - 2025.05",
-      "level": "省赛二等奖"
-    }
-  ],
+  "campusExperience": [],
   "skills": [
     {
       "category": "开发能力",
@@ -242,14 +153,11 @@
     }
   ],
   "social": {
-    "email": "202310120423@ctgu.edu.com",
     "github": "https://github.com/waangzh"
   },
   "homepage": {
-    "intro": "我关注 Agent、RAG 与大模型应用，把复杂问题拆解成可靠、可验证的产品体验。",
-    "about": "我是王子涵，一名关注 Agent、RAG 与 AI 应用开发的计算机专业学生，喜欢把复杂问题拆解为清晰、可靠、可验证的工程流程。",
-    "support": "目前已保研深圳大学计算机科学与技术专业，持续在模型应用、代码审查 Agent 和全栈项目中积累经验。",
-    "futureEducation": "深圳大学 · 计算机科学与技术硕士（保研）",
+    "about": "我是 Kevin，一名关注 Agent、RAG 与 AI 应用开发的开发者，喜欢把复杂问题拆解为清晰、可靠、可验证的工程流程。",
+    "support": "持续在模型应用、代码审查 Agent 和全栈项目中积累经验。",
     "tools": [
       "Python",
       "Java",
@@ -264,8 +172,7 @@
       {
         "name": "RepoGuardian",
         "subtitle": "Pull Request Code Review Agent",
-        "kind": "AGENT / 01",
-        "visual": "review",
+        "mark": "RG",
         "description": "一个严格只读、基于证据的仓库级代码审查 Agent，支持上下文检索、分层审查与可追溯验证。",
         "technologies": [
           "Python",
@@ -273,16 +180,12 @@
           "Tree-sitter",
           "Evidence Resolver"
         ],
-        "url": "https://github.com/waangzh/RepoGuardian",
-        "problem": "大型 PR 中跨文件依赖复杂、上下文受限，审查结论难以验证。",
-        "solution": "通过确定性 Planner 拆分 Review Unit，结合只读上下文检索、证据解析与独立验证完成分层审查。",
-        "impact": "让代码审查过程可预览、可追溯、可恢复，问题定位保留代码证据与检查覆盖状态。"
+        "url": "https://github.com/waangzh/RepoGuardian"
       },
       {
         "name": "Healing Planet",
         "subtitle": "Intelligent Plant Care Platform",
-        "kind": "AIoT / 02",
-        "visual": "plant",
+        "mark": "HP",
         "description": "把绿植社区、智能花盆与可追溯的 AI 养护助手放在同一套系统中。",
         "technologies": [
           "Spring AI",
@@ -290,16 +193,12 @@
           "IoT",
           "Qdrant"
         ],
-        "url": "https://github.com/waangzh/healing-planet",
-        "problem": "植物传感数据、社区知识和设备状态彼此割裂，难以转化为可信的个性化养护建议。",
-        "solution": "融合 IoT 状态感知、Hybrid RAG、多模态识别与 Web/微信小程序，构建 Evidence-first AI 养护链路。",
-        "impact": "形成“感知-分析-交互-推荐”闭环，让 AI 建议具备上下文、证据和实时状态。"
+        "url": "https://github.com/waangzh/healing-planet"
       },
       {
         "name": "ReMarks",
         "subtitle": "AI Bookmark Organizer",
-        "kind": "EXTENSION / 03",
-        "visual": "bookmarks",
+        "mark": "RM",
         "description": "适用于 Chrome、Edge 与 Firefox 的 AI 辅助书签整理扩展，先生成建议，再由用户确认执行。",
         "technologies": [
           "React",
@@ -307,120 +206,20 @@
           "WebExtension",
           "LLM"
         ],
-        "url": "https://github.com/waangzh/re-bookmarks",
-        "problem": "书签数量增长后，直接交给 AI 批量移动难以检查，也容易误改原有目录习惯。",
-        "solution": "先生成可审核的分类框架和代表样本，结合本地规则、偏好学习、预览、备份与用户确认后执行。",
-        "impact": "把 AI 整理变成可修正、可撤销的渐进式流程，兼顾分类效率与书签数据安全。"
-      }
-    ]
-  },
-  "resume": {
-    "title": "AI 应用开发工程师",
-    "availability": "已保研 · 6 个月以上 · 立即到岗",
-    "education": [
-      {
-        "school": "深圳大学",
-        "degree": "计算机科学与技术 · 硕士（保研）",
-        "period": "2027/09 - 2030/06",
-        "bullets": []
+        "url": "https://github.com/waangzh/re-bookmarks"
       },
       {
-        "school": "三峡大学",
-        "degree": "计算机科学与技术 · 本科",
-        "period": "2023/09 - 2027/06",
-        "bullets": [
-          "主修核心课程：操作系统、面向对象程序设计、计算机组成与原理、数据结构、微型计算机技术。",
-          "主要荣誉：校级一等奖学金、三好学生、优秀共青团员等。"
-        ]
-      }
-    ],
-    "skills": [
-      {
-        "category": "编程开发",
-        "description": "熟悉 Java、Python，具备 Spring Boot、FastAPI、REST API 及 SSE 流式接口开发经验。"
-      },
-      {
-        "category": "Agent 与 RAG",
-        "description": "熟悉 LangGraph、Spring AI，具备 Agent Workflow、Tool Calling、上下文检索及混合检索、Rerank 与 RAG 评测实践。"
-      },
-      {
-        "category": "模型基础",
-        "description": "理解 Transformer、KV Cache 等核心原理，基于开源 MiniMind 使用 PyTorch 实践 Pretrain、SFT、LoRA。"
-      },
-      {
-        "category": "工程工具",
-        "description": "熟悉 Git、Linux，具备 MySQL、Redis、Qdrant 及 Docker 使用经验；熟练使用 Codex、Claude Code 等 AI 工具。"
-      }
-    ],
-    "projects": [
-      {
-        "name": "GreenCare：融合知识检索与 IoT 状态感知的智能植物养护系统",
-        "period": "2024/09 - 2026/04",
+        "name": "DSH Intelligent UI",
+        "subtitle": "Generative UI Plugin for DeepSeek Harness",
+        "mark": "DSH",
+        "description": "为 DeepSeek Harness 提供生成式、可交互的 UI，让 Agent 用组件、图表与沙箱小应用流式呈现回答。",
         "technologies": [
-          "Java",
-          "Spring Boot",
-          "Spring AI",
-          "Qdrant",
-          "BGE-M3",
-          "Lucene",
-          "MySQL",
-          "Redis",
-          "AMQP",
-          "MCP"
+          "TypeScript",
+          "React",
+          "DSH",
+          "Sandbox"
         ],
-        "description": "面向绿植社区与智能花盆场景，开发集社区服务、设备管理、环境监测、远程控制和 AI 养护问答于一体的智能养护平台；负责 Java 业务后端及 RAG 服务建设。",
-        "bullets": [
-          "业务后端：基于 Spring Boot、MyBatis-Plus 实现用户、植物实例、设备绑定、环境数据及阈值配置等核心模块；结合 JWT、Redis 完成鉴权与缓存，通过阿里云 IoT AMQP 和线程池异步处理 5 类遥测数据，实现数据持久化、设备状态同步及阈值触发控制。",
-          "智能路由：设计 QueryRouter，结合别名匹配、Sparse/Dense 候选召回及受限 LLM 消歧，动态路由正式知识、社区经验与 IoT 状态，处理植物别名、口语表达及多来源查询带来的实体误绑定和检索分流问题。",
-          "混合检索与评测：基于 BGE-M3 + Qdrant 与 Lucene BM25 构建 Hybrid RAG，在逻辑证据粒度执行 RRF 融合，并结合 Reranker 优化证据排序。简历所列评测中，Answer Correctness 从 85.7% 提升至 96.4%（+10.7pp），Recall@10 从 90.4% 提升至 97.0%（+6.4pp）。"
-        ]
-      },
-      {
-        "name": "面向 Pull Request 的可控代码审查 Agent",
-        "period": "2025/11 - 至今",
-        "technologies": [
-          "Python",
-          "FastAPI",
-          "LangGraph",
-          "Tree-sitter",
-          "SQLite",
-          "Multi-Agent"
-        ],
-        "description": "面向大型 PR 中跨文件依赖复杂、模型上下文受限及审查结论难验证的问题，设计严格只读的仓库级代码审查 Agent；采用确定性 Planner + Unit Agent 的分层架构，实现可控、可追溯的多阶段审查。",
-        "bullets": [
-          "审查任务编排：设计确定性 Review Unit Planner，结合 Diff、符号结构与关联关系拆分审查任务，通过 LangGraph 编排独立 Agent 执行，实现并发审查、单元级预算控制和局部重试。",
-          "代码上下文检索：基于 Tree-sitter 和启发式规则构建多语言分级代码索引，提取符号、调用及导入关系；结合只读 Tool Scope 按需检索关联代码与测试上下文，支持跨文件审查。",
-          "审查可靠性：设计 Evidence Resolver 与 Selective Verifier 验证链路，对候选问题执行 Diff 定位、证据校验及选择性语义验证；结合 Checkpoint 和 Review Unit 结果复用，支持中断恢复与增量审查。"
-        ]
-      },
-      {
-        "name": "轻量级 Decoder-Only 语言模型实现与训练",
-        "period": "2025/12 - 至今",
-        "technologies": [
-          "Python",
-          "PyTorch",
-          "Transformer",
-          "Tokenizer",
-          "Pretrain",
-          "SFT",
-          "LoRA"
-        ],
-        "description": "参考主流 Decoder-only 架构，基于 PyTorch 实现约 64M 参数轻量级语言模型，完成模型构建、预训练、指令微调与自回归推理的端到端训练链路。",
-        "bullets": [
-          "模型架构：实现由 8 层 Transformer、768 维 Hidden Size、GQA 构成的 Decoder-only 模型，完成 RMSNorm、RoPE、KV Cache、SwiGLU FFN 与 Causal LM Head 等核心组件，并实现因果语言建模 Loss 与自回归生成。",
-          "训练链路：搭建 Tokenizer → Pretrain → SFT → LoRA 训练流程，完成预训练语料与指令数据构造及 Assistant-only Response Mask；采用 AdamW、BF16 混合精度、梯度累积／裁剪与 Checkpoint 完成模型训练。",
-          "数据构造与验证：引入 Qwen 系列教师模型生成的指令、推理及工具调用数据作为蒸馏样本，对轻量模型进行指令微调；通过固定测试样例对比不同训练阶段的生成结果，验证指令跟随与结构化输出能力。"
-        ]
-      }
-    ],
-    "awards": [
-      {
-        "title": "全国大学生数字媒体科技作品及创意竞赛",
-        "level": "国赛三等奖"
-      },
-      {
-        "title": "中国大学生计算机设计大赛",
-        "level": "中南地区二等奖"
+        "url": "https://github.com/waangzh/deepseek-harness-intelligent-ui"
       }
     ]
   }

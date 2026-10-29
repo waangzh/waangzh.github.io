@@ -1,7 +1,7 @@
 {
   "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "Personal portfolio and resume website",
+  "description": "Personal portfolio website",
   "private": true,
   "scripts": {
     "dev": "python -m http.server 8000",
@@ -9,10 +9,9 @@
   },
   "keywords": [
     "portfolio",
-    "resume",
     "personal-website"
   ],
-  "author": "王子涵",
+  "author": "Kevin",
   "license": "MIT"
 }
 

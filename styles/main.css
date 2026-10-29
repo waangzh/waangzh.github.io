@@ -5,7 +5,7 @@
 }
 
 :root {
-  --font-sans: "Montserrat", "Segoe UI", sans-serif;
+  --font-sans: "Geist", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
   --font-logo: "Dancing Script", cursive;
   --shell-width: 1200px;
   --nav-height: 88px;

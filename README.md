@@ -1,10 +1,6 @@
-# 个人简历网站
+# Kevin 的开发主页
 
-一个用于展示个人信息、项目经历与联系方式的静态网站。
-
-## 设计说明
-
-本项目在页面布局与部分视觉表达上，参考了 [WowYiJiu](https://www.wowyijiu.com/#contact) 网站的设计风格。
+一个用于展示 AI 应用项目、技术方向与 GitHub 的静态网站。
 
 ## 技术栈
 
@@ -17,7 +13,6 @@
 ```text
 .
 ├─ index.html
-├─ resume.html
 ├─ data/
 │  └─ profile.json
 ├─ assets/
@@ -28,7 +23,11 @@
 
 ## 本地预览
 
-直接使用本地静态服务器打开项目目录即可，例如：
+```bash
+npm run dev
+```
+
+或：
 
 ```bash
 python -m http.server 8000

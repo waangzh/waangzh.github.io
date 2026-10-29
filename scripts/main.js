@@ -4,11 +4,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadProfileData();
   applySiteMeta();
 
-  if ((document.body.dataset.page || "home") === "resume") {
-    renderResumePage();
-    return;
-  }
-
   renderHomePage();
   initNavigation();
   initScrollSpy();
@@ -29,7 +24,6 @@ async function loadProfileData() {
       education: {},
       research: {},
       projects: [],
-      awards: [],
       skills: [],
       social: {}
     };
@@ -72,7 +66,6 @@ function renderHomePage() {
   renderEducation();
   renderResearch();
   renderProjects();
-  renderAwards();
   renderSkills();
   renderContact();
 }
@@ -84,11 +77,11 @@ function initTerminalAnimation() {
 
   const lines = [
     ["command", "whoami"],
-    ["result", "wangzihan · backend & agent developer"],
+    ["result", "kevin · backend & agent developer"],
     ["command", "focus"],
     ["result", "Backend / Agents / LLMs / AI"],
     ["command", "git status"],
-    ["result", "3 projects · working tree clean"]
+    ["result", `${(profileData.homepage?.projects || []).length} projects · working tree clean`]
   ];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let lineIndex = 0;
@@ -123,82 +116,28 @@ function initTerminalAnimation() {
 }
 
 function renderMinimalHome() {
-  const { personal, education, research, homepage = {} } = profileData;
+  const { personal, homepage = {} } = profileData;
   setText("heroName", personal.name);
   setText("heroTitle", personal.title);
-  setText("summaryIntro", homepage.intro);
   setText("heroStatus", personal.availability);
-  setText("aboutIntro", homepage.about);
-  setText("aboutSupport", homepage.support);
-  setText("educationSchool", education.school);
-  setText("educationDegree", `${education.major} · ${education.period}`);
-  setText("educationNote", education.gpaDescription);
-  setText("educationEnglish", education.english);
-  setHTML("courseList", renderTags(education.courses));
-  setText("futureEducation", homepage.futureEducation);
-  setText("researchRole", `${research.lab} · ${research.role}`);
-  setText("researchMeta", research.period);
-  setText("researchOverview", research.overview);
-  setHTML("researchItems", (research.items || []).map(item => `<li>${item.description}</li>`).join(""));
-  setHTML("skillTags", renderTags(homepage.tools));
-  setHTML("skillsContent", (profileData.skills || []).map(group =>
-    `<p><strong>${group.category}</strong><span>${group.description}</span></p>`
-  ).join(""));
-  setHTML("awardsGrid", (profileData.awards || []).map(award =>
-    `<li><span>${award.year}</span><strong>${award.title}</strong><em>${award.level}</em></li>`
-  ).join(""));
-  setHTML("additionalProjects", (profileData.projects || []).filter(project => project.id === "habitly").map(project =>
-    `<p><strong>${project.name} · ${project.type}</strong><br>${project.description}</p>`
-  ).join(""));
   const homepageProjects = homepage.projects || [];
-  if (homepageProjects.length) setHTML("projectsGrid", homepageProjects.map((project, index) => `
-    <article class="selected-project">
-      <div class="project-art project-art-${project.visual}" role="img" aria-label="${project.name} 项目概念示意">
-        ${renderProjectArtwork(project.visual)}
-      </div>
-      <div class="selected-project-copy">
-        <div class="project-eyebrow"><span>PROJECT / 0${index + 1}</span><span>${project.kind}</span></div>
-        <h3>${project.name} <span>— ${project.subtitle}</span></h3>
-        <div class="project-case-copy">
-          <div class="case-row"><b class="case-label problem">Problem</b><p>${project.problem}</p></div>
-          <div class="case-row"><b class="case-label solution">Solution</b><p>${project.solution}</p></div>
-          <div class="case-row"><b class="case-label impact">Impact</b><p>${project.impact}</p></div>
+  if (homepageProjects.length) setHTML("projectsGrid", homepageProjects.map(project => `
+    <article class="project-row">
+      <div class="project-mark" aria-hidden="true">${project.mark || ""}</div>
+      <div class="project-body">
+        <div class="project-head">
+          <h3><a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.name}</a><span class="project-subtitle">${project.subtitle}</span></h3>
         </div>
-        <div class="project-tech">${renderTags(project.technologies)}</div>
-        <div class="project-actions">
-          <a href="${project.url}" target="_blank" rel="noopener noreferrer">查看源码 ↗</a>
-          <a href="${project.url}#readme" target="_blank" rel="noopener noreferrer">了解项目 ↗</a>
+        <p class="project-desc">${project.description}</p>
+        <div class="project-meta">
+          <a class="project-source" href="${project.url}" target="_blank" rel="noopener noreferrer">source ↗</a>
+          <span class="project-tech-text">${(project.technologies || []).join(", ")}</span>
         </div>
       </div>
     </article>
   `).join(""));
   document.querySelectorAll("[data-github]").forEach(link => { link.href = personal.github; });
-  document.querySelectorAll("[data-email]").forEach(link => { link.href = `mailto:${personal.email}`; });
-  setText("contactEmail", personal.email);
-  setText("contactLocation", personal.location);
   setText("footerText", `© ${new Date().getFullYear()} ${personal.nameEn}. Built with care and ☕.`);
-}
-
-function renderProjectArtwork(visual) {
-  if (visual === "review") return `
-    <div class="art-window review-window">
-      <div class="art-toolbar"><b>repo / guardian</b><span>•••</span></div>
-      <div class="review-headline">Good code.<br>Better evidence.</div>
-      <p>PLAN / REVIEW / VERIFY</p>
-      <div class="review-flow"><span>Diff</span><span>Agent</span><span>Evidence</span></div>
-    </div>`;
-  if (visual === "plant") return `
-    <div class="art-window plant-window">
-      <div class="art-toolbar"><b>green.care</b><span>•••</span></div>
-      <div class="plant-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="plant-readings"><span>SOIL</span><span>LIGHT</span><span>TEMP</span></div>
-      <p>CONNECTED TO NATURE.</p>
-    </div>`;
-  return `
-    <div class="art-window bookmark-window">
-      <div class="art-toolbar"><b>REMARKS</b><span>•••</span></div>
-      <div class="bookmark-rows"><span><i>✓</i>开发 / Agents</span><span><i>✓</i>阅读 / 灵感</span><span><i>✓</i>工具 / 日常</span><span><i>✓</i>先预览，再整理</span></div>
-    </div>`;
 }
 
 function renderHeroTags() {
@@ -300,16 +239,6 @@ function renderProjectCaseRow(label, content) {
   `;
 }
 
-function renderAwards() {
-  renderCollection("awardsGrid", profileData.awards, award => `
-    <article class="achievement-card">
-      <span class="achievement-year">${award.period || award.year}</span>
-      <h3>${award.title}</h3>
-      <p>${award.level}</p>
-    </article>
-  `);
-}
-
 function renderSkills() {
   setHTML("skillsContent", (profileData.skills || []).map((group, index) => {
     const isFeatured = index === 0;
@@ -335,125 +264,6 @@ function renderContact() {
       <strong>${item.value}</strong>
     </a>
   `).join(""));
-}
-
-function renderResumePage() {
-  if (profileData.resume) {
-    renderJobResume();
-    return;
-  }
-  const { personal, education, projects, awards, skills, social, campusExperience } = profileData;
-
-  setText("resumeName", personal.name);
-  setText("resumeTitle", personal.title);
-  setText("resumeEducationSchool", education.school);
-  setText("resumeEducationMajor", education.major);
-  setText("resumeEducationPeriod", education.period);
-  setHTML("resumeEducationNote", `
-    <li>专业绩点（${education.gpa}）排名 ${education.ranking}，连续两年荣获校级奖学金</li>
-    <li>英语水平：${education.english || ""}</li>
-    <li>主修核心课程：${(education.courses || []).join("、")}</li>
-    <li>目标方向：自然语言处理、大模型应用与 Agents</li>
-  `);
-
-  const photo = getElement("resumePhoto");
-  if (photo && personal.avatar) {
-    photo.setAttribute("src", personal.avatar);
-    photo.setAttribute("alt", `${personal.name}照片`);
-  }
-
-  setHTML("resumeContact", createResumeContacts(personal, social).map(item => `
-    <div class="resume-contact-item">
-      <span>${item.label}</span>
-      <strong>${item.href ? renderContactValue(item) : item.value}</strong>
-    </div>
-  `).join(""));
-
-  setHTML("resumeSkills", (skills || []).map(group => `
-    <li><strong>${group.category}：</strong>${group.description || (group.items || []).map(item => item.name).join("、")}</li>
-  `).join(""));
-
-  renderCollection("resumeProjects", projects, project => `
-    <article class="resume-compact-entry">
-      ${renderResumeEntryHead(project.name, project.role, project.period)}
-      ${renderBulletList(project.bullets || project.focus)}
-    </article>
-  `);
-
-  renderCollection("resumeCampus", campusExperience, item => `
-    <article class="resume-compact-entry">
-      ${renderResumeEntryHead(item.name, item.role, item.period)}
-      ${renderBulletList(item.bullets)}
-    </article>
-  `);
-
-  renderCollection("resumeAwards", awards, award => `
-    <div class="resume-award-row">
-      <strong>${award.title}</strong>
-      <span>${award.level}</span>
-      <time>${award.period || award.year || ""}</time>
-    </div>
-  `);
-}
-
-function renderJobResume() {
-  const { personal, resume } = profileData;
-  setText("resumeName", personal.name);
-  setText("resumeTitle", resume.title);
-  const contacts = [
-    { label: "邮箱", value: personal.email, href: `mailto:${personal.email}` },
-    { label: "GitHub", value: personal.github, href: personal.github },
-    { label: "实习", value: resume.availability }
-  ];
-  setHTML("resumeContact", contacts.map(item => `
-    <div class="resume-contact-item"><span>${item.label}</span><strong>${renderContactValue(item)}</strong></div>
-  `).join(""));
-  renderCollection("resumeEducation", resume.education, item => `
-    <article class="resume-compact-entry">
-      ${renderResumeEntryHead(item.school, item.degree, item.period)}
-      ${item.bullets?.length ? renderBulletList(item.bullets) : ""}
-    </article>
-  `);
-  setHTML("resumeSkills", resume.skills.map(item => `<li><strong>${item.category}：</strong>${item.description}</li>`).join(""));
-  renderCollection("resumeProjects", resume.projects, project => `
-    <article class="resume-compact-entry">
-      ${renderResumeEntryHead(project.name, "", project.period)}
-      <p class="resume-project-tech">技术栈：${project.technologies.join(" · ")}</p>
-      <p class="resume-project-summary">${project.description}</p>
-      ${renderBulletList(project.bullets)}
-    </article>
-  `);
-  document.getElementById("resumeCampus")?.closest(".resume-section").remove();
-  renderCollection("resumeAwards", resume.awards, award => `
-    <div class="resume-award-row"><strong>${award.title}</strong><span>${award.level}</span></div>
-  `);
-}
-
-function createResumeContacts(personal = {}, social = {}) {
-  const email = social.email || personal.email;
-  const github = social.github || personal.github;
-
-  return [
-    { label: "年级", value: "2023级" },
-    { label: "邮箱", value: email, href: email ? `mailto:${email}` : "" },
-    { label: "方向", value: "NLP / 大模型应用 / Agents" },
-    { label: "地点", value: personal.location },
-    { label: "GitHub", value: github, href: github }
-  ].filter(item => item.value);
-}
-
-function renderResumeEntryHead(name, role, period) {
-  return `
-    <div class="resume-compact-head">
-      <h3>${name || ""}</h3>
-      <span>${role || ""}</span>
-      <time>${period || ""}</time>
-    </div>
-  `;
-}
-
-function renderBulletList(items = []) {
-  return `<ul class="resume-bullet-list">${items.map(item => `<li>${item}</li>`).join("")}</ul>`;
 }
 
 function initNavigation() {
@@ -566,12 +376,6 @@ function renderTagList(id, items) {
   if (element) element.innerHTML = renderTags(items);
 }
 
-function formatResumeContact(value) {
-  if (value.includes("@")) return `<a href="mailto:${value}">${value}</a>`;
-  if (value.startsWith("http")) return `<a href="${value}" target="_blank" rel="noopener noreferrer">${value}</a>`;
-  return value;
-}
-
 function getElement(id) {
   return document.getElementById(id);
 }
@@ -589,15 +393,9 @@ function renderCollection(id, items, renderItem) {
 
 function createPrimaryContacts() {
   const { social = {}, personal = {} } = profileData;
-  const email = social.email || personal.email;
   const github = social.github || personal.github;
 
   return [
-    {
-      label: "邮箱",
-      value: email,
-      href: email ? `mailto:${email}` : ""
-    },
     {
       label: "GitHub",
       value: github,
@@ -607,16 +405,9 @@ function createPrimaryContacts() {
 }
 
 function createProfileInfoItems() {
-  const { personal = {} } = profileData;
-  const [emailContact, githubContact] = createPrimaryContacts();
+  const [githubContact] = createPrimaryContacts();
 
-  return [
-    { label: "姓名", value: personal.name },
-    { label: "英文名", value: personal.nameEn },
-    { label: "地点", value: personal.location },
-    emailContact,
-    githubContact
-  ].filter(item => item && item.value);
+  return [githubContact].filter(item => item && item.value);
 }
 
 function renderContactValue(item) {

@@ -8,11 +8,11 @@ body[data-page] .site-header {
   border: 0;
   background: rgba(250, 250, 252, .96);
   backdrop-filter: blur(12px);
-  font-family: "IBM Plex Sans", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-family: "Geist", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
 }
 body .site-header .shell { width: min(1160px, calc(100% - 48px)); }
 body .site-header .site-header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-body .site-header .site-logo { margin-right: auto; color: #141419; font: 500 16px/1.4 "IBM Plex Sans", "Microsoft YaHei", sans-serif; white-space: nowrap; }
+body .site-header .site-logo { margin-right: auto; color: #141419; font: 500 17px/1.4 "Geist", "PingFang SC", "Microsoft YaHei", sans-serif; white-space: nowrap; }
 body .site-header .site-nav { display: flex; align-items: center; gap: 30px; }
 body .site-header .nav-link {
   min-width: 0;
@@ -21,7 +21,7 @@ body .site-header .nav-link {
   color: #24242b;
   background: transparent;
   box-shadow: none;
-  font-size: 15px;
+  font-size: 16px;
   font-family: inherit;
   font-weight: 400;
   letter-spacing: normal;
@@ -39,9 +39,9 @@ body[data-page] main section[id] { scroll-margin-top: 82px; }
   body[data-page] .site-header { height: 92px; }
   body .site-header .shell { width: calc(100% - 40px); }
   body .site-header .site-header-inner { flex-wrap: wrap; justify-content: flex-start; gap: 0; padding: 10px 0; }
-  body .site-header .site-logo { font-size: 15px; }
+  body .site-header .site-logo { font-size: 16px; }
   body .site-header .site-nav { width: 100%; justify-content: space-between; gap: 10px; }
-  body .site-header .nav-link { font-size: 13px; padding: 6px 0; }
+  body .site-header .nav-link { font-size: 14px; padding: 6px 0; }
   body[data-page] main section[id] { scroll-margin-top: 112px; }
 }
 @media print {
