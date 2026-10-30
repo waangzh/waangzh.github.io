@@ -1,0 +1,52 @@
+{
+  "brand": "kevin.dev",
+  "tagline": "Fold / personal developer identity",
+  "brief": "A personal homepage for Agent, RAG and AI application engineering. An original folded W ties the identity to the GitHub handle waangzh.",
+  "adjectives": [
+    "structured",
+    "independent",
+    "clear",
+    "restrained"
+  ],
+  "criteria": "A clear silhouette at small sizes; monochrome first; practical in a site header and browser tab.",
+  "industry": "developer-tools",
+  "mockups": [
+    "website",
+    "readme",
+    "terminal",
+    "app-icon",
+    "social",
+    "favicon-tab"
+  ],
+  "nav": [
+    "Home",
+    "Projects",
+    "GitHub"
+  ],
+  "brand_color": "#277EC5",
+  "tile_color": "#202020",
+  "greyscale": false,
+  "final": true,
+  "designer": "Kevin / Fold identity",
+  "concepts": [
+    {
+      "name": "Fold",
+      "symbol": "masters/kevin-symbol.svg",
+      "lockup": "masters/kevin-horizontal.svg",
+      "stacked": "masters/kevin-stacked.svg",
+      "symbol_on_dark": "masters/kevin-symbol-reversed.svg",
+      "symbol_on_tile": "masters/kevin-symbol-reversed.svg",
+      "idea": "A folded W connects a personal signature to the waangzh GitHub handle.",
+      "rationale": [
+        "Stepped 45-degree cuts give the W a distinctive silhouette.",
+        "The monochrome mark matches the restrained homepage.",
+        "Original outlined letterforms make the signature independent of installed fonts."
+      ]
+    }
+  ],
+  "recommendation": "Use the charcoal symbol with the kevin.dev signature for the homepage; white artwork on dark tiles.",
+  "next_steps": [
+    "Choose assets for their background and size.",
+    "Homepage installation is a separate step."
+  ]
+}
