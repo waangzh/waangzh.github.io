@@ -3,35 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>kevin</title>
-<meta name="description" content="Kevin 的 AI 应用开发主页，展示 Agent、RAG 相关项目与技术方向。">
+<meta name="color-scheme" content="light">
+<script>document.documentElement.classList.add("js");</script>
+<title>KEVIN</title>
+<meta name="description" content="Kevin 的软件工程与 AI 开发主页，展示 Agent、RAG 相关项目与技术方向。">
 <link rel="icon" href="assets/logo/symbol/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="assets/logo/symbol/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/logo/symbol/apple-touch-icon.png">
 <link rel="manifest" href="assets/logo/symbol/site.webmanifest">
-<meta name="theme-color" content="#202020">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/theme.css">
 <link rel="stylesheet" href="styles/main.css">
 <link rel="stylesheet" href="styles/home.css">
 <link rel="stylesheet" href="styles/navigation.css">
 </head>
 <body data-page="home" class="minimal-home">
-<header class="site-header"><div class="shell site-header-inner">
-  <a class="site-logo" href="index.html#home"><img src="assets/logo/masters/kevin-horizontal.svg" alt="kevin.dev" width="105" height="34"></a>
-  <nav class="site-nav" aria-label="主导航">
-    <a class="nav-link active" href="#home">首页</a>
-    <a class="nav-link" href="#projects">项目</a>
-    <a class="nav-link" href="#contact">联系方式</a>
-  </nav>
-</div></header>
+
+<header class="site-header">
+  <div class="shell site-header-inner">
+    <a class="brand" href="#home" aria-label="kevin — 返回顶部">
+      <img src="assets/logo/masters/kevin-symbol.svg" alt="kevin" height="30">
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a class="nav-link" href="#stack">Stack</a>
+      <a class="nav-link" href="#projects">Projects</a>
+    </nav>
+    <a class="header-github" data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer">
+      <span>GitHub</span><span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</header>
+
+<div class="shell page-frame">
 <main>
-<section class="shell hero" id="home"><h1 class="sr-only"><span id="heroName">Kevin</span> — <span id="heroTitle">Agent 开发 · AI 应用工程 · RAG</span></h1><div class="hero-composition hero-bento" aria-label="技术方向与终端 Bento Grid"><div class="bento-terminal"><div class="terminal-bar"><span></span><span></span><span></span></div><div class="terminal-output" id="terminalOutput" aria-live="polite"></div></div><div class="bento-card bento-skills"><small>FOCUS</small><strong>Fullstack / Agent / LLM / AI</strong><span>Java · Python · LangGraph · Spring AI</span></div><a class="bento-card bento-link bento-github" data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer"><small>GITHUB ↗</small><strong>waangzh</strong><span>open source work</span></a><a class="bento-card bento-link bento-projects" href="#projects"><small>PROJECTS ↗</small><strong>Things I've Built</strong><span>agent · rag · ai</span></a></div></section>
-<section class="shell projects-section" id="projects"><div class="section-heading"><h2>Things I've Built</h2><a class="small-link" data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer">See my GitHub ↗</a></div><div class="project-list" id="projectsGrid"></div></section>
-<section class="shell contact-section" id="contact"><div><p class="section-kicker">01 / SAY HELLO</p><h2>Let's make something good.</h2><p class="contact-meta"><a data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer">github.com/waangzh</a></p></div><div class="contact-actions"><a class="solid-button" href="#projects">View projects ↗</a><a class="outline-button" data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
-</main><footer class="shell site-footer"><div class="footer-links"><a href="#home">Back to top ↑</a><a data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></footer>
-<script src="scripts/theme.js"></script><script src="scripts/main.js" defer></script>
+
+  <section class="hero" id="home">
+    <div class="hero-top">
+      <div class="hero-id">
+        <div class="avatar" aria-hidden="true">
+          <img src="assets/avatar.png" alt="">
+        </div>
+        <div class="hero-name">
+          <h1><span id="heroName">Kevin</span><span class="asterisk" aria-hidden="true">✳</span></h1>
+          <p class="hero-role" id="heroTitle">Software Engineering / AI</p>
+        </div>
+      </div>
+      <figure class="wordmark">
+        <img src="assets/kevin-pixel.svg" alt="KEVIN" width="736" height="208">
+        <figcaption>Fig. 1</figcaption>
+      </figure>
+    </div>
+
+    <div class="hatch-band" aria-hidden="true"></div>
+
+    <div class="social-row">
+      <a class="icon-btn" data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <div class="email-widget">
+        <button class="icon-btn email-toggle" id="emailToggle" type="button" aria-expanded="false" aria-controls="emailReveal" aria-label="显示邮箱">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="m2 4 6 4.5L14 4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="email-reveal" id="emailReveal" aria-hidden="true" tabindex="-1">email not set</a>
+      </div>
+    </div>
+
+    <div class="meta-grid">
+      <div class="meta-cell">
+        <span class="meta-key">LOCAL TIME</span>
+        <span class="meta-value" id="localTime">--:--</span>
+        <span class="meta-note">// same time</span>
+      </div>
+    </div>
+
+    <div class="contrib">
+      <div class="contrib-scroll">
+        <div class="contrib-months" aria-hidden="true">
+          <span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
+          <span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span>
+        </div>
+        <div class="contrib-grid" id="contribGrid" role="img" aria-label="GitHub 贡献热力图"></div>
+      </div>
+      <p class="figure-caption">
+        <span>Fig. 2 · <span id="contribTotal">—</span> contributions · <span id="contribRange">last 12 months</span>. Source: <a data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer">GitHub</a>.</span>
+        <span class="contrib-legend" aria-hidden="true">Less <span class="contrib-cell"></span><span class="contrib-cell level-1"></span><span class="contrib-cell level-2"></span><span class="contrib-cell level-3"></span><span class="contrib-cell level-4"></span> More</span>
+      </p>
+    </div>
+
+    <div class="hatch-band" aria-hidden="true"></div>
+
+    <div class="about" data-reveal>
+      <h2 class="hand about-greeting" id="greeting">Good afternoon</h2>
+      <div class="about-copy" id="aboutCopy"></div>
+    </div>
+  </section>
+
+  <section class="section" id="stack">
+    <div class="section-head" data-reveal>
+      <h2>Stack</h2>
+    </div>
+    <div class="stack-list" id="stackList"></div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="section-head" data-reveal>
+      <h2>Projects</h2>
+      <sup class="section-count" id="projectCount">00</sup>
+    </div>
+    <div class="project-list" id="projectList"></div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-cell"><span class="footer-label">CRAFTED BY</span><span class="footer-value">kevin</span></div>
+    <div class="footer-cell"><span class="footer-label">BUILD</span><span class="footer-value">static</span></div>
+    <div class="footer-cell"><span class="footer-label">DATE</span><span class="footer-value" id="buildDate">2026-10-30</span></div>
+    <div class="footer-cell"><span class="footer-label">SOURCE CODE</span><a class="footer-value" data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+    <div class="footer-cell"><span class="footer-label">TYPEFACE</span><span class="footer-value">Geist / Geist Mono</span></div>
+    <div class="footer-cell"><span class="footer-label">STACK</span><span class="footer-value">HTML · CSS · JS</span></div>
+    <div class="footer-cell"><span class="footer-label">DATA</span><a class="footer-value" href="data/profile.json">profile.json</a></div>
+    <div class="footer-cell"><span class="footer-label">FOR AGENTS</span><a class="footer-value" href="AGENTS.md">AGENTS.md</a></div>
+  </div>
+  <div class="footer-bottom">
+    <img src="assets/logo/masters/kevin-symbol.svg" alt="" width="20" height="20">
+    <a data-github href="https://github.com/waangzh" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+  </div>
+</footer>
+</div>
+
+<script src="scripts/main.js" defer></script>
 </body>
 </html>

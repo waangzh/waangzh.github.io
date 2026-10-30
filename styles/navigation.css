@@ -1,52 +1,107 @@
-/* Shared text navigation for the homepage and resume. */
-body[data-page="home"], body[data-page="resume"] { padding-top: 62px; }
-body[data-page] .site-header {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 1000;
-  height: 62px;
-  border: 0;
-  background: rgba(250, 250, 252, .96);
-  backdrop-filter: blur(12px);
-  font-family: "Geist", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
-body .site-header .shell { width: min(1160px, calc(100% - 48px)); }
-body .site-header .site-header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-body .site-header .site-logo { margin-right: auto; display: inline-flex; align-items: center; color: #141419; font: 500 17px/1.4 "Geist", "PingFang SC", "Microsoft YaHei", sans-serif; white-space: nowrap; }
-body .site-header .site-logo img { display: block; width: auto; height: 34px; }
-body .site-header .site-nav { display: flex; align-items: center; gap: 30px; }
-body .site-header .nav-link {
-  min-width: 0;
-  padding: 8px 0;
-  border-radius: 0;
-  color: #24242b;
-  background: transparent;
-  box-shadow: none;
-  font-size: 16px;
-  font-family: inherit;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 1.4;
-  white-space: nowrap;
-  transform: none;
-  transition: color .2s;
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: var(--nav-height);
+  padding: 0 24px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-top: 0;
 }
-body .site-header .nav-link:hover,
-body .site-header .nav-link.active { color: #7753ee; background: transparent; box-shadow: none; transform: none; }
-body .site-header a:focus-visible { outline: 2px solid #7753ee; outline-offset: 4px; }
-body[data-page] main section[id] { scroll-margin-top: 82px; }
-@media (max-width: 600px) {
-  body[data-page="home"], body[data-page="resume"] { padding-top: 92px; }
-  body[data-page] .site-header { height: 92px; }
-  body .site-header .shell { width: calc(100% - 40px); }
-  body .site-header .site-header-inner { flex-wrap: wrap; justify-content: flex-start; gap: 0; padding: 10px 0; }
-  body .site-header .site-logo { font-size: 16px; }
-  body .site-header .site-logo img { height: 30px; }
-  body .site-header .site-nav { width: 100%; justify-content: space-between; gap: 10px; }
-  body .site-header .nav-link { font-size: 14px; padding: 6px 0; }
-  body[data-page] main section[id] { scroll-margin-top: 112px; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
 }
-@media print {
-  body[data-page] .site-header { display: none; }
-  body[data-page="resume"] { padding-top: 0; }
+
+.brand img {
+  width: auto;
+  height: 30px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 14px;
+  color: var(--muted);
+  transition: color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--ink);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -6px;
+  left: 0;
+  height: 1px;
+  background: var(--ink);
+}
+
+.header-github {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 22px;
+  border-left: 1px solid var(--line);
+  font: 12px var(--font-mono);
+  color: var(--ink);
+}
+
+.header-github span:last-child {
+  color: var(--faint);
+}
+
+.header-github:hover span:last-child {
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .site-header-inner {
+    gap: 12px;
+    padding: 0 14px;
+  }
+
+  .brand img {
+    height: 20px;
+  }
+
+  .site-nav {
+    gap: 12px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .header-github {
+    padding-left: 12px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-github {
+    display: none;
+  }
+
+  .site-nav {
+    gap: 10px;
+  }
 }

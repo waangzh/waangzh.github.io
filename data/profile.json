@@ -1,20 +1,16 @@
 {
   "site": {
-    "title": "kevin",
-    "description": "Kevin 的 AI 应用开发主页，展示 Agent、RAG 相关项目与技术方向。",
+    "title": "KEVIN",
+    "description": "Kevin 的软件工程与 AI 开发主页，展示 Agent、RAG 相关项目与技术方向。",
     "keywords": "Kevin, Agent, RAG, NLP, 大模型应用, 微信小程序"
   },
   "personal": {
     "name": "Kevin",
     "nameEn": "Kevin",
-    "title": "Agent 开发 · AI 应用工程 · RAG",
+    "title": "Software Engineering / AI",
     "headline": "面向自然语言处理、大模型应用与智能体方向，持续积累科研理解、工程落地与团队协作能力。",
     "github": "https://github.com/waangzh",
-    "heroTags": [
-      "NLP",
-      "大模型应用",
-      "Agents"
-    ],
+    "email": "",
     "summary": [
       "关注自然语言处理、大模型应用与智能体方向。",
       "在项目开发和团队协作中持续积累工程实现、模型应用和团队推进经验，能够围绕具体场景完成从需求拆解到功能落地的闭环。",
@@ -24,8 +20,7 @@
       "具备 Java 后端开发与微信小程序开发能力，能够完成前后端基础功能实现。",
       "熟悉 PyTorch 框架，掌握深度学习基础理论、模型训练流程与常见调参方法。",
       "了解大语言模型应用开发思路，能够结合具体场景开展智能应用探索。"
-    ],
-    "availability": "开放 AI 应用开发机会"
+    ]
   },
   "education": {},
   "research": {},
@@ -156,17 +151,51 @@
     "github": "https://github.com/waangzh"
   },
   "homepage": {
-    "about": "我是 Kevin，一名关注 Agent、RAG 与 AI 应用开发的开发者，喜欢把复杂问题拆解为清晰、可靠、可验证的工程流程。",
-    "support": "持续在模型应用、代码审查 Agent 和全栈项目中积累经验。",
-    "tools": [
-      "Python",
-      "Java",
-      "LangGraph",
-      "Spring AI",
-      "PyTorch",
-      "FastAPI",
-      "Qdrant",
-      "Git / GitHub"
+    "about": [
+      "我是 Kevin，平时主要做 AI 应用、Agent 和开发者工具，也会写一些系统项目。喜欢把想法做成真正能跑起来的东西，经常参与开源项目，也在维护自己的开源小工具。",
+      "不敲键盘的时候，我多半在看球或打球，足球和篮球都喜欢。喜欢比赛里的竞争、团队配合和不确定性。"
+    ],
+    "stack": [
+      {
+        "label": "语言",
+        "items": [
+          "Python",
+          "Java",
+          "TypeScript"
+        ]
+      },
+      {
+        "label": "前端",
+        "items": [
+          "React",
+          "微信小程序",
+          "HTML / CSS"
+        ]
+      },
+      {
+        "label": "后端与数据",
+        "items": [
+          "FastAPI",
+          "Spring AI",
+          "Qdrant"
+        ]
+      },
+      {
+        "label": "AI",
+        "items": [
+          "LangGraph",
+          "PyTorch",
+          "LLM / Agent"
+        ]
+      },
+      {
+        "label": "工程",
+        "items": [
+          "Git / GitHub",
+          "Prompt Engineering",
+          "JSON Schema"
+        ]
+      }
     ],
     "projects": [
       {

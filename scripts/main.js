@@ -1,291 +1,119 @@
 let profileData = null;
 
+const STACK_ICONS = {
+  "Python": "python.svg",
+  "Java": "openjdk.svg",
+  "TypeScript": "typescript.svg",
+  "React": "react.svg",
+  "微信小程序": "wechat.svg",
+  "HTML / CSS": "html5.svg",
+  "FastAPI": "fastapi.svg",
+  "Spring AI": "spring.svg",
+  "Qdrant": "qdrant.svg",
+  "LangGraph": "langchain.svg",
+  "PyTorch": "pytorch.svg",
+  "LLM / Agent": "agent.svg",
+  "Git / GitHub": "git.svg",
+  "Prompt Engineering": "prompt.svg",
+  "JSON Schema": "json.svg"
+};
+
 document.addEventListener("DOMContentLoaded", async () => {
   await loadProfileData();
   applySiteMeta();
-
   renderHomePage();
   initNavigation();
   initScrollSpy();
-  initBackToTop();
+  initClock();
+  initEmailReveal();
   initMotion();
-  initTerminalAnimation();
+  loadContributions();
 });
 
 async function loadProfileData() {
   try {
     const response = await fetch("data/profile.json");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     profileData = await response.json();
   } catch (error) {
     console.error("Failed to load profile data:", error);
-    profileData = {
-      site: {},
-      personal: {},
-      education: {},
-      research: {},
-      projects: [],
-      skills: [],
-      social: {}
-    };
+    profileData = { site: {}, personal: {}, homepage: { about: [], stack: [], projects: [] } };
   }
 }
 
 function applySiteMeta() {
   const site = profileData.site || {};
-  if (site.title && document.body.dataset.page !== "resume") {
-    document.title = site.title;
-  }
+  if (site.title) document.title = site.title;
 
   const descriptionMeta = document.querySelector('meta[name="description"]');
-  if (descriptionMeta && site.description && document.body.dataset.page !== "resume") {
+  if (descriptionMeta && site.description) {
     descriptionMeta.setAttribute("content", site.description);
   }
 }
 
 function renderHomePage() {
-  if (document.body.classList.contains("minimal-home")) {
-    renderMinimalHome();
-    return;
-  }
-  const { personal, education, research } = profileData;
+  const { personal = {}, homepage = {} } = profileData;
 
-  setText("heroName", personal.name);
-  setText("heroTitle", personal.title);
-  setText("heroStatus", personal.status);
-  setText("educationBrief", `${education.school || ""} · ${education.ranking || ""}`);
-  setText("researchBrief", `${research.direction || ""} · ${research.period || ""}`);
-  setText("summaryIntro", (personal.summary || [])[1] || (personal.summary || [])[0] || "");
-  setText("skillsIntro", (personal.summary || [])[1] || (personal.summary || [])[0] || "");
-  setText("skillsSupport", (personal.summary || [])[2] || "");
-  setText("contactIntro", "");
-  setText("footerStatus", personal.status);
+  setText("heroName", personal.name || "Kevin");
+  setText("heroTitle", personal.title || "");
+  setText("projectCount", String((homepage.projects || []).length).padStart(2, "0"));
 
-  renderHeroTags();
-  renderHeroMetrics();
-  renderProfileList();
-  renderEducation();
-  renderResearch();
-  renderProjects();
-  renderSkills();
-  renderContact();
+  renderAbout(homepage.about);
+  renderStack(homepage.stack);
+  renderProjects(homepage.projects);
+  setGreeting();
+  setBuildDate();
+
+  document.querySelectorAll("[data-github]").forEach(link => {
+    if (personal.github) link.href = personal.github;
+  });
 }
 
-function initTerminalAnimation() {
-  const output = document.getElementById("terminalOutput");
-  if (!output || output.dataset.started === "true") return;
-  output.dataset.started = "true";
-
-  const lines = [
-    ["command", "whoami"],
-    ["result", "kevin · fullstack & agent developer"],
-    ["command", "focus"],
-    ["result", "Fullstack / Agents / LLMs / AI"],
-    ["command", "git status"],
-    ["result", `${(profileData.homepage?.projects || []).length} projects · working tree clean`]
-  ];
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let lineIndex = 0;
-
-  const addLine = () => {
-    if (lineIndex >= lines.length) {
-      output.insertAdjacentHTML("beforeend", '<span class="terminal-line command"><span class="terminal-cursor"></span></span>');
-      return;
-    }
-    const [type, text] = lines[lineIndex++];
-    const line = document.createElement("span");
-    line.className = `terminal-line ${type}`;
-    output.appendChild(line);
-    if (reducedMotion) {
-      line.textContent = text;
-      addLine();
-      return;
-    }
-    let characterIndex = 0;
-    const typeCharacter = () => {
-      line.textContent = text.slice(0, characterIndex++);
-      if (characterIndex <= text.length) {
-        window.setTimeout(typeCharacter, type === "command" ? 42 : 16);
-      } else {
-        window.setTimeout(addLine, type === "command" ? 180 : 260);
-      }
-    };
-    typeCharacter();
-  };
-
-  addLine();
+function renderAbout(about) {
+  const paragraphs = Array.isArray(about) ? about : about ? [about] : [];
+  setHTML("aboutCopy", paragraphs.map(text => `<p>${text}</p>`).join(""));
 }
 
-function renderMinimalHome() {
-  const { personal, homepage = {} } = profileData;
-  setText("heroName", personal.name);
-  setText("heroTitle", personal.title);
-  setText("heroStatus", personal.availability);
-  const homepageProjects = homepage.projects || [];
-  if (homepageProjects.length) setHTML("projectsGrid", homepageProjects.map(project => `
-    <article class="project-row">
-      <div class="project-mark${project.icon ? " has-icon" : ""}" aria-hidden="true">${project.icon ? `<img src="${project.icon}" alt="">` : (project.mark || "")}</div>
-      <div class="project-body">
-        <div class="project-head">
-          <h3><a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.name}</a><span class="project-subtitle">${project.subtitle}</span></h3>
-        </div>
-        <p class="project-desc">${project.description}</p>
-        <div class="project-meta">
-          <a class="project-source" href="${project.url}" target="_blank" rel="noopener noreferrer">source ↗</a>
-          <span class="project-tech-text">${(project.technologies || []).join(", ")}</span>
-        </div>
+function renderStack(groups) {
+  setHTML("stackList", (groups || []).map((group, index) => `
+    <div class="stack-row" data-reveal>
+      <span class="stack-index">${String(index + 1).padStart(2, "0")}</span>
+      <span class="stack-label">${group.label}</span>
+      <div class="stack-items">
+        ${(group.items || []).map(item => `<span class="stack-pill">${STACK_ICONS[item] ? `<img class="stack-icon" src="assets/icons/${STACK_ICONS[item]}" alt="" loading="lazy">` : ""}${item}</span>`).join("")}
       </div>
-    </article>
+    </div>
   `).join(""));
-  document.querySelectorAll("[data-github]").forEach(link => { link.href = personal.github; });
 }
 
-function renderHeroTags() {
-  const tagsEl = document.getElementById("heroTags");
-  const summaryEl = document.getElementById("heroSummary");
-  const tags = profileData.personal.heroTags || [];
-  const skillFocus = profileData.personal.skillFocus || [];
-  const summary = skillFocus.length ? skillFocus : (profileData.personal.summary || []).slice(1);
-
-  if (tagsEl) {
-    tagsEl.innerHTML = tags.map(tag => `<span class="hero-badge">${tag}</span>`).join("");
-    tagsEl.style.display = tags.length ? "flex" : "none";
-  }
-
-  if (summaryEl) {
-    summaryEl.innerHTML = summary.map(item => `<div class="summary-badge">${item}</div>`).join("");
-  }
-}
-
-function renderHeroMetrics() {
-  const heroMetricsEl = document.getElementById("heroMetrics");
-  const metrics = profileData.personal.metrics || [];
-  if (!heroMetricsEl) return;
-
-  heroMetricsEl.innerHTML = metrics.map(item => `
-    <div class="metric-mini-card">
-      <span>${item.label}</span>
-      <strong>${item.value}</strong>
-    </div>
-  `).join("");
-}
-
-function renderProfileList() {
-  const items = createProfileInfoItems();
-  setHTML("profileList", items.map(item => `
-      <div class="contact-info-row">
-        <span class="contact-info-label">${item.label}</span>
-        <span class="contact-info-value">${renderContactValue(item)}</span>
-      </div>
-    `)
-    .join(""));
-}
-
-function renderEducation() {
-  const { education } = profileData;
-  setText("educationSchool", education.school);
-  setText("educationDegree", [education.degree, education.major, education.grade].filter(Boolean).join(" · "));
-  setText("educationPeriod", education.period);
-  setText("educationGpa", education.gpa);
-  setText("educationRanking", education.ranking);
-  setText("educationEnglish", education.english);
-  setText("educationNote", education.gpaDescription);
-  setHTML("courseList", renderTags(education.courses));
-}
-
-function renderResearch() {
-  const { research } = profileData;
-  setText("researchRole", research.role);
-  setText("researchMeta", [research.lab, research.direction, research.period].filter(Boolean).join(" · "));
-  setText("researchOverview", research.overview);
-  renderCollection("researchItems", research.items, item => `
-    <div class="timeline-item">
-      <h4>${item.title}</h4>
-      <p>${item.description}</p>
-    </div>
-  `);
-}
-
-function renderProjects() {
-  const projectsGridEl = document.getElementById("projectsGrid");
-  if (!projectsGridEl) return;
-
-  projectsGridEl.innerHTML = (profileData.projects || []).map(project => {
-    const focus = project.focus || [];
-    return `
-    <article class="project-card project-case-card">
-      <h3 class="project-case-title">项目：${project.name || ""}</h3>
-      <p class="project-case-meta">${[project.role, project.period].filter(Boolean).join(" · ")}</p>
-      <div class="project-case-body">
-        ${renderProjectCaseRow("Problem", project.problem || project.description)}
-        ${renderProjectCaseRow("Solution", project.solution || focus[0] || project.type)}
-        ${renderProjectCaseRow("Impact", project.impact || focus.slice(1).join("；"))}
-      </div>
-      <div class="project-case-tags">
-        ${renderTags(project.technologies, "project-case-tag")}
-      </div>
-    </article>
-  `}).join("");
-}
-
-function renderProjectCaseRow(label, content) {
-  if (!content) return "";
-
-  return `
-    <div class="project-case-row">
-      <span class="project-case-label project-case-label-${label.toLowerCase()}">${label}</span>
-      <p class="project-case-copy">${content}</p>
-    </div>
-  `;
-}
-
-function renderSkills() {
-  setHTML("skillsContent", (profileData.skills || []).map((group, index) => {
-    const isFeatured = index === 0;
-    const isWide = index === 3;
-    return `
-    <article class="skill-card skill-card-narrative${isFeatured ? " skill-card-featured" : ""}${isWide ? " skill-card-wide" : ""}">
-      <div class="skill-card-header">
-        <p class="skill-card-kicker">${isFeatured ? "Current Focus" : "Capability"}</p>
-        <h3>${group.category}</h3>
-        <p class="skill-card-copy">${group.description || ""}</p>
-      </div>
-      <div class="skill-chip-list">
-        ${renderTags((group.items || []).map(item => item.name), "skill-chip")}
-      </div>
-    </article>
-  `}).join(""));
-}
-
-function renderContact() {
-  setHTML("contactLinks", createPrimaryContacts().map(item => `
-    <a class="contact-link-card" href="${item.href}" ${item.href.startsWith("mailto:") ? "" : 'target="_blank" rel="noopener noreferrer"'}>
-      <span>${item.label}</span>
-      <strong>${item.value}</strong>
+function renderProjects(projects) {
+  setHTML("projectList", (projects || []).map(project => `
+    <a class="project-row" data-reveal href="${project.url}" target="_blank" rel="noopener noreferrer">
+      <span class="project-icon">
+        ${project.icon
+          ? `<img src="${project.icon}" alt="" loading="lazy">`
+          : `<span class="mark">${project.mark || ""}</span>`}
+      </span>
+      <span class="project-body">
+        <span class="project-head">
+          <span class="project-name">${project.name}</span>
+          <span class="project-subtitle">${project.subtitle || ""}</span>
+        </span>
+        <span class="project-desc">${project.description}</span>
+        <span class="project-tech">${(project.technologies || []).join(" · ")}</span>
+      </span>
+      <span class="project-link">GitHub <span aria-hidden="true">↗</span></span>
     </a>
   `).join(""));
 }
 
 function initNavigation() {
-  const navToggle = document.getElementById("navToggle");
-  const navMenu = document.getElementById("navMenu");
-  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
-
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", () => {
-      const isActive = navMenu.classList.toggle("active");
-      navToggle.setAttribute("aria-expanded", String(isActive));
-    });
-  }
-
-  navLinks.forEach(link => {
+  document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
     link.addEventListener("click", event => {
-      const href = link.getAttribute("href");
-      const target = href ? document.querySelector(href) : null;
+      const target = document.querySelector(link.getAttribute("href"));
       if (!target) return;
 
       event.preventDefault();
-      navMenu?.classList.remove("active");
-      navToggle?.setAttribute("aria-expanded", "false");
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
@@ -293,23 +121,23 @@ function initNavigation() {
 
 function initScrollSpy() {
   const sections = document.querySelectorAll("main section[id]");
-  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+  const links = document.querySelectorAll('.nav-link[href^="#"]');
   if (!sections.length) return;
 
   const updateActiveSection = () => {
     const bottomReached = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+    const marker = window.scrollY + window.innerHeight * 0.35;
     let activeSection = sections[0];
 
     if (bottomReached) {
       activeSection = sections[sections.length - 1];
     } else {
-      const marker = window.scrollY + window.innerHeight * 0.38;
       sections.forEach(section => {
         if (section.offsetTop <= marker) activeSection = section;
       });
     }
 
-    navLinks.forEach(link => {
+    links.forEach(link => {
       link.classList.toggle("active", link.getAttribute("href") === `#${activeSection.id}`);
     });
   };
@@ -319,38 +147,53 @@ function initScrollSpy() {
   updateActiveSection();
 }
 
-function initBackToTop() {
-  const button = document.getElementById("backToTop");
-  if (!button) return;
+function initClock() {
+  const tick = () => {
+    setText("localTime", new Date().toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit"
+    }));
+  };
 
-  window.addEventListener("scroll", () => {
-    button.classList.toggle("visible", window.scrollY > 320);
-  }, { passive: true });
+  tick();
+  window.setInterval(tick, 30000);
+}
 
-  button.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+function initEmailReveal() {
+  const toggle = document.getElementById("emailToggle");
+  const widget = document.querySelector(".email-widget");
+  const reveal = document.getElementById("emailReveal");
+  if (!toggle || !widget || !reveal) return;
+
+  const email = (profileData.personal?.email || "").trim();
+
+  if (email) {
+    reveal.textContent = email;
+    reveal.href = `mailto:${email}`;
+    reveal.classList.remove("is-empty");
+  } else {
+    reveal.textContent = "email not set";
+    reveal.classList.add("is-empty");
+    reveal.removeAttribute("href");
+  }
+
+  toggle.addEventListener("click", () => {
+    const open = widget.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "隐藏邮箱" : "显示邮箱");
+    reveal.setAttribute("aria-hidden", String(!open || !email));
+    reveal.tabIndex = open && email ? 0 : -1;
   });
 }
 
 function initMotion() {
-  const animatedItems = document.querySelectorAll([
-    ".hero-badge",
-    ".summary-badge",
-    ".metric-mini-card",
-    ".skill-card",
-    ".project-card",
-    ".achievement-card",
-    ".contact-link-card",
-    ".timeline-item",
-    ".contact-card"
-  ].join(","));
+  const items = document.querySelectorAll("[data-reveal]");
+  if (!items.length) return;
 
-  if (!animatedItems.length) return;
-
-  animatedItems.forEach((item, index) => {
-    item.classList.add("motion-reveal");
-    item.style.setProperty("--reveal-delay", `${Math.min(index * 45, 260)}ms`);
-  });
+  if (!("IntersectionObserver" in window)) {
+    items.forEach(item => item.classList.add("is-visible"));
+    return;
+  }
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -359,67 +202,104 @@ function initMotion() {
       observer.unobserve(entry.target);
     });
   }, {
-    rootMargin: "0px 0px -10% 0px",
-    threshold: 0.12
+    rootMargin: "0px 0px -8% 0px",
+    threshold: 0.08
   });
 
-  animatedItems.forEach(item => observer.observe(item));
+  items.forEach(item => observer.observe(item));
 }
 
-function renderTags(items, className = "tag") {
-  return (items || []).map(item => `<span class="${className}">${item}</span>`).join("");
-}
+async function loadContributions() {
+  const grid = document.getElementById("contribGrid");
+  if (!grid) return;
 
-function renderTagList(id, items) {
-  const element = document.getElementById(id);
-  if (element) element.innerHTML = renderTags(items);
-}
+  const username = (profileData.personal.github || "").split("/").filter(Boolean).pop();
+  if (!username) return;
 
-function getElement(id) {
-  return document.getElementById(id);
-}
+  renderContributionGrid([]);
+  scrollContribToLatest();
+  setText("contribTotal", "…");
+  setText("contribRange", "loading GitHub activity");
 
-function setHTML(id, value = "") {
-  const element = getElement(id);
-  if (element) {
-    element.innerHTML = value;
+  try {
+    const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    const days = data.contributions || [];
+
+    renderContributionGrid(days);
+    scrollContribToLatest();
+    setText("contribTotal", (data.total?.lastYear ?? days.reduce((sum, day) => sum + day.count, 0)).toLocaleString("en-US"));
+    if (days.length) {
+      setText("contribRange", `${formatDate(days[0].date)} – ${formatDate(days[days.length - 1].date)}`);
+    }
+  } catch (error) {
+    console.error("Failed to load GitHub contributions:", error);
+    renderContributionGrid([]);
+    setText("contribTotal", "—");
+    setText("contribRange", "GitHub activity unavailable");
   }
 }
 
-function renderCollection(id, items, renderItem) {
-  setHTML(id, (items || []).map(renderItem).join(""));
+function scrollContribToLatest() {
+  const scroller = document.querySelector(".contrib-scroll");
+  if (!scroller || !window.matchMedia("(max-width: 760px)").matches) return;
+
+  requestAnimationFrame(() => {
+    scroller.scrollLeft = scroller.scrollWidth - scroller.clientWidth;
+  });
 }
 
-function createPrimaryContacts() {
-  const { social = {}, personal = {} } = profileData;
-  const github = social.github || personal.github;
+function renderContributionGrid(days) {
+  const grid = document.getElementById("contribGrid");
+  if (!grid) return;
 
-  return [
-    {
-      label: "GitHub",
-      value: github,
-      href: github
-    }
-  ].filter(item => item.value && item.href);
+  if (!days.length) {
+    grid.innerHTML = Array.from({ length: 371 }, () => '<span class="contrib-cell"></span>').join("");
+    return;
+  }
+
+  const firstDayOffset = new Date(`${days[0].date}T00:00:00`).getDay();
+  const cells = Array.from({ length: firstDayOffset }, () => '<span class="contrib-cell"></span>');
+
+  days.forEach(day => {
+    cells.push(`<span class="contrib-cell level-${day.level}" title="${day.date}: ${day.count} contributions"></span>`);
+  });
+
+  grid.innerHTML = cells.join("");
 }
 
-function createProfileInfoItems() {
-  const [githubContact] = createPrimaryContacts();
-
-  return [githubContact].filter(item => item && item.value);
+function formatDate(value) {
+  return new Date(`${value}T00:00:00`).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
 }
 
-function renderContactValue(item) {
-  if (!item.href) return item.value;
+function setGreeting() {
+  const hour = new Date().getHours();
+  const greeting = hour < 5 ? "Still up" : hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  setText("greeting", greeting);
+}
 
-  const externalAttrs = item.href.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener noreferrer"';
-  return `<a href="${item.href}"${externalAttrs}>${item.value}</a>`;
+function setBuildDate() {
+  const now = new Date();
+  setText("buildDate", [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0")
+  ].join("-"));
 }
 
 function setText(id, value) {
-  const element = getElement(id);
+  const element = document.getElementById(id);
   if (element && value !== undefined && value !== null) {
     element.textContent = value;
   }
 }
 
+function setHTML(id, value = "") {
+  const element = document.getElementById(id);
+  if (element) element.innerHTML = value;
+}
