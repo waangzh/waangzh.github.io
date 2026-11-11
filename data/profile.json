@@ -199,25 +199,25 @@
     ],
     "projects": [
       {
-        "name": "RepoGuardian",
-        "subtitle": "Pull Request Code Review Agent",
+        "name": "Rivu",
+        "subtitle": "AI Code Review Agent",
         "mark": "RG",
         "icon": "assets/repoguardian-app-icon.png",
-        "description": "一个严格只读、基于证据的仓库级代码审查 Agent，支持上下文检索、分层审查与可追溯验证。",
+        "description": "只读审查 GitHub PR 与本地 Git 变更，结合固定源码和仓库上下文，经独立核验交付问题与证据。",
         "technologies": [
           "Python",
-          "LangGraph",
-          "Tree-sitter",
-          "Evidence Resolver"
+          "FastAPI",
+          "LangChain",
+          "Tree-sitter"
         ],
-        "url": "https://github.com/waangzh/RepoGuardian"
+        "url": "https://github.com/waangzh/Rivu"
       },
       {
         "name": "Healing Planet",
         "subtitle": "Intelligent Plant Care Platform",
         "mark": "HP",
         "icon": "assets/healing-planet.png",
-        "description": "把绿植社区、智能花盆与可追溯的 AI 养护助手放在同一套系统中。",
+        "description": "融合绿植社区、智能花盆与 AI 养护，结合混合检索、设备实时状态和多模态分析生成附来源的养护建议。",
         "technologies": [
           "Spring AI",
           "Hybrid RAG",
@@ -228,10 +228,10 @@
       },
       {
         "name": "ReMarks",
-        "subtitle": "AI Bookmark Organizer",
+        "subtitle": "AI Bookmark Organizer & Search",
         "mark": "RM",
         "icon": "assets/remarks.png",
-        "description": "适用于 Chrome、Edge 与 Firefox 的 AI 辅助书签整理扩展，先生成建议，再由用户确认执行。",
+        "description": "支持功能印象搜索与分类偏好学习的 AI 书签扩展，整理前可预览确认，批量改动前自动备份。",
         "technologies": [
           "React",
           "TypeScript",
@@ -244,11 +244,11 @@
         "name": "DSH Intelligent UI",
         "subtitle": "Generative UI Plugin for DeepSeek Harness",
         "mark": "DSH",
-        "description": "为 DeepSeek Harness 提供生成式、可交互的 UI，让 Agent 用组件、图表与沙箱小应用流式呈现回答。",
+        "description": "为 DeepSeek Harness 流式生成组件、图表与沙箱小应用，支持本地交互、状态恢复和多轮原位更新。",
         "technologies": [
           "TypeScript",
           "React",
-          "DSH",
+          "Three.js",
           "Sandbox"
         ],
         "url": "https://github.com/waangzh/deepseek-harness-intelligent-ui"
