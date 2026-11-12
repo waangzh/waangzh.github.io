@@ -7,15 +7,19 @@ const STACK_ICONS = {
   "React": "react.svg",
   "微信小程序": "wechat.svg",
   "HTML / CSS": "html5.svg",
+  "Spring Boot": "springboot.svg",
   "FastAPI": "fastapi.svg",
   "Spring AI": "spring.svg",
   "Qdrant": "qdrant.svg",
+  "MySQL": "mysql.svg",
+  "Redis": "redis.svg",
   "LangGraph": "langchain.svg",
   "PyTorch": "pytorch.svg",
   "LLM / Agent": "agent.svg",
   "Git / GitHub": "git.svg",
   "Prompt Engineering": "prompt.svg",
-  "JSON Schema": "json.svg"
+  "JSON Schema": "json.svg",
+  "Docker": "docker.svg"
 };
 
 document.addEventListener("DOMContentLoaded", async () => {

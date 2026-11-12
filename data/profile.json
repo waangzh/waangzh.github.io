@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "KEVIN",
+    "title": "WAANG",
     "description": "Kevin 的软件工程与 AI 开发主页，展示 Agent、RAG 相关项目与技术方向。",
     "keywords": "Kevin, Agent, RAG, NLP, 大模型应用, 微信小程序"
   },
@@ -152,8 +152,8 @@
   },
   "homepage": {
     "about": [
-      "我是 Kevin，平时主要做 AI 应用、Agent 和开发者工具，也会写一些系统项目。喜欢把想法做成真正能跑起来的东西，经常参与开源项目，也在维护自己的开源小工具。",
-      "不敲键盘的时候，我多半在看球或打球，足球和篮球都喜欢。喜欢比赛里的竞争、团队配合和不确定性。"
+      "我是 Kevin，平时喜欢折腾 AI 应用、Agent 和开发者工具，偶尔也写写系统项目。有了想法就想动手试试，做出点自己用得上的东西。也会参与开源，维护几个自己的小工具。",
+      "平时除了写代码，也爱看球、打球，足球篮球都喜欢。看比赛和自己上场是两种乐趣，能跑一跑、出点汗，也挺舒服。"
     ],
     "stack": [
       {
@@ -175,9 +175,12 @@
       {
         "label": "后端与数据",
         "items": [
+          "Spring Boot",
           "FastAPI",
           "Spring AI",
-          "Qdrant"
+          "Qdrant",
+          "MySQL",
+          "Redis"
         ]
       },
       {
@@ -193,7 +196,8 @@
         "items": [
           "Git / GitHub",
           "Prompt Engineering",
-          "JSON Schema"
+          "JSON Schema",
+          "Docker"
         ]
       }
     ],
