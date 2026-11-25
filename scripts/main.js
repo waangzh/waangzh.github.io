@@ -57,14 +57,20 @@ function applySiteMeta() {
 
 function renderHomePage() {
   const { personal = {}, homepage = {} } = profileData;
+  const blog = homepage.blog;
+  const overviewUrl = blog ? new URL(blog.overviewPath, blog.url) : null;
 
   setText("heroName", personal.name || "Kevin");
   setText("heroTitle", personal.title || "");
   setText("projectCount", String((homepage.projects || []).length).padStart(2, "0"));
 
-  renderAbout(homepage.about);
+  renderAbout(homepage.about, blog);
   renderStack(homepage.stack);
-  renderProjects(homepage.projects);
+  renderProjects(homepage.projects, blog, overviewUrl);
+  if (blog && overviewUrl) {
+    showLink("blogNav", blog.url, blog.navLabel);
+    showLink("stackReading", new URL("#stack", overviewUrl), blog.stackLabel);
+  }
   setGreeting();
   setBuildDate();
 
@@ -73,9 +79,19 @@ function renderHomePage() {
   });
 }
 
-function renderAbout(about) {
+function showLink(id, url, label) {
+  const link = document.getElementById(id);
+  link.href = url;
+  link.textContent = label;
+  link.hidden = false;
+}
+
+function renderAbout(about, blog) {
   const paragraphs = Array.isArray(about) ? about : about ? [about] : [];
-  setHTML("aboutCopy", paragraphs.map(text => `<p>${text}</p>`).join(""));
+  const blogIntro = blog
+    ? `<p>${blog.description}<a class="reading-link" href="${new URL("about/", blog.url)}">${blog.aboutLabel}</a>。</p>`
+    : "";
+  setHTML("aboutCopy", paragraphs.map(text => `<p>${text}</p>`).join("") + blogIntro);
 }
 
 function renderStack(groups) {
@@ -90,24 +106,29 @@ function renderStack(groups) {
   `).join(""));
 }
 
-function renderProjects(projects) {
+function renderProjects(projects, blog, overviewUrl) {
   setHTML("projectList", (projects || []).map(project => `
-    <a class="project-row" data-reveal href="${project.url}" target="_blank" rel="noopener noreferrer">
+    <article class="project-row" data-reveal>
       <span class="project-icon">
         ${project.icon
           ? `<img src="${project.icon}" alt="" loading="lazy">`
           : `<span class="mark">${project.mark || ""}</span>`}
       </span>
-      <span class="project-body">
-        <span class="project-head">
-          <span class="project-name">${project.name}</span>
+      <div class="project-body">
+        <div class="project-head">
+          <h3 class="project-name">${project.name}</h3>
           <span class="project-subtitle">${project.subtitle || ""}</span>
-        </span>
+        </div>
         <span class="project-desc">${project.description}</span>
         <span class="project-tech">${(project.technologies || []).join(" · ")}</span>
-      </span>
-      <span class="project-link">GitHub <span aria-hidden="true">↗</span></span>
-    </a>
+      </div>
+      <div class="project-actions">
+        ${blog && project.blogSection
+          ? `<a class="project-link reading-link" href="${new URL(`#${project.blogSection}`, overviewUrl)}" aria-label="${project.name} ${blog.projectLabel}">${blog.projectLabel}</a>`
+          : ""}
+        <a class="project-link reading-link" href="${project.url}" target="_blank" rel="noopener noreferrer" aria-label="${project.name} GitHub">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
   `).join(""));
 }
 

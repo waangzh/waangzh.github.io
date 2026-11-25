@@ -155,6 +155,15 @@
       "我是 Kevin，平时喜欢折腾 AI 应用、Agent 和开发者工具，偶尔也写写系统项目。有了想法就想动手试试，做出点自己用得上的东西。也会参与开源，维护几个自己的小工具。",
       "平时除了写代码，也爱看球、打球，足球篮球都喜欢。看比赛和自己上场是两种乐趣，能跑一跑、出点汗，也挺舒服。"
     ],
+    "blog": {
+      "url": "https://waang.top/",
+      "navLabel": "Blog",
+      "description": "我也在博客写 AI 应用、开源工具的开发笔记和日常随笔。",
+      "aboutLabel": "了解我和这个博客",
+      "overviewPath": "posts/portfolio-notes/",
+      "stackLabel": "阅读技术栈笔记",
+      "projectLabel": "项目笔记"
+    },
     "stack": [
       {
         "label": "语言",
@@ -214,7 +223,8 @@
           "LangChain",
           "Tree-sitter"
         ],
-        "url": "https://github.com/waangzh/Rivu"
+        "url": "https://github.com/waangzh/Rivu",
+        "blogSection": "rivu"
       },
       {
         "name": "Healing Planet",
@@ -228,7 +238,8 @@
           "IoT",
           "Qdrant"
         ],
-        "url": "https://github.com/waangzh/healing-planet"
+        "url": "https://github.com/waangzh/healing-planet",
+        "blogSection": "healing-planet"
       },
       {
         "name": "ReMarks",
@@ -242,7 +253,8 @@
           "WebExtension",
           "LLM"
         ],
-        "url": "https://github.com/waangzh/re-bookmarks"
+        "url": "https://github.com/waangzh/re-bookmarks",
+        "blogSection": "remarks"
       },
       {
         "name": "DSH Intelligent UI",
@@ -255,7 +267,8 @@
           "Three.js",
           "Sandbox"
         ],
-        "url": "https://github.com/waangzh/deepseek-harness-intelligent-ui"
+        "url": "https://github.com/waangzh/deepseek-harness-intelligent-ui",
+        "blogSection": "dsh-intelligent-ui"
       }
     ]
   }
