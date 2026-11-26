@@ -89,7 +89,7 @@ function showLink(id, url, label) {
 function renderAbout(about, blog) {
   const paragraphs = Array.isArray(about) ? about : about ? [about] : [];
   const blogIntro = blog
-    ? `<p>${blog.description}<a class="reading-link" href="${new URL("about/", blog.url)}">${blog.aboutLabel}</a>。</p>`
+    ? `<p>${blog.introPrefix || ""}<a class="reading-link" href="${blog.url}">${blog.linkLabel || blog.navLabel}</a>${blog.introSuffix || ""}</p>`
     : "";
   setHTML("aboutCopy", paragraphs.map(text => `<p>${text}</p>`).join("") + blogIntro);
 }

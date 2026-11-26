@@ -152,14 +152,15 @@
   },
   "homepage": {
     "about": [
-      "我是 Kevin，平时喜欢折腾 AI 应用、Agent 和开发者工具，偶尔也写写系统项目。有了想法就想动手试试，做出点自己用得上的东西。也会参与开源，维护几个自己的小工具。",
-      "平时除了写代码，也爱看球、打球，足球篮球都喜欢。看比赛和自己上场是两种乐趣，能跑一跑、出点汗，也挺舒服。"
+      "我是 Kevin，主要做软件工程和 AI 应用。最近在写 Agent 相关的项目，也维护几个自己日常在用的开源小工具。",
+      "空下来喜欢看球，平时也踢足球、打篮球。"
     ],
     "blog": {
       "url": "https://waang.top/",
       "navLabel": "Blog",
-      "description": "我也在博客写 AI 应用、开源工具的开发笔记和日常随笔。",
-      "aboutLabel": "了解我和这个博客",
+      "introPrefix": "我在",
+      "linkLabel": "博客",
+      "introSuffix": "记一些项目笔记、踩坑记录和随笔。",
       "overviewPath": "posts/portfolio-notes/",
       "stackLabel": "阅读技术栈笔记",
       "projectLabel": "项目笔记"
